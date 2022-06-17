@@ -39,6 +39,13 @@ yarn install
 yarn generate
 ```
 
+## Contribute-贡献
+
+- 如果有好的idea，可以 👉 [[FeatureRequest] 功能请求](https://github.com/liuyueyi/quick-tools/issues/new/choose)
+- 如果发现了bug，可以 👉 [[BUG] 问题提交](https://github.com/liuyueyi/quick-tools/issues/new/choose)
+- 支持有好的实现，直接merge-request
+- 若认为做的不错，语言或者金钱鼓励一下，可以 👉 [交流一下](https://github.com/liuyueyi/quick-tools/issues/1)
+
 ## Grateful-感谢
 
 <details><summary>赞助一二</summary>
