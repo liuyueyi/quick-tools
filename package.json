@@ -1,8 +1,8 @@
 {
-  "name": "miku-tools",
+  "name": "quick-tools",
   "version": "1.0.0",
   "description": "My tool set",
-  "author": "Ice-Hazymoon",
+  "author": "liuyueyi",
   "private": true,
   "scripts": {
     "dev": "nuxt --hostname 0.0.0.0",

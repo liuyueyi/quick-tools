@@ -20,7 +20,7 @@
                 type="textarea"
                 autocomplete="off"
                 label="新文本"
-                placeholder="console.info('Miku Tools')"
+                placeholder="console.info('quick-tools')"
             />
             <div class="nya-btn" @click="diff">
                 生成对比

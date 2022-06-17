@@ -23,8 +23,8 @@
                 </a>
             </div>
             <div class="item-bd">
-                <div v-if="tool.head.description" class="item-desc" :title="`${tool.head.description}`">
-                    {{ tool.head.description }}
+                <div v-if="tool.head.description !== null " class="item-desc dd" :title="`${tool.head.description}`">
+                    {{ getDesc(tool.head.meta, tool.name) }}
                 </div>
                 <div v-else class="item-desc" :title="`${tool.name}`">{{ tool.name }}</div>
             </div>
@@ -64,6 +64,17 @@ export default {
             let flag = this.$store.state.setting.favorites.indexOf(this.tool.path);
             return flag !== -1;
         },
+    },
+    methods: {
+        getDesc(meta, defaultVal) {
+            for (let i = 0; i < meta.length; i++) {
+                const target = meta[i];
+                if (target.hid === 'description') {
+                    return target['description'];
+                }
+            }
+            return defaultVal;
+        }
     }
 };
 

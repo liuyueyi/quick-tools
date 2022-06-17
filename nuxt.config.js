@@ -4,7 +4,6 @@ import env from './env';
 import keywords from './keywords';
 
 module.exports = {
-    mode: 'universal',
     env: env,
     server: {
         // https:
