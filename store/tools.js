@@ -3,7 +3,6 @@ export const state = () => {
         {
             title: '其他工具',
             icon: 'layers-outline',
-            path: '/tools',
             list: [
                 {
                     name: '屏幕录制',

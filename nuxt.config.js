@@ -79,7 +79,7 @@ module.exports = {
             {
                 rel: 'shortcut icon',
                 type: 'image/x-icon',
-                href: '/favicon.ico'
+                href: '/icon.svg'
             }
         ]
     },

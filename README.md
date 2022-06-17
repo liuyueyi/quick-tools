@@ -1,4 +1,6 @@
 <p align="center">
+<img src="./static/icon.png"
+        alt="Logo" width="128" height="128" style="max-width: 100%;"></p>
 <h1 align="center">QuickTools</h1>
 <p align="center">一个轻量的工具集合</p>
 <p align="center">
@@ -109,6 +111,10 @@ yarn generate
 - https://github.com/robinvdvleuten/vuex-persistedstate
 - https://github.com/m13253/JPEGreen
 </details>
+
+## view
+
+![](/static/preview.jpg)
 
 ## License-开源协议
 
