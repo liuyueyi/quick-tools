@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "10"
+script:
+  - echo "hello world"
+install:
+  - yarn install
+  - yarn run generate
+cache:
+  directories:
+    - node_modules
+after_script:
+  - cd ./dist
+  - git init
+  - git config user.name "quick-tools"
+  - git config user.email "bangzewu@126.com"
+  - git add .
+  - git commit -m "automated build"
+  - git push --quiet --force https://${REPO_TOKEN}@github.com/liuyueyi/quick-tools.git master
