@@ -16,4 +16,4 @@ after_script:
   - git config user.email "bangzewu@126.com"
   - git add .
   - git commit -m "automated build"
-  - git push --quiet --force https://${REPO_TOKEN}@github.com/liuyueyi/quick-tools.git master
+  - git push --quiet --force https://${REPO_TOKEN}@github.com/liuyueyi/quick-tools.git release

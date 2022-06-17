@@ -41,7 +41,7 @@ yarn generate
 
 ## Grateful-感谢
 
-<details><summary>赞助老板</summary>
+<details><summary>赞助一二</summary>
 
 ![赞助一二](https://blog.hhui.top/hexblog/imgs/info/payHhui.png)
 
