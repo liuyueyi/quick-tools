@@ -9,6 +9,8 @@
 
         <!-- outdatedbrowser -->
         <link rel="stylesheet" href="/css/outdatedbrowser.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/icofont.min.css" />
         <div id="outdated"></div>
         <script src="/js/outdatedbrowser.js"></script>
 

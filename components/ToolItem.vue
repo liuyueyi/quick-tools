@@ -4,7 +4,8 @@
             <div class="item-hd">
                 <nuxt-link :target="$store.state.setting.inNewTab ? '_blank' : '_self'" :to="tool.path"
                            class="item-icon">
-                    <i v-if="tool.icon" :class="'eva eva-3x eva-' + tool.icon"></i>
+                    <i v-if="icoIcon()" :class="'icofont-3x ' + tool.icon"></i>
+                    <i v-else-if="evaIcon()" :class="'eva eva-3x eva-' + tool.icon"></i>
                 </nuxt-link>
                 <h3>
                     <nuxt-link class="item-link"
@@ -66,6 +67,21 @@ export default {
         },
     },
     methods: {
+        evaIcon() {
+            if (!this.tool.icon) {
+                return false;
+            }
+            return true;
+        },
+        icoIcon() {
+            if (!this.tool.icon) {
+                return false;
+            }
+            if (this.tool.icon.startsWith("icofont")) {
+                return false;
+            }
+            return false;
+        },
         getDesc(meta, defaultVal) {
             for (let i = 0; i < meta.length; i++) {
                 const target = meta[i];

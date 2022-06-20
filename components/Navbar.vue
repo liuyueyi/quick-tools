@@ -1,12 +1,14 @@
 <template>
     <div class="navbar">
         <header>
-            <h1 class="title">
-                <nuxt-link to="/">
-                    Quick - 工具箱
-                </nuxt-link>
-            </h1>
-            <Panel />
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <h1 class="title">
+                    <nuxt-link to="/">
+                        Quick - 工具箱
+                    </nuxt-link>
+                </h1>
+                <Panel/>
+            </div>
         </header>
     </div>
 </template>
@@ -27,19 +29,23 @@ export default {
     box-sizing: border-box;
     padding-top: 20px;
     padding-bottom: 10px;
+
     h2 {
         font-size: 20px;
         margin-top: -40px;
     }
+
     button {
         font-weight: bold;
     }
+
     header {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
         .title {
             margin-bottom: 5px;
             display: flex;
@@ -47,11 +53,13 @@ export default {
             color: var(--t1);
             cursor: pointer;
             text-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.15);
+
             a {
                 color: var(--t1);
                 cursor: pointer;
                 display: flex;
                 align-items: center;
+
                 &:hover {
                     text-decoration: none;
                 }

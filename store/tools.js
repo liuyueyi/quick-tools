@@ -292,7 +292,7 @@ export const state = () => {
                 },
                 {
                     name: '微博生成器',
-                    icon: '',
+                    icon: 'icofont-weibo',
                     path: '/tools/image/meme-weibo',
                     head: {
                         keywords: ['微博生成器', '王思聪微博生成器'],
@@ -352,6 +352,15 @@ export const state = () => {
                     head: {
                         keywords: ['文本在线去重', '文本去除重复'],
                         description: '文本在线去重'
+                    }
+                },
+                {
+                    name: '文本替换',
+                    icon: 'flip-outline',
+                    path: '/tools/text/text_replace',
+                    head: {
+                        keywords: ['文本在线替换', '字符串替换'],
+                        description: '文本在线替换'
                     }
                 },
                 {
@@ -439,12 +448,12 @@ export const state = () => {
                     }
                 },
                 {
-                    name: 'URL 格式化',
+                    name: 'HTTP解析',
                     icon: 'browser-outline',
-                    path: '/tools/code/url_format',
+                    path: '/tools/code/http_format',
                     head: {
-                        keywords: ['URL 格式化', 'URL参数查看'],
-                        description: '在线URL格式化'
+                        keywords: ['URL参数查看', 'URL参数解析', 'URL编码', 'URL解码', '请求头转JSON', 'JSON转请求头'],
+                        description: 'HTTP参数解析、编解码、请求头处理'
                     }
                 },
                 {
