@@ -13,7 +13,7 @@
                                :to="tool.path"> {{ tool.name }}
                     </nuxt-link>
                 </h3>
-                <span class="item-category mid-font">
+                <span v-if="category" class="item-category mid-font">
                     [<nuxt-link :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
                                 :to="categoryPath" rel="nofollow">{{
                         category
@@ -103,76 +103,77 @@ export default {
     position: static;
     border-radius: 4px;
     transition: box-shadow .3s ease-in-out;
-}
 
-.item-inner {
-    padding: 10px 15px 10px 8px;
-    position: relative;
-}
+    .item-inner {
+        padding: 10px 15px 10px 8px;
+        position: relative;
 
-.item h3 {
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0;
-    line-height: 1.4;
-    margin-bottom: 5px;
-    height: 22px;
-    overflow: hidden;
-}
+        a {
+            color: #333;
+            display: inline-block;
+            // 无下划线
+            text-decoration: none;
+        }
 
-.item-ft {
-    text-align: right;
-}
+        .item-btn {
+            display: inline-block;
+            padding: 3px 12px;
+            text-decoration: none;
+            position: relative;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            height: 22px;
+            overflow: hidden;
+        }
 
-.item-desc {
-    margin-top: 8px;
-    padding: 10px 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+        .item-ft {
+            text-align: right;
+        }
 
-.item-icon {
-    float: left;
-    margin-right: 10px;
-    width: 48px;
-    height: 48px;
-    font-size: 0.9em;
-}
+        .item-desc {
+            margin-top: 8px;
+            padding: 10px 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
-.item-category {
-    float: right;
-}
+        .item-icon {
+            float: left;
+            margin-right: 10px;
+            width: 48px;
+            height: 48px;
+            font-size: 0.9em;
+        }
 
-.item-link {
-    float: left;
-    margin-top: 3px;
-    color: #999;
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+        .item-category {
+            float: right;
+        }
 
-.item a {
-    color: #333;
-    display: inline-block;
-    // 无下划线
-    text-decoration: none;
-}
+        .item-link {
+            float: left;
+            margin-top: 3px;
+            color: #333;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-decoration: none;
+        }
 
-a.item-btn {
-    display: inline-block;
-    padding: 3px 12px;
-    text-decoration: none;
-    position: relative;
-}
 
-.small-font {
-    font-size: 0.5em;
-}
+        .small-font {
+            font-size: 0.5em;
+        }
 
-.mid-font {
-    font-size: 0.8em;
+        .mid-font {
+            font-size: 0.8em;
+        }
+    }
 }
 </style>

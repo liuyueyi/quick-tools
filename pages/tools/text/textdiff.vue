@@ -61,7 +61,6 @@ import {createPatch} from 'diff';
 import * as Diff2Html from 'diff2html';
 
 import 'diff2html/bundles/css/diff2html.min.css';
-import NyaLayout from "../../../components/UI/nya-layout";
 
 let oo, os;
 export default {

@@ -56,22 +56,18 @@ export default {
             this.toolsList.forEach(tool => {
                 if (this.$route.path !== '/hide_tool' && !this.showBtn(tool))
                     return false;
-                if (
-                    tool.pinyin.first.find(i => {
-                        return i.indexOf(value) >= 0;
-                    })
-                ) {
+
+                if (tool.pinyin.first.find(i => { return i.indexOf(value) >= 0;})) {
                     return results.push(tool);
-                }
-                if (
-                    tool.pinyin.pinyin.find(i => {
-                        return i.indexOf(value) >= 0;
-                    })
-                ) {
+                } else if (tool.pinyin.pinyin.find(i => {return i.indexOf(value) >= 0;})) {
                     return results.push(tool);
-                }
-                if (tool.name.toLowerCase().indexOf(value) >= 0)
+                } else if (tool.name.toLowerCase().indexOf(value) >= 0) {
+                    // 拼音搜索
                     results.push(tool);
+                } else if (tool.en_name.toLowerCase().indexOf(value) >= 0) {
+                    // 英文搜索
+                    results.push(tool);
+                }
             });
             return results;
         }

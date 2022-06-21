@@ -1,20 +1,40 @@
 <template>
-    <div class="navbar">
-        <header>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <h1 class="title">
-                    <nuxt-link to="/">
-                        Quick - 工具箱
-                    </nuxt-link>
-                </h1>
-                <Panel/>
-            </div>
-        </header>
-    </div>
+    <nav class="navbar navbar-expand-md fixed-top" :class="$store.state.dark ? ' navbar-dark bg-dark' : ' navbar-light bg-light'">
+        <a class="navbar-brand" href="/static">
+            <img src="/icon.svg" width="30" height="30" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item selected-domain">
+                    <a class="nav-link" href="/">工具箱</a>
+                </li>
+                <li
+                    class="nav-item">
+                    <a class="nav-link" href="/wechat">微信公众号编辑器</a>
+                </li>
+<!--                <li-->
+<!--                    class="nav-item">-->
+<!--                    <a class="nav-link" href="/interest">收藏</a>-->
+<!--                </li>-->
+            </ul>
+<!--            <form class="form-inline my-md-0" action="/search" method="get" target="_blank">-->
+<!--                <input name="key" required class="form-control mr-sm-2" type="text" placeholder="搜索">-->
+<!--            </form>-->
+            <ul class="navbar-nav my-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">登录</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </template>
 
 <script>
 import Panel from '~/components/Panel';
+
 export default {
     name: 'Navbar',
     components: {
@@ -25,46 +45,7 @@ export default {
 
 
 <style lang="scss">
-.navbar {
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-bottom: 10px;
-
-    h2 {
-        font-size: 20px;
-        margin-top: -40px;
-    }
-
-    button {
-        font-weight: bold;
-    }
-
-    header {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
-        .title {
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            color: var(--t1);
-            cursor: pointer;
-            text-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.15);
-
-            a {
-                color: var(--t1);
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-    }
+.selected-domain {
+    border-bottom: 1px solid #28a745;
 }
 </style>

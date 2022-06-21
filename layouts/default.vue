@@ -57,7 +57,7 @@
             <!-- 背景蒙层 -->
             <div v-if="$store.state.setting.bg.layer" class="bg-layer"></div>
             <Navbar />
-            <nuxt class="view" />
+            <nuxt class="view top-padding-6em" />
             <Vfooter v-show="$route.path === '/'" />
         </main>
 
@@ -75,7 +75,8 @@
             <nya-loading />
         </div>
         <FloatBtn />
-        <ThemeBtn />
+<!--        关闭主题切换 -->
+<!--        <ThemeBtn />-->
     </div>
 </template>
 
@@ -86,6 +87,7 @@ import FloatBtn from '../components/FloatBtn';
 import isMobile from 'ismobilejs';
 import Vfooter from '~/components/Footer';
 import ThemeBtn from '~/components/ThemeBtn';
+
 export default {
     name: 'Index',
     components: {

@@ -20,7 +20,7 @@
                 autofocus
                 fullwidth
             />
-            <div class="top_padding">
+            <div class="top-padding">
                 <nya-container v-if="results" title="解析结果">
                     <nya-copy :copy="results">
                         <pre v-text="results"></pre>
@@ -157,7 +157,7 @@ export default {
 </script>
 
 <style>
-.top_padding {
+.top-padding {
     padding-top: 1em;
 }
 </style>

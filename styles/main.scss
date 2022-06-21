@@ -92,7 +92,7 @@ div.swal2-container.swal2-shown {
     from {
       opacity: 0;
     }
-  
+
     to {
       opacity: 1;
     }
@@ -407,4 +407,20 @@ fieldset {
 
 img {
     max-width: 100%;
+}
+
+.top-padding-1em {
+    padding-top: 1em;
+}
+
+.top-padding-2em {
+    padding-top: 2em;
+}
+
+.top-padding-4em {
+    padding-top: 4em;
+}
+
+.top-padding-6em {
+    padding-top: 4em;
 }

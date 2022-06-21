@@ -3,16 +3,15 @@
         <Welcome/>
         <Search v-model="searchText" @enter="enterFirst">
             <template slot-scope="data">
-                <nuxt-link
-                    v-for="(tool, index) in data.data"
-                    v-show="showBtn(tool)"
-                    :key="index"
-                    :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                    :to="tool.path"
-                    class="nya-btn"
-                >
-                    {{ tool.name }}
-                </nuxt-link>
+                <div class="item-list">
+                    <template class="item-list" v-for="(tool, index2) in data.data">
+                        <ToolItem
+                            :tool="tool"
+                            :category="``"
+                            :category-path="``"
+                        />
+                    </template>
+                </div>
             </template>
         </Search>
         <Favorites v-show="!searchText"/>
@@ -87,14 +86,18 @@ import Search from '~/components/Search';
 import isMobile from 'ismobilejs';
 import Welcome from '~/components/Welcome';
 import ToolBox from "../components/ToolBox";
+import ToolItem from "../components/ToolItem";
+import Template from "./tools/code/cdnjs";
 
 export default {
     name: 'Home',
     components: {
+        Template,
         Favorites,
         Search,
         Welcome,
         ToolBox,
+        ToolItem,
     },
     head() {
         return {
