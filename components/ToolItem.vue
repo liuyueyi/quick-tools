@@ -19,8 +19,8 @@
                         category
                     }}</nuxt-link>]</span>
                 <a title="收藏" class="collectable collect" href="javascript:;" data-url="/">
-                    <i v-if="collected" class="eva eva-star small-font"><var>取消</var> </i>
-                    <i v-else class="eva eva-star-outline small-font"><var>收藏</var> </i>
+                    <i v-if="collected" class="eva eva-star small-font" @click="collect"><var>取消</var> </i>
+                    <i v-else class="eva eva-star-outline small-font" @click="collect"><var>收藏</var> </i>
                 </a>
             </div>
             <div class="item-bd">
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import _ from "lodash";
+
 export default {
     name: 'Panel',
     props: {
@@ -67,6 +69,25 @@ export default {
         },
     },
     methods: {
+        collect() {
+            const path = this.tool.path;
+            if (path === '/') {
+                return false;
+            }
+            let favorites = _.chain(this.$store.state.setting.favorites);
+            let flag = favorites.indexOf(path).value();
+            if (flag === -1) {
+                favorites.push(path).value();
+                this.$noty.success('收藏成功');
+            } else {
+                favorites.pull(path).value();
+                this.$noty.success('取消收藏成功');
+            }
+            this.$store.commit('SET_STORE', {
+                key: 'setting.favorites',
+                value: favorites.value()
+            });
+        },
         evaIcon() {
             if (!this.tool.icon) {
                 return false;
@@ -77,8 +98,8 @@ export default {
             if (!this.tool.icon) {
                 return false;
             }
-            if (this.tool.icon.startsWith("icofont")) {
-                return false;
+            if (this.tool.icon.startsWith("#")) {
+                return true;
             }
             return false;
         },
@@ -121,6 +142,7 @@ export default {
             text-decoration: none;
             position: relative;
         }
+
         h3 {
             font-size: 16px;
             font-weight: 700;

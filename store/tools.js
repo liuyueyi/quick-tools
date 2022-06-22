@@ -416,7 +416,7 @@ export const state = () => {
                 {
                     name: '微博生成器',
                     en_name: "weibo generate",
-                    icon: 'icofont-weibo',
+                    icon: '#icon-weibo',
                     path: '/tools/image/meme-weibo',
                     head: {
                         keywords: ['微博生成器', '王思聪微博生成器'],
@@ -648,32 +648,32 @@ export const state = () => {
                 }
             ]
         },
-        {
-            title: '网站相关',
-            en_title: 'website settings',
-            icon: 'settings-2-outline',
-            list: [
-                {
-                    name: '网站设置',
-                    en_name: 'setting',
-                    path: '/setting',
-                    icon: 'settings-2-outline'
-                },
-                {
-                    name: '工具隐藏',
-                    en_name: 'tool hide',
-                    path: '/hide_tool',
-                    icon: 'scissors-outline'
-
-                },
-                {
-                    name: '友情链接',
-                    en_name: 'links',
-                    path: '/links',
-                    icon: 'link-outline'
-                }
-            ]
-        }
+        // {
+        //     title: '网站相关',
+        //     en_title: 'website settings',
+        //     icon: 'settings-2-outline',
+        //     list: [
+        //         {
+        //             name: '网站设置',
+        //             en_name: 'setting',
+        //             path: '/setting',
+        //             icon: 'settings-2-outline'
+        //         },
+        //         {
+        //             name: '工具隐藏',
+        //             en_name: 'tool hide',
+        //             path: '/hide_tool',
+        //             icon: 'scissors-outline'
+        //
+        //         },
+        //         {
+        //             name: '友情链接',
+        //             en_name: 'links',
+        //             path: '/links',
+        //             icon: 'link-outline'
+        //         }
+        //     ]
+        // }
     ];
 
     tools.forEach(i => {

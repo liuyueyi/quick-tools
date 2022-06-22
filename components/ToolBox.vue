@@ -34,9 +34,5 @@ export default {
     gap: 13px;
     grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
     justify-content: space-evenly;
-    //transition: all 0.3s ease;
-    //&.transparent {
-    //    background-color: rgba($color: #fff, $alpha: 0.65);
-    //}
 }
 </style>

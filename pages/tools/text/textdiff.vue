@@ -66,7 +66,6 @@ let oo, os;
 export default {
     name: 'TextDiff',
     components: {
-        NyaLayout,
         Dynamic
     },
     data() {
