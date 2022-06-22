@@ -121,7 +121,7 @@ export const state = () => {
                 {
                     name: '时间戳转换',
                     en_name: "timestamp",
-                    icon: 'clock-outline',
+                    icon: '#icon-timestamp',
                     path: '/tools/code/timestamp',
                     head: {
                         keywords: ['时间戳转换', '时间戳获取', "timestamp"],
@@ -265,7 +265,7 @@ export const state = () => {
                 {
                     name: 'JSON 编辑器',
                     en_name: 'json editor',
-                    icon: 'inbox-outline',
+                    icon: '#icon-json',
                     path: '/tools/code/json_editor',
                     head: {
                         keywords: ['在线JSON编辑器', 'JSON格式化', 'JSON压缩'],

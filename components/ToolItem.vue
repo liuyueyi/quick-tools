@@ -1,10 +1,10 @@
 <template>
-    <div class="item">
+    <div class="item" @click="toDetail">
         <div class="item-inner">
             <div class="item-hd">
                 <nuxt-link :target="$store.state.setting.inNewTab ? '_blank' : '_self'" :to="tool.path"
                            class="item-icon">
-                    <i v-if="icoIcon()" :class="'icofont-3x ' + tool.icon"></i>
+                    <nya-icon :icon="tool.icon" style="width: 3em; height: 3em;" v-if="icoIcon()"></nya-icon>
                     <i v-else-if="evaIcon()" :class="'eva eva-3x eva-' + tool.icon"></i>
                 </nuxt-link>
                 <h3>
@@ -24,7 +24,8 @@
                 </a>
             </div>
             <div class="item-bd">
-                <div v-if="tool.head.description !== null " class="item-desc dd" :title="`${tool.head.description}`">
+                <div v-if="tool.head.description !== null " class="item-desc dd"
+                     :title="`${tool.head.description}`">
                     {{ getDesc(tool.head.meta, tool.name) }}
                 </div>
                 <div v-else class="item-desc" :title="`${tool.name}`">{{ tool.name }}</div>
@@ -98,7 +99,7 @@ export default {
             if (!this.tool.icon) {
                 return false;
             }
-            if (this.tool.icon.startsWith("#")) {
+            if (this.tool.icon.startsWith("#icon")) {
                 return true;
             }
             return false;
@@ -111,6 +112,9 @@ export default {
                 }
             }
             return defaultVal;
+        },
+        toDetail() {
+            this.$router.push(this.tool.path);
         }
     }
 };

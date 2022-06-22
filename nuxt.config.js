@@ -5,6 +5,7 @@ import keywords from './keywords';
 
 module.exports = {
     env: env,
+    target: 'static',
     server: {
         // https:
         //     process.env.NODE_ENV === 'development'

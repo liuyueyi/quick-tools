@@ -11,7 +11,7 @@
         <!-- outdatedbrowser -->
         <link rel="stylesheet" href="/css/outdatedbrowser.min.css"/>
         <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="/css/icofont.min.css"/>
+        <link rel="stylesheet" href="/css/icon.scss"/>
         <div id="outdated"></div>
         <script src="/js/outdatedbrowser.js"></script>
 
@@ -59,7 +59,12 @@
             <!-- 背景蒙层 -->
             <div v-if="$store.state.setting.bg.layer" class="bg-layer"></div>
             <Navbar/>
-            <div class="row top-padding-6em">
+            <div class="row top-padding-6em" v-if="$store.state.setting.hideSidebar">
+                <div class="container">
+                    <nuxt class="view"/>
+                </div>
+            </div>
+            <div class="row top-padding-6em" v-else>
                 <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 custom-bg-color custom-by-both">
                     <nuxt class="view"/>
                 </div>
@@ -74,7 +79,11 @@
 
         <!-- 自定义CSS -->
         <style v-if="$store.state.setting.css">
-            {{ $store.state.setting.css }}
+            {
+            {
+                $ store . state . setting . css
+            }
+            }
         </style>
         <!-- 自定义JS -->
         <script v-if="$store.state.setting.js" type="text/javascript" charset="utf-8"
@@ -99,10 +108,12 @@ import SideBar from '../components/SideBar';
 import isMobile from 'ismobilejs';
 import Vfooter from '~/components/Footer';
 import ThemeBtn from '~/components/ThemeBtn';
+import Template from "../pages/tools/code/cdnjs";
 
 export default {
     name: 'Index',
     components: {
+        Template,
         Navbar,
         Dialog,
         FloatBtn,

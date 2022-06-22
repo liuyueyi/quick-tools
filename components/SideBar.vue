@@ -1,7 +1,7 @@
 <template>
     <div>
         <NyaReadonlyInput v-if="this.$route.path !== '/'"
-                          :val="copyVal"
+                          :val="currentPath"
                           :copy-icon="true">
         </NyaReadonlyInput>
 
@@ -77,28 +77,10 @@ export default {
     name: 'Panel',
     components: {NyaPanel, NyaReadonlyInput},
     props: {
-        copyVal: {
-            type: String,
-            default: ''
-        }
     },
-    mounted() {
-        this.copyVal = process.env.url + this.$route.fullPath;
-    },
-    methods: {
-        copyValue(value) {
-            if (!value) {
-                return;
-            }
-
-            this.$copyText(String(value)).then(
-                () => {
-                    this.$noty.success('复制成功', {timeout: 500});
-                },
-                () => {
-                    this.$noty.error('复制失败，请手动选择复制', {timeout: 500});
-                }
-            );
+    data() {
+        return {
+            currentPath: process.env.url + this.$route.fullPath,
         }
     }
 };

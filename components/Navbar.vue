@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-md fixed-top"
-         :class="$store.state.dark ? ' navbar-dark bg-dark' : ' navbar-light bg-light'">
+         :class="$store.state.dark ? ' navbar-dark nav-bg-dark' : ' navbar-light nav-bg-light'">
         <a class="navbar-brand" href="/">
             <img src="/icon.svg" width="30" height="30" alt="" loading="lazy">
         </a>
@@ -88,12 +88,31 @@ export default {
 
 
 <style lang="scss">
-.selected-domain {
-    border-bottom: 1px solid #28a745;
+.nav-bg-light {
+    background-color: #fff;
+    border-bottom: 1px solid #f2f6fc;
 }
 
-.selected-domain a .nav-link {
-    color: #004fc4;
+.nav-bg-dark {
+    background-color: #333;
+    border-bottom: 1px solid #32363c;
 }
 
+nav {
+    .selected-domain {
+        border-bottom: 1px solid #28a745;
+    }
+
+    .selected-domain a .nav-link {
+        color: #004fc4;
+    }
+    a {
+        font-weight: bold;
+        font-size: .9em;
+    }
+
+    .active {
+        font-size: 1.1em;
+    }
+}
 </style>
