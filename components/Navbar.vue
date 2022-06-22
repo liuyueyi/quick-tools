@@ -13,7 +13,7 @@
                     <a class="nav-link" href="/"> 工具箱</a>
                 </li>
                 <li class="nav-item" :class="subTitleChecked('/wechat')">
-                    <a class="nav-link" href="/wechat">微信公众号编辑器</a>
+                    <a class="nav-link" href="https://wechat.hhui.top">微信公众号编辑器</a>
                 </li>
                 <li class="nav-item" :class="subTitleChecked('/favorite')">
                     <a class="nav-link" href="/favorite">收藏</a>

@@ -14,7 +14,7 @@ export const state = () => ({
         hide: [],
         favorites: [],
         hideCategory: false,
-        hidePay: false,
+        hidePay: true,
         hideNotice: false,
         css: '',
         js: '',

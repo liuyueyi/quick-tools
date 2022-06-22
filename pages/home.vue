@@ -59,19 +59,19 @@
         <nya-container v-if="!$store.state.setting.hidePay" v-show="!searchText" title="打赏" icon="credit-card-outline">
             <ul class="pay">
                 <li>
-                    <img src="../assets/qq.png" alt="qq">
+                    <img src="../static/imgs/qq.png" alt="qq">
                     <div class="name">
                         QQ
                     </div>
                 </li>
                 <li>
-                    <img src="../assets/weixin.png" alt="weixin">
+                    <img src="../static/imgs/weixin.png" alt="weixin">
                     <div class="name">
                         微信
                     </div>
                 </li>
                 <li>
-                    <img src="../assets/alipay.png" alt="alipay">
+                    <img src="../static/imgs/alipay.png" alt="alipay">
                     <div class="name">
                         支付宝
                     </div>

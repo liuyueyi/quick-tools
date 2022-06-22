@@ -1,12 +1,12 @@
 import pinyin from './pinyin';
 
 export default {
-    title: 'QuickTools',
+    title: '哆啦A梦百宝箱',
     domain:
         process.env.NODE_ENV === 'development'
             ? 'localhost:3000'
             : 'tool.hhui.top',
-    description: 'QuickTools 工具集合',
+    description: 'QuickTools工具集合',
     url:
         process.env.NODE_ENV === 'development'
             ? 'http://localhost:3000'
