@@ -23,7 +23,7 @@ module.exports = {
      ** Headers of the page
      */
     head: {
-        title: `QuickTools - 工具集合`,
+        title: `doraemon百宝箱 - QuickTools工具集合`,
         meta: [
             {
                 charset: 'utf-8'
@@ -42,7 +42,7 @@ module.exports = {
                 hid: 'description',
                 name: 'description',
                 itemprop: 'description',
-                content: '一个轻量的工具集合'
+                content: '哆啦A梦的百宝箱，一个轻量的工具集合'
             },
             {
                 hid: 'author',
