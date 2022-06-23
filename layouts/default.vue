@@ -56,14 +56,14 @@
         <div v-if="$store.state.dark" class="dark-layer"></div>
         <main>
             <!-- 背景蒙层 -->
-            <div v-if="$store.state.setting.bg.layer" class="bg-layer"></div>
+            <div v-show="$store.state.setting.bg.layer" class="bg-layer"></div>
             <Navbar/>
-            <div class="row top-padding-6em" v-if="$store.state.setting.hideSidebar">
+            <div class="row top-padding-6em" v-show="$store.state.setting.hideSidebar">
                 <div class="container">
                     <nuxt class="view"/>
                 </div>
             </div>
-            <div class="row top-padding-6em" v-else>
+            <div class="row top-padding-6em" v-show="!$store.state.setting.hideSidebar">
                 <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 custom-bg-color custom-by-both">
                     <nuxt class="view"/>
                 </div>
