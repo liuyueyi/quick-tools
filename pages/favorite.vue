@@ -34,15 +34,10 @@ export default {
     computed: {
         toolsList() {
             let arr = [];
-            let tools = this.$store.state.tools;
-            for (let i = 0; i < tools.length; i++) {
-                const tool = tools[i];
-                const category = tool['title'];
-                for (let j = 0; j < tool.list.length; j++) {
-                    tool.list[j]['category'] = category;
-                }
+            this.$store.state.tools.forEach(tool => {
+                tool.list.forEach(item => item['category'] = tool['title']);
                 arr = arr.concat(tool.list);
-            }
+            });
             return arr;
         },
         favorites() {

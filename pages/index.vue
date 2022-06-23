@@ -7,7 +7,7 @@
                     <template class="item-list" v-for="(tool, index2) in data.data">
                         <ToolItem
                             :tool="tool"
-                            :category="``"
+                            :category="tool.category"
                             :category-path="``"
                         />
                     </template>
@@ -65,6 +65,7 @@ export default {
         toolsList() {
             let arr = [];
             this.$store.state.tools.forEach(tool => {
+                tool.list.forEach(item => item['category'] = tool['title']);
                 arr = arr.concat(tool.list);
             });
             return arr;
