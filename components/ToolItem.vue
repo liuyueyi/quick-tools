@@ -1,26 +1,23 @@
 <template>
-    <div class="item" @click="toDetail">
+    <div class="item" @click="jumpTo">
         <div class="item-inner">
             <div class="item-hd">
-                <nuxt-link :target="$store.state.setting.inNewTab ? '_blank' : '_self'" :to="tool.path"
-                           class="item-icon">
+                <nya-link :to="tool.path" class="item-icon">
                     <nya-icon :icon="tool.icon" style="width: 3em; height: 3em;" v-if="icoIcon()"></nya-icon>
                     <i v-else-if="evaIcon()" :class="'eva eva-3x eva-' + tool.icon"></i>
-                </nuxt-link>
+                </nya-link>
                 <h3>
-                    <nuxt-link class="item-link"
-                               :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                               :to="tool.path"> {{ tool.name }}
-                    </nuxt-link>
+                    <nya-link class="item-link" :to="tool.path"> {{ tool.name }}
+                    </nya-link>
                 </h3>
                 <span v-if="category" class="item-category mid-font">
-                    [<nuxt-link :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                                :to="categoryPath" rel="nofollow">{{
+                    [<nya-link :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
+                               :to="categoryPath" rel="nofollow">{{
                         category
-                    }}</nuxt-link>]</span>
+                    }}</nya-link>]</span>
                 <a title="收藏" class="collectable collect" href="javascript:;" data-url="/">
-                    <i v-if="collected" class="eva eva-star small-font" @click="collect"><var>取消</var> </i>
-                    <i v-else class="eva eva-star-outline small-font" @click="collect"><var>收藏</var> </i>
+                    <i v-if="collected" class="eva eva-star small-font" @click.stop="collect"><var>取消</var> </i>
+                    <i v-else class="eva eva-star-outline small-font" @click.stop="collect"><var>收藏</var> </i>
                 </a>
             </div>
             <div class="item-bd">
@@ -31,14 +28,10 @@
                 <div v-else class="item-desc" :title="`${tool.name}`">{{ tool.name }}</div>
             </div>
             <div class="item-ft">
-                <nuxt-link class="item-link small-font"
-                           :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                           :to="tool.path"> {{ tool.path }}
-                </nuxt-link>
-                <nuxt-link class="item-btn small-font"
-                           :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                           :to="tool.path"> 进入
-                </nuxt-link>
+                <nya-link class="item-link small-font" :to="tool.path"> {{ tool.path }}
+                </nya-link>
+                <nya-link class="item-btn small-font" :to="tool.path"> 进入
+                </nya-link>
             </div>
         </div>
     </div>
@@ -113,8 +106,12 @@ export default {
             }
             return defaultVal;
         },
-        toDetail() {
-            this.$router.push(this.tool.path);
+        jumpTo() {
+            if (this.tool.path.startsWith("http")) {
+                location.href = this.tool.path;
+            } else {
+                this.$router.push(this.tool.path);
+            }
         }
     }
 };

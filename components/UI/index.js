@@ -10,6 +10,7 @@ import nyaCopy from './nya-copy.vue';
 import nyaCircle from './nya-circle.vue';
 import nyaPanel from './nya-panel.vue';
 import nyaIcon from './nya-icon.vue';
+import nyaLink from './nya-link.vue';
 import nyaReadonlyInput from './nya-readonly-input.vue';
 
 export default () => {
@@ -24,5 +25,6 @@ export default () => {
     Vue.component('nya-circle', nyaCircle);
     Vue.component('nya-panel', nyaPanel);
     Vue.component('nya-icon', nyaIcon);
+    Vue.component('nya-link', nyaLink);
     Vue.component('nya-readonly-input', nyaReadonlyInput);
 };
