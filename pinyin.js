@@ -1,9 +1,11 @@
 import pinyin from 'pinyin';
+
 const tools = require('./store/tools').state();
 
 function group(arr) {
     let results = [];
     let result = [];
+
     function doExchange(arr, index) {
         for (let i = 0; i < arr[index].length; i++) {
             result[index] = arr[index][i];
@@ -14,20 +16,19 @@ function group(arr) {
             }
         }
     }
+
     doExchange(arr, 0);
     return results;
 }
 
 let toolName = [];
-tools
-    .map(t => {
-        return t.list;
-    })
-    .forEach(t => {
-        t.forEach(n => {
-            toolName.push(n.name);
-        });
+tools.map(t => {
+    return t.list;
+}).forEach(t => {
+    t.forEach(n => {
+        toolName.push(n.name);
     });
+});
 
 const toolPinyin = {};
 toolName.forEach(name => {

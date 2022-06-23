@@ -61,35 +61,40 @@ export default {
                 },
                 {label: "URL编码", place: this.$store.state.env.url + '?name=一灰灰blog'},
                 {label: "URL解码", place: this.$store.state.env.url + '?name%3D%E4%B8%80%E7%81%B0%E7%81%B0blog'},
+                {
+                    label: 'Cookie格式化',
+                    place: '_ga=GA1.2.1056273789.1628510837; _t2=d990caf1-fdc5-4397-92e8-843f1e6e97d6;'
+                },
             ]
         };
     },
     watch: {
         index() {
-            console.log("new url:", this.index);
             this.context = "";
         }
     },
     computed: {
         results() {
-            if (this.context.length == 0) {
+            if (!this.context) {
                 return "";
             }
 
             let result;
-            if (this.index == 0) {
+            if (this.index === 0) {
                 result = this.format_args();
-            } else if (this.index == 1) {
+            } else if (this.index === 1) {
                 result = this.header_to_json();
-            } else if (this.index == 2) {
+            } else if (this.index === 2) {
                 result = this.json_to_header();
-            } else if (this.index == 3) {
+            } else if (this.index === 3) {
                 result = this.url_encode();
-            } else if (this.index == 4) {
+            } else if (this.index === 4) {
                 result = this.url_decode();
+            } else if (this.index === 5) {
+                result = this.cookie_parse();
             }
 
-            if (result instanceof String || typeof(result) === 'string') {
+            if (result instanceof String || typeof (result) === 'string') {
                 return result;
             } else {
                 return JSON.stringify(result, null, 2);
@@ -151,6 +156,11 @@ export default {
 
         url_decode() {
             return decodeURIComponent(this.context);
+        },
+
+        cookie_parse() {
+            // cookie 解析
+            return this.context.replaceAll(";", "\n").replaceAll(" ", '');
         }
     }
 };

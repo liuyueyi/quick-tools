@@ -1,19 +1,11 @@
 <template>
     <div class="home">
         <nya-container v-if="favorites.length" title="收藏夹" icon="star-outline">
-<!--            <nuxt-link-->
-<!--                v-for="(tool, index) in favorites"-->
-<!--                :key="index"-->
-<!--                :to="tool.path"-->
-<!--                class="nya-btn"-->
-<!--            >-->
-<!--                {{ tool.name }}-->
-<!--            </nuxt-link>-->
             <div class="item-list">
                 <template  v-for="(tool, index2) in favorites" class="item-list">
                     <ToolItem
                         :tool="tool"
-                        :category="``"
+                        :category="tool.category"
                         :category-path="``"
                     />
                 </template>
@@ -42,9 +34,15 @@ export default {
     computed: {
         toolsList() {
             let arr = [];
-            this.$store.state.tools.forEach(tool => {
+            let tools = this.$store.state.tools;
+            for (let i = 0; i < tools.length; i++) {
+                const tool = tools[i];
+                const category = tool['title'];
+                for (let j = 0; j < tool.list.length; j++) {
+                    tool.list[j]['category'] = category;
+                }
                 arr = arr.concat(tool.list);
-            });
+            }
             return arr;
         },
         favorites() {

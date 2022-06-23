@@ -2,4 +2,4 @@
 
 yarn generate
 
-tar -zcvf tool.tar.gz tool
+tar -zcvf tool.tar.gz dist 

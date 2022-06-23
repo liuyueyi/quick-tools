@@ -39,12 +39,10 @@ import isMobile from 'ismobilejs';
 import Welcome from '~/components/Welcome';
 import ToolBox from "../components/ToolBox";
 import ToolItem from "../components/ToolItem";
-import Template from "./tools/code/cdnjs";
 
 export default {
     name: 'Home',
     components: {
-        Template,
         Favorites,
         Search,
         Welcome,

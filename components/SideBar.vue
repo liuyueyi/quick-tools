@@ -66,6 +66,21 @@
             </div>
             </ul>
         </nya-panel>
+
+        <nya-container>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592000528061748"
+                    crossorigin="anonymous"></script>
+            <!-- quick-tool-sidebar-ads -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5592000528061748"
+                 data-ad-slot="5535461110"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </nya-container>
     </div>
 </template>
 
