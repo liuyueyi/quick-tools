@@ -44,9 +44,16 @@ export default {
     computed: {
         toolsList() {
             let arr = [];
-            this.$store.state.tools.forEach(tool => {
+            // 更新每个工具的分类
+            let tools = this.$store.state.tools;
+            for (let i = 0; i < tools.length; i++) {
+                const tool = tools[i];
+                const category = tool['title'];
+                for (let j = 0; j < tool.list.length; j++) {
+                    tool.list[j]['category'] = category;
+                }
                 arr = arr.concat(tool.list);
-            });
+            }
             return arr;
         },
         searchList() {
@@ -56,22 +63,18 @@ export default {
             this.toolsList.forEach(tool => {
                 if (this.$route.path !== '/hide_tool' && !this.showBtn(tool))
                     return false;
-                if (
-                    tool.pinyin.first.find(i => {
-                        return i.indexOf(value) >= 0;
-                    })
-                ) {
+
+                if (tool.pinyin.first.find(i => { return i.indexOf(value) >= 0;})) {
                     return results.push(tool);
-                }
-                if (
-                    tool.pinyin.pinyin.find(i => {
-                        return i.indexOf(value) >= 0;
-                    })
-                ) {
+                } else if (tool.pinyin.pinyin.find(i => {return i.indexOf(value) >= 0;})) {
                     return results.push(tool);
-                }
-                if (tool.name.toLowerCase().indexOf(value) >= 0)
+                } else if (tool.name.toLowerCase().indexOf(value) >= 0) {
+                    // 拼音搜索
                     results.push(tool);
+                } else if (tool.en_name.toLowerCase().indexOf(value) >= 0) {
+                    // 英文搜索
+                    results.push(tool);
+                }
             });
             return results;
         }

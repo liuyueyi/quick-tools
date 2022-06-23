@@ -3,16 +3,15 @@
         <Welcome/>
         <Search v-model="searchText" @enter="enterFirst">
             <template slot-scope="data">
-                <nuxt-link
-                    v-for="(tool, index) in data.data"
-                    v-show="showBtn(tool)"
-                    :key="index"
-                    :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                    :to="tool.path"
-                    class="nya-btn"
-                >
-                    {{ tool.name }}
-                </nuxt-link>
+                <div class="item-list">
+                    <template class="item-list" v-for="(tool, index2) in data.data">
+                        <ToolItem
+                            :tool="tool"
+                            :category="tool.category"
+                            :category-path="``"
+                        />
+                    </template>
+                </div>
             </template>
         </Search>
         <Favorites v-show="!searchText"/>
@@ -30,54 +29,6 @@
             </nya-container>
         </template>
 
-        <nya-container v-if="!$store.state.setting.hideNotice" v-show="!searchText" title="公告"
-                       icon="volume-down-outline">
-            <ul class="nya-list">
-                <li>本项目基于 <a href="https://github.com/liuyueyi/quick-tools" target="_blank" rel="noopener noreferrer">QuickTools</a>
-                    构建而成
-                </li>
-                <li>
-                    <div class="badge-info">
-                        <span class="badge hot">热门</span> <span class="badge vip">VIP</span> <span
-                        class="badge new">新功能</span> <span class="badge recommend">推荐</span>
-                    </div>
-                </li>
-                <li><b>欢迎将本站收藏到收藏夹，以便以后使用</b></li>
-                <li>
-                    本站域名：<a
-                    :href="$store.state.env.url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >{{ $store.state.env.domain }}</a>
-                </li>
-                <li v-if="$store.state.isMobile.any">
-                    如果遇到无法使用或者样式问题，请更换浏览器后重试，推荐使用 Chrome 浏览器，对 iOS 设备兼容性可能不太好
-                </li>
-            </ul>
-        </nya-container>
-
-        <nya-container v-if="!$store.state.setting.hidePay" v-show="!searchText" title="打赏" icon="credit-card-outline">
-            <ul class="pay">
-                <li>
-                    <img src="../assets/qq.png" alt="qq">
-                    <div class="name">
-                        QQ
-                    </div>
-                </li>
-                <li>
-                    <img src="../assets/weixin.png" alt="weixin">
-                    <div class="name">
-                        微信
-                    </div>
-                </li>
-                <li>
-                    <img src="../assets/alipay.png" alt="alipay">
-                    <div class="name">
-                        支付宝
-                    </div>
-                </li>
-            </ul>
-        </nya-container>
     </div>
 </template>
 
@@ -87,6 +38,7 @@ import Search from '~/components/Search';
 import isMobile from 'ismobilejs';
 import Welcome from '~/components/Welcome';
 import ToolBox from "../components/ToolBox";
+import ToolItem from "../components/ToolItem";
 
 export default {
     name: 'Home',
@@ -95,6 +47,7 @@ export default {
         Search,
         Welcome,
         ToolBox,
+        ToolItem,
     },
     head() {
         return {
@@ -112,6 +65,7 @@ export default {
         toolsList() {
             let arr = [];
             this.$store.state.tools.forEach(tool => {
+                tool.list.forEach(item => item['category'] = tool['title']);
                 arr = arr.concat(tool.list);
             });
             return arr;

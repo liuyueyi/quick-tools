@@ -1,8 +1,5 @@
 <template>
     <div class="nya-radio">
-        <label :for="id" class="name">
-            {{ label }}
-        </label>
         <input
             :id="id"
             ref="radio"
@@ -13,6 +10,10 @@
             @change="updateVal"
         >
         <label :for="id" class="radio"></label>
+        &nbsp;
+        <label :for="id" class="name">
+            {{ label }}
+        </label>
     </div>
 </template>
 

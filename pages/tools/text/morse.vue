@@ -15,11 +15,34 @@
         <nya-container v-show="result" title="转换结果">
             <pre>{{ result }}</pre>
         </nya-container>
-        
+
         <nya-container title="说明">
-            <ul class="nya-list">
-                <li><b>如果内容包含中文，仅在本平台使用，可能其他人将无法识别</b></li>
-            </ul>
+            <nya-panel text="电报最早是由美国的摩尔斯在1844年发明的，故也被叫做摩尔斯电码。由两种基本信号和不同的间隔时间组成：短促的点信号' ．，读（Di）；保持一定时间的长信号'—'，读（Da）。">
+<pre>
+A .－ B －. . . C －. －.
+D －. . E . F . .－.
+G －－. H . . . . I . .
+J .－－－ K －. － L .－. .
+M －－ N －. O －－－
+P . －－. Q －－.－ R .－.
+S . . . T － U . .－
+V . . .－ W .－－ X －. .－
+Y －.－－ Z －－. .
+0 －－－－－
+1.－－－－
+2 . .－－－
+3 . . .－－
+4. . . .－
+5. . . . .
+6 －. . . .
+7－－. . .
+8－－－. . 9－－－－.
+                </pre>
+
+                <ul class="nya-list">
+                    <li>注意：<b>如果内容包含中文，仅在本平台使用，可能其他人将无法识别</b></li>
+                </ul>
+            </nya-panel>
         </nya-container>
     </div>
 </template>

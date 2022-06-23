@@ -1,62 +1,118 @@
 <template>
-    <div class="navbar">
-        <header>
-            <h1 class="title">
-                <nuxt-link to="/">
-                    Quick - 工具箱
-                </nuxt-link>
-            </h1>
-            <Panel />
-        </header>
-    </div>
+    <nav class="navbar navbar-expand-md fixed-top"
+         :class="$store.state.dark ? ' navbar-dark nav-bg-dark' : ' navbar-light nav-bg-light'">
+        <a class="navbar-brand" href="/">
+            <img src="/icon.svg" width="30" height="30" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" :class="subTitleChecked('/')">
+                    <a class="nav-link" href="/"> 工具箱</a>
+                </li>
+                <li class="nav-item" :class="subTitleChecked('/wechat')">
+                    <a class="nav-link" href="https://wechat.hhui.top">微信公众号编辑器</a>
+                </li>
+                <li class="nav-item" :class="subTitleChecked('/favorite')">
+                    <a class="nav-link" href="/favorite">收藏</a>
+                </li>
+                <li class="nav-item" :class="subTitleChecked('/setting')">
+                    <a class="nav-link" href="/setting">设置</a>
+                </li>
+                <li class="nav-item" :class="subTitleChecked('/links')">
+                    <a class="nav-link" href="/links">友链</a>
+                </li>
+            </ul>
+            <!-- 搜索，只有非主页时才显示 -->
+            <form class="form-inline my-md-0" action="/search" method="get" target="_blank"
+                  v-if="this.$route.path !== '/'">
+                <input name="key" required class="form-control mr-sm-2" type="text" placeholder="搜索">
+            </form>
+            <ul class="navbar-nav my-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">登录</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </template>
 
 <script>
 import Panel from '~/components/Panel';
+import Search from "./Search";
+
+const TAB_LINK = [
+    "/setting", "/links", "/wechat", "/favorite"
+];
 export default {
     name: 'Navbar',
     components: {
+        Search,
         Panel
+    },
+    methods: {
+        inTabLink(path) {
+            for (let i = 0; i < TAB_LINK.length; i++) {
+                if (TAB_LINK[i] === path) {
+                    return true;
+                }
+            }
+            return false;
+        },
+        subTitleChecked(path) {
+            const localPath = this.$route.path;
+            let res;
+            if (this.inTabLink(path)) {
+                res = localPath.startsWith(path) ? 'active' : '';
+            } else {
+                let otherTabChoose = false;
+                for (let i = 0; i < TAB_LINK.length; i++) {
+                    if (localPath.startsWith(TAB_LINK[i])) {
+                        res = '';
+                        otherTabChoose = true;
+                        break
+                    }
+                }
+                if (!otherTabChoose) {
+                    // 若当前路径非TAB_LINK中页面，则将工具箱设置为选中
+                    res = 'active';
+                }
+            }
+            return res;
+        }
     }
 };
 </script>
 
 
 <style lang="scss">
-.navbar {
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    h2 {
-        font-size: 20px;
-        margin-top: -40px;
+.nav-bg-light {
+    background-color: #fff;
+    border-bottom: 1px solid #f2f6fc;
+}
+
+.nav-bg-dark {
+    background-color: #333;
+    border-bottom: 1px solid #32363c;
+}
+
+nav {
+    .selected-domain {
+        border-bottom: 1px solid #28a745;
     }
-    button {
+
+    .selected-domain a .nav-link {
+        color: #004fc4;
+    }
+    a {
         font-weight: bold;
+        font-size: .9em;
     }
-    header {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        .title {
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            color: var(--t1);
-            cursor: pointer;
-            text-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.15);
-            a {
-                color: var(--t1);
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
+
+    .active {
+        font-size: 1.1em;
     }
 }
 </style>

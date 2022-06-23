@@ -13,6 +13,7 @@
         <nya-container title="其他设置">
             <nya-checkbox :checked="$store.state.setting.hideNotice" label="隐藏公告" @change="handleChange('setting.hideNotice', $event)" />
             <nya-checkbox :checked="$store.state.setting.hideCategory" label="隐藏分类" @change="handleChange('setting.hideCategory', $event)" />
+            <nya-checkbox :checked="$store.state.setting.hideSidebar" label="隐藏侧边栏" @change="handleChange('setting.hideSidebar', $event)" />
             <nya-checkbox :checked="$store.state.setting.hidePay" label="隐藏打赏" @change="handleChange('setting.hidePay', $event)" />
             <nya-checkbox :checked="$store.state.setting.inNewTab" label="新标签打开工具" @change="handleChange('setting.inNewTab', $event)" />
             <nya-checkbox :checked="$store.state.setting.animations" label="启用过渡动画" @change="handleChange('setting.transition', $event)" />

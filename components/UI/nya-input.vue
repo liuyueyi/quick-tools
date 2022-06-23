@@ -1,6 +1,6 @@
 <template>
     <div class="nya-input" :class="{ 'fullwidth': fullwidth }">
-        <Dynamic v-if="label" class="input-title" tag="label" :for="id" :template="label" />
+        <Dynamic v-if="label" class="input-title" tag="label" :for="id" :template="label"/>
         <div v-if="type === 'file'" class="input-file">
             <input
                 :id="id"
@@ -123,6 +123,7 @@ export default {
 <style lang="scss">
 .nya-input {
     display: inline-block;
+
     &.fullwidth {
         width: 100%;
     }
@@ -145,13 +146,16 @@ export default {
         color: var(--t1);
         outline: none;
         transition: border-color 0.2s ease;
+
         &[disabled='disabled'] {
             opacity: 0.8;
             cursor: no-drop;
         }
+
         &::placeholder {
             color: rgb(158, 158, 158);
         }
+
         &:focus {
             border-color: var(--theme);
         }
@@ -164,12 +168,14 @@ export default {
             align-items: center;
             box-sizing: border-box;
             margin-bottom: 0;
+
             span {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
         }
+
         input {
             display: none;
         }

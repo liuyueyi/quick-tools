@@ -87,3 +87,5 @@ yarn.lock
 package-lock.json
 
 ssl
+
+upload.sh
