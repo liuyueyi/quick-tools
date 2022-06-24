@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <Welcome/>
-        <Search v-model="searchText" @enter="enterFirst">
+        <Search v-model="searchText" @enter="enterFirst" v-show="!this.$store.state.setting.hideHomeSearch">
             <template slot-scope="data">
                 <div class="item-list">
                     <template class="item-list" v-for="(tool, index2) in data.data">
@@ -14,31 +14,43 @@
                 </div>
             </template>
         </Search>
-        <Favorites v-show="!searchText"/>
+        <Favorites v-show="!searchText && !this.$store.state.setting.hideHomeFavorite"/>
 
-        <!-- 分类展示   -->
-        <template v-show="!searchText">
-            <nya-container
-                v-for="(item, index) in $store.state.tools"
-                v-show="!searchText && showSection(item)"
-                :key="index"
-                :icon="item.icon"
-                :title="item.title"
-            >
-                <ToolBox :item="item"/>
-            </nya-container>
-        </template>
-
+        <nya-container>
+            <div class="card no-border card-panel" v-show="!searchText">
+                <ul class="nav nav-tabs" data-bs-toggle="tabs">
+                    <li v-for="(item, index) in tabList"
+                        class="nav-item"
+                        @click="chooseTab(item.tag)">
+                    <span class="nav-link" :class="isTabActivated(item.tag) ? 'active' : ''"
+                          data-bs-toggle="tab">{{ item.category }}</span>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active show">
+                            <div class="item-list">
+                                <template v-for="(tool, index3) in this.itemList" class="item-list">
+                                    <ToolItem
+                                        :tool="tool"
+                                        :category="tool.category"
+                                        :category-path="``"
+                                    />
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nya-container>
     </div>
 </template>
 
 <script>
 import Favorites from '~/components/Favorites';
 import Search from '~/components/Search';
-import isMobile from 'ismobilejs';
 import Welcome from '~/components/Welcome';
-import ToolBox from "../components/ToolBox";
-import ToolItem from "../components/ToolItem";
+import ToolItem from "~/components/ToolItem";
 
 export default {
     name: 'Home',
@@ -46,7 +58,6 @@ export default {
         Favorites,
         Search,
         Welcome,
-        ToolBox,
         ToolItem,
     },
     head() {
@@ -58,7 +69,7 @@ export default {
         return {
             title: `${process.env.title} - ${process.env.description}`,
             searchText: '',
-            isMobile
+            activeTab: 'all',
         };
     },
     computed: {
@@ -67,6 +78,29 @@ export default {
             this.$store.state.tools.forEach(tool => {
                 tool.list.forEach(item => item['category'] = tool['title']);
                 arr = arr.concat(tool.list);
+            });
+            return arr;
+        },
+        tabList() {
+            let arr = [{
+                category: "全部",
+                tag: 'all',
+            }];
+            this.$store.state.tools.forEach(tool => {
+                arr.push({
+                    category: tool.title,
+                    tag: tool.en_title,
+                })
+            });
+            return arr;
+        },
+        itemList() {
+            let arr = [];
+            this.$store.state.tools.forEach(tool => {
+                if (tool['en_title'] === this.activeTab || this.activeTab === 'all') {
+                    tool.list.forEach(item => item['category'] = tool['title']);
+                    arr = arr.concat(tool.list);
+                }
             });
             return arr;
         }
@@ -79,17 +113,18 @@ export default {
                 this.$router.push(e.path);
             }
         },
-        showSection(item) {
-            return !(
-                item.list.filter(i => {
-                    return (
-                        this.$store.state.setting.hide.indexOf(i.path) !== -1
-                    );
-                }).length === item.list.length
-            );
-        },
         showBtn(tool) {
+            // 隐藏的工具栏不再显示
             return this.$store.state.setting.hide.indexOf(tool.path) === -1;
+        },
+        isTabActivated(tabName) {
+            // 判断当前tab页是否被选中
+            return this.activeTab === tabName;
+        },
+        chooseTab(tabName) {
+            // 选择某个分类对应的工具箱
+            this.activeTab = tabName;
+            console.log("collected! +", tabName);
         }
     }
 };
@@ -112,6 +147,21 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .item-list {
+        display: grid;
+        gap: 13px;
+        grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+        justify-content: space-evenly;
+    }
+
+    .no-border {
+        border: 0 solid #ced4da;
+    }
+
+    .card-panel {
+        margin-top: -2em;
     }
 
     .nya-btn {

@@ -17,6 +17,8 @@ export const state = () => ({
         hideSidebar: false,
         hidePay: true,
         hideNotice: false,
+        hideHomeSearch: false,
+        hideHomeFavorite: false,
         css: '',
         js: '',
         inNewTab: false,
