@@ -36,6 +36,16 @@ export const state = () => {
                     }
                 },
                 {
+                    name: '表格数据格式化',
+                    en_name: "table csv sql format",
+                    icon: '#icon-table',
+                    path: '/tools/text/table_format',
+                    head: {
+                        keywords: ['csv', 'table', 'json', 'sql'],
+                        description: 'csv/table表格数转json,sql'
+                    }
+                },
+                {
                     name: '数字转大写中文',
                     en_name: "digit to chinese",
                     icon: '#icon-num-parse',
@@ -298,6 +308,26 @@ export const state = () => {
             en_title: 'images',
             icon: 'image-outline',
             list: [
+                {
+                    name: '图片格式转换',
+                    en_name: 'image format conversion',
+                    icon: '#icon-img-mine',
+                    path: 'https://svgtopng.com/',
+                    head: {
+                        keywords: ['svg', 'jpg', 'png', 'pdf', 'eps'],
+                        description: 'svg/png/jpg/pdf格式互转'
+                    }
+                },
+                {
+                    name: '图片压缩',
+                    en_name: 'image compress',
+                    icon: '#icon-compress',
+                    path: 'https://squoosh.app/',
+                    head: {
+                        keywords: ['svg', 'jpg', 'png', 'pdf', 'eps'],
+                        description: '图片压缩'
+                    }
+                },
                 {
                     name: '二维码生成/解析',
                     en_name: 'qrcode generate decode',
