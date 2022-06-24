@@ -24,7 +24,7 @@ module.exports = {
      ** Headers of the page
      */
     head: {
-        title: `doraemon百宝箱 - QuickTools工具集合`,
+        title: `哆啦A梦百宝箱 - QuickTools工具集合`,
         meta: [
             {
                 charset: 'utf-8'

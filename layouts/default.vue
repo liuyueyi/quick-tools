@@ -72,7 +72,8 @@
                     <SideBar/>
                 </div>
             </div>
-            <Vfooter v-show="$route.path === '/'"/>
+<!--            <Vfooter v-show="$route.path === '/'"/>-->
+            <Vfooter/>
         </main>
 
 

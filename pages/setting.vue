@@ -1,22 +1,26 @@
 <template>
     <div class="setting">
-        <SetBackground />
+        <SetBackground/>
 
-        <nya-container title="自定义 CSS">
-            <nya-input :value="$store.state.setting.css" fullwidth rows="5" type="textarea" autocomplete="off" placeholder=".navbar{display: none}" @change="handleChange('setting.css', $event.target.value)" />
+        <nya-container title="工具箱管理">
+            <nya-link class="nya-btn" to="/hides">工具隐藏</nya-link>
         </nya-container>
-
-        <nya-container title="自定义 JS">
-            <nya-input :value="$store.state.setting.js" fullwidth rows="5" type="textarea" autocomplete="off" placeholder="alert('欢迎使用 QuickTools')" @change="handleChange('setting.js', $event.target.value)" />
-        </nya-container>
-
         <nya-container title="其他设置">
-            <nya-checkbox :checked="$store.state.setting.hideNotice" label="隐藏公告" @change="handleChange('setting.hideNotice', $event)" />
-            <nya-checkbox :checked="$store.state.setting.hideCategory" label="隐藏分类" @change="handleChange('setting.hideCategory', $event)" />
-            <nya-checkbox :checked="$store.state.setting.hideSidebar" label="隐藏侧边栏" @change="handleChange('setting.hideSidebar', $event)" />
-            <nya-checkbox :checked="$store.state.setting.hidePay" label="隐藏打赏" @change="handleChange('setting.hidePay', $event)" />
-            <nya-checkbox :checked="$store.state.setting.inNewTab" label="新标签打开工具" @change="handleChange('setting.inNewTab', $event)" />
-            <nya-checkbox :checked="$store.state.setting.animations" label="启用过渡动画" @change="handleChange('setting.transition', $event)" />
+            <nya-checkbox :checked="$store.state.setting.hideNotice" label="隐藏公告"
+                          @change="handleChange('setting.hideNotice', $event)"/>
+            <!--            <nya-checkbox :checked="$store.state.setting.hideCategory" label="隐藏分类" @change="handleChange('setting.hideCategory', $event)" />-->
+            <nya-checkbox :checked="$store.state.setting.hideHomeSearch" label="隐藏首页搜索"
+                          @change="handleChange('setting.hideHomeSearch', $event)"/>
+            <nya-checkbox :checked="$store.state.setting.hideHomeFavorite" label="隐藏首页收藏"
+                          @change="handleChange('setting.hideHomeFavorite', $event)"/>
+            <nya-checkbox :checked="$store.state.setting.hideSidebar" label="隐藏侧边栏"
+                          @change="handleChange('setting.hideSidebar', $event)"/>
+            <nya-checkbox :checked="$store.state.setting.hidePay" label="隐藏打赏"
+                          @change="handleChange('setting.hidePay', $event)"/>
+            <nya-checkbox :checked="$store.state.setting.inNewTab" label="新标签打开工具"
+                          @change="handleChange('setting.inNewTab', $event)"/>
+            <nya-checkbox :checked="$store.state.setting.animations" label="启用过渡动画"
+                          @change="handleChange('setting.transition', $event)"/>
         </nya-container>
 
         <nya-container title="导出配置">
@@ -32,6 +36,17 @@
             <div class="nya-btn" @click="clearCache">
                 清除数据
             </div>
+        </nya-container>
+
+        <nya-container title="自定义 CSS">
+            <nya-input :value="$store.state.setting.css" fullwidth rows="5" type="textarea" autocomplete="off"
+                       placeholder=".navbar{display: none}" @change="handleChange('setting.css', $event.target.value)"/>
+        </nya-container>
+
+        <nya-container title="自定义 JS">
+            <nya-input :value="$store.state.setting.js" fullwidth rows="5" type="textarea" autocomplete="off"
+                       placeholder="alert('欢迎使用 QuickTools')"
+                       @change="handleChange('setting.js', $event.target.value)"/>
         </nya-container>
     </div>
 </template>
@@ -103,9 +118,11 @@ export default {
     .nya-checkbox {
         margin-right: 15px;
     }
+
     .nya-btn {
         margin-top: 15px;
     }
+
     .nya-copy {
         margin-bottom: 0;
     }
