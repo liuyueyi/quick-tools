@@ -46,6 +46,16 @@ export const state = () => {
                     }
                 },
                 {
+                    name: '汉字转拼音',
+                    search_keys: "chinese transfer pinyin zhongwen",
+                    icon: '#icon-pinyin',
+                    path: '/tools/text/pinyin',
+                    head: {
+                        keywords: ['汉字', '中文', '拼音'],
+                        description: '中文汉字转拼音'
+                    }
+                },
+                {
                     name: '数字转大写中文',
                     search_keys: "digit to chinese",
                     icon: '#icon-num-parse',
@@ -629,13 +639,13 @@ export const state = () => {
                     }
                 },
                 {
-                    name: '颜色处理',
-                    search_keys: 'color pick',
+                    name: '颜色提取/转换',
+                    search_keys: 'color pick transformation',
                     icon: '#icon-pick',
                     path: '/tools/other/color',
                     head: {
                         keywords: ['hex转rgb', '颜色代码转换', '在线颜色选择'],
-                        description: '在线图片选择'
+                        description: '在线图片颜色提取，颜色格式转换'
                     }
                 },
                 {

@@ -16,8 +16,8 @@
                         category
                     }}</nya-link>]</span>
                 <a title="收藏" class="collectable collect" href="javascript:;" data-url="/">
-                    <i v-if="collected" class="eva eva-star small-font" @click.stop="collect"><var>取消</var> </i>
-                    <i v-else class="eva eva-star-outline small-font" @click.stop="collect"><var>收藏</var> </i>
+                    <i v-if="collected" class="eva eva-star small-font" style="color:gray" @click.stop="collect"><var>取消</var> </i>
+                    <i v-else class="eva eva-star-outline small-font" style="color:black" @click.stop="collect"><var>收藏</var> </i>
                 </a>
             </div>
             <div class="item-bd">

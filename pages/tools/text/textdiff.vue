@@ -127,13 +127,4 @@ export default {
 </script>
 
 <style>
-.d2h-file-header {
-    display: none;
-}
-
-.d2h-file-wrapper {
-    border: none;
-    border-radius: none;
-    margin-bottom: none;
-}
 </style>
