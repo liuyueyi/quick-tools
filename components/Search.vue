@@ -17,7 +17,7 @@
             >
         </div>
 
-        <nya-container v-if="value" title="搜索结果" icon="search-outline">
+        <nya-container v-show="value" title="搜索结果" icon="search-outline">
             <slot :data="searchList"></slot>
             <p v-show="!searchList.length" class="search-placeholder">
                 暂无搜索结果

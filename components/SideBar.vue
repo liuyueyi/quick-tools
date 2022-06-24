@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NyaReadonlyInput v-if="this.$route.path !== '/'"
+        <NyaReadonlyInput v-show="this.$route.path !== '/'"
                           :val="currentPath"
                           :copy-icon="true">
         </NyaReadonlyInput>
@@ -113,6 +113,12 @@ export default {
             type: Boolean,
             default: true,
         },
+    },
+    watch: {
+        '$route'() {
+            // 解决页面跳转之后，sidebar不更新的问题
+            this.currentPath = process.env.url + this.$route.fullPath;
+        }
     },
     data() {
         return {

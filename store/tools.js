@@ -640,7 +640,7 @@ export const state = () => {
                 },
                 {
                     name: '收款码合并',
-                    search_keys: 'qrcode merge',
+                    search_keys: 'qrcode merge pay credit',
                     icon: '#icon-pay',
                     path: '/tools/other/universal_pay',
                     head: {
