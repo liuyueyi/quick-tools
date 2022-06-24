@@ -7,7 +7,7 @@ export const state = () => {
             list: [
                 {
                     name: '文本对比',
-                    en_name: 'text compare',
+                    search_keys: 'text compare',
                     icon: '#icon-diff',
                     path: '/tools/text/textdiff',
                     head: {
@@ -17,7 +17,7 @@ export const state = () => {
                 },
                 {
                     name: '文本去重',
-                    en_name: "text remove duplicate",
+                    search_keys: "text remove duplicate",
                     icon: '#icon-text-duplicate',
                     path: '/tools/text/remove_duplicate',
                     head: {
@@ -27,7 +27,7 @@ export const state = () => {
                 },
                 {
                     name: '文本替换',
-                    en_name: "text replace",
+                    search_keys: "text replace",
                     icon: '#icon-text-replace',
                     path: '/tools/text/text_replace',
                     head: {
@@ -37,7 +37,7 @@ export const state = () => {
                 },
                 {
                     name: '表格数据格式化',
-                    en_name: "table csv sql format",
+                    search_keys: "table csv sql format",
                     icon: '#icon-table',
                     path: '/tools/text/table_format',
                     head: {
@@ -47,7 +47,7 @@ export const state = () => {
                 },
                 {
                     name: '数字转大写中文',
-                    en_name: "digit to chinese",
+                    search_keys: "digit to chinese",
                     icon: '#icon-num-parse',
                     path: '/tools/text/number_to_zh',
                     head: {
@@ -62,7 +62,7 @@ export const state = () => {
                 },
                 {
                     name: '富文本编辑器',
-                    en_name: "text editor",
+                    search_keys: "text editor",
                     icon: '#icon-text-editor',
                     path: '/tools/text/rich_text_editor',
                     head: {
@@ -72,7 +72,7 @@ export const state = () => {
                 },
                 {
                     name: 'Markdown 编辑器',
-                    en_name: "markdown editor",
+                    search_keys: "markdown editor",
                     icon: '#icon-markdown',
                     path: '/tools/text/markdown',
                     head: {
@@ -82,7 +82,7 @@ export const state = () => {
                 },
                 {
                     name: '摩斯电码转换',
-                    en_name: "Morse code conversion",
+                    search_keys: "Morse code conversion",
                     path: '/tools/text/morse',
                     icon: '#icon-mos-code',
                     head: {
@@ -92,7 +92,7 @@ export const state = () => {
                 },
                 {
                     name: '盲人摸象加解密',
-                    en_name: 'blind men and the elephant',
+                    search_keys: 'blind men and the elephant',
                     icon: '#icon-elephant',
                     path: '/tools/text/sot1_encrypt',
                     head: {
@@ -102,7 +102,7 @@ export const state = () => {
                 },
                 {
                     name: '中英文加空格',
-                    en_name: "space between chinese",
+                    search_keys: "space between chinese",
                     icon: '#icon-zh-en',
                     path: '/tools/text/text_autospace',
                     head: {
@@ -119,7 +119,7 @@ export const state = () => {
             list: [
                 {
                     name: '微信公众号编辑器',
-                    en_name: "wechat edit",
+                    search_keys: "wechat edit",
                     icon: '#icon-wechat',
                     path: 'https://wechat.hhui.top',
                     head: {
@@ -129,7 +129,7 @@ export const state = () => {
                 },
                 {
                     name: 'CSS 兼容性处理',
-                    en_name: "css",
+                    search_keys: "css",
                     icon: '#icon-css',
                     path: '/tools/code/autoprefixer',
                     head: {
@@ -139,7 +139,7 @@ export const state = () => {
                 },
                 {
                     name: '时间戳转换',
-                    en_name: "timestamp",
+                    search_keys: "timestamp",
                     icon: '#icon-timestamp',
                     path: '/tools/code/timestamp',
                     head: {
@@ -149,7 +149,7 @@ export const state = () => {
                 },
                 {
                     name: 'HTTP解析',
-                    en_name: 'http parse',
+                    search_keys: 'http parse',
                     icon: '#icon-http',
                     path: '/tools/code/http_format',
                     head: {
@@ -159,7 +159,7 @@ export const state = () => {
                 },
                 {
                     name: '文本加密解密',
-                    en_name: 'text encrypt decrypt',
+                    search_keys: 'text encrypt decrypt',
                     icon: '#icon-encrypted',
                     path: '/tools/code/crypto',
                     head: {
@@ -187,7 +187,7 @@ export const state = () => {
                 },
                 {
                     name: 'Linux 命令查询',
-                    en_name: "linux",
+                    search_keys: "linux",
                     icon: '#icon-linux',
                     path: '/tools/code/linux_command',
                     head: {
@@ -197,7 +197,7 @@ export const state = () => {
                 },
                 {
                     name: '文本编码解码',
-                    en_name: "text encode decode",
+                    search_keys: "text encode decode",
                     icon: '#icon-encode',
                     path: '/tools/code/encoding',
                     head: {
@@ -211,7 +211,7 @@ export const state = () => {
                 },
                 {
                     name: '执行 Cron 表达式',
-                    en_name: 'cron expression',
+                    search_keys: 'cron expression',
                     icon: '#icon-crond',
                     path: '/tools/code/crontab',
                     head: {
@@ -221,7 +221,7 @@ export const state = () => {
                 },
                 {
                     name: '进制转换',
-                    en_name: 'Binary conversion',
+                    search_keys: 'Binary conversion',
                     icon: '#icon-binary',
                     path: '/tools/code/hexconvert',
                     head: {
@@ -239,7 +239,7 @@ export const state = () => {
                 },
                 {
                     name: '无类别域间路由(CIDR)计算',
-                    en_name: 'CIDR(Classless Inter-Domain Routing)',
+                    search_keys: 'CIDR(Classless Inter-Domain Routing)',
                     path: '/tools/code/cidr',
                     icon: '#icon-cidr',
                     head: {
@@ -256,7 +256,7 @@ export const state = () => {
                 },
                 {
                     name: 'UserAgent 解析',
-                    en_name: 'UserAgent decode',
+                    search_keys: 'UserAgent decode',
                     icon: '#icon-user-agent',
                     path: '/tools/code/ua_parser',
                     head: {
@@ -266,7 +266,7 @@ export const state = () => {
                 },
                 {
                     name: '前端 CDN 查询',
-                    en_name: 'cdn query',
+                    search_keys: 'cdn query',
                     icon: '#icon-cdn',
                     path: '/tools/code/cdnjs',
                     head: {
@@ -283,7 +283,7 @@ export const state = () => {
                 },
                 {
                     name: 'JSON 编辑器',
-                    en_name: 'json editor',
+                    search_keys: 'json editor',
                     icon: '#icon-json',
                     path: '/tools/code/json_editor',
                     head: {
@@ -293,7 +293,7 @@ export const state = () => {
                 },
                 {
                     name: '正则实例大全',
-                    en_name: 'regular demo',
+                    search_keys: 'regular demo',
                     icon: '#icon-regular',
                     path: '/tools/code/any_rule',
                     head: {
@@ -310,7 +310,7 @@ export const state = () => {
             list: [
                 {
                     name: '图片格式转换',
-                    en_name: 'image format conversion',
+                    search_keys: 'image format conversion',
                     icon: '#icon-img-mine',
                     path: 'https://svgtopng.com/',
                     head: {
@@ -320,7 +320,7 @@ export const state = () => {
                 },
                 {
                     name: '图片压缩',
-                    en_name: 'image compress',
+                    search_keys: 'image compress',
                     icon: '#icon-compress',
                     path: 'https://squoosh.app/',
                     head: {
@@ -330,7 +330,7 @@ export const state = () => {
                 },
                 {
                     name: '二维码生成/解析',
-                    en_name: 'qrcode generate decode',
+                    search_keys: 'qrcode generate decode',
                     icon: '#icon-qrcode',
                     path: '/tools/image/qrcode_generation',
                     head: {
@@ -340,7 +340,7 @@ export const state = () => {
                 },
                 {
                     name: '图片加包浆',
-                    en_name: 'image older',
+                    search_keys: 'image older',
                     icon: '#icon-image-older',
                     path: '/tools/image/image_patina',
                     head: {
@@ -355,7 +355,7 @@ export const state = () => {
                 },
                 {
                     name: '九宫格切图',
-                    en_name: 'squared paper for practicing calligraphy',
+                    search_keys: 'squared paper for practicing calligraphy',
                     icon: '#icon-nine-cell',
                     path: '/tools/image/img_jiugongge',
                     head: {
@@ -365,7 +365,7 @@ export const state = () => {
                 },
                 {
                     name: 'Anime 4K高清处理',
-                    en_name: 'Anime 4k',
+                    search_keys: 'Anime 4k',
                     icon: '#icon-4k',
                     path: '/tools/image/anime4k',
                     head: {
@@ -375,7 +375,7 @@ export const state = () => {
                 },
                 {
                     name: '赛博朋克2077图片制作',
-                    en_name: 'Cyberpunk 2077 image create',
+                    search_keys: 'Cyberpunk 2077 image create',
                     icon: '#icon-cyberpunk',
                     path: '/tools/image/cyberpunk2077',
                     head: {
@@ -389,7 +389,7 @@ export const state = () => {
                 },
                 {
                     name: '令和举牌生成',
-                    en_name: 'show image create',
+                    search_keys: 'show image create',
                     icon: '#icon-brand',
                     path: '/tools/image/linghe',
                     head: {
@@ -399,7 +399,7 @@ export const state = () => {
                 },
                 {
                     name: 'ACG 表情包制作',
-                    en_name: 'acg emoticon create ',
+                    search_keys: 'acg emoticon create ',
                     icon: '#icon-acg',
                     path: '/tools/image/acg_meme',
                     head: {
@@ -414,7 +414,7 @@ export const state = () => {
                 },
                 {
                     name: 'Pornhub 风格Logo',
-                    en_name: 'Pornhub style logo',
+                    search_keys: 'Pornhub style logo',
                     icon: '#icon-p',
                     path: '/tools/image/pornhub_logo',
                     head: {
@@ -424,7 +424,7 @@ export const state = () => {
                 },
                 {
                     name: 'YouTube 风格Logo',
-                    en_name: 'YouTube style logo',
+                    search_keys: 'YouTube style logo',
                     icon: '#icon-youtube',
                     path: '/tools/image/youtube_logo',
                     head: {
@@ -434,7 +434,7 @@ export const state = () => {
                 },
                 {
                     name: '视频转 GIF',
-                    en_name: "video to gif",
+                    search_keys: "video to gif",
                     icon: '#icon-video',
                     path: '/tools/image/video2gif',
                     head: {
@@ -444,7 +444,7 @@ export const state = () => {
                 },
                 {
                     name: 'GIF 图片分解',
-                    en_name: "gif to images",
+                    search_keys: "gif to images",
                     icon: '#icon-gif',
                     path: '/tools/image/gif_splitter',
                     head: {
@@ -454,7 +454,7 @@ export const state = () => {
                 },
                 {
                     name: '微博生成器',
-                    en_name: "weibo generate",
+                    search_keys: "weibo generate",
                     icon: '#icon-weibo',
                     path: '/tools/image/meme-weibo',
                     head: {
@@ -464,7 +464,7 @@ export const state = () => {
                 },
                 {
                     name: '抖音风格文字生成',
-                    en_name: "TikTok style generate ",
+                    search_keys: "TikTok style generate ",
                     icon: '#icon-tiktok',
                     path: '/tools/image/douyin_text',
                     head: {
@@ -474,7 +474,7 @@ export const state = () => {
                 },
                 {
                     name: '图片编辑',
-                    en_name: 'image operate edit',
+                    search_keys: 'image operate edit',
                     icon: '#icon-edit-image',
                     path: '/tools/image/image_editor',
                     head: {
@@ -484,7 +484,7 @@ export const state = () => {
                 },
                 {
                     name: '水印',
-                    en_name: "watermark",
+                    search_keys: "watermark",
                     icon: '#icon-watermark',
                     path: '/tools/image/watermark',
                     head: {
@@ -505,7 +505,7 @@ export const state = () => {
             list: [
                 {
                     name: '屏幕录制',
-                    en_name: 'screen record',
+                    search_keys: 'screen record',
                     path: '/tools/other/screen_record',
                     head: {
                         keywords: ['屏幕录制', '在线录屏'],
@@ -515,7 +515,7 @@ export const state = () => {
                 },
                 {
                     name: '番茄时钟',
-                    en_name: 'tomato clock',
+                    search_keys: 'tomato clock',
                     icon: '#icon-clock',
                     path: '/tools/other/pomodoro_technique',
                     head: {
@@ -525,7 +525,7 @@ export const state = () => {
                 },
                 {
                     name: '人生小格',
-                    en_name: 'life cell lattice',
+                    search_keys: 'life cell lattice',
                     icon: '#icon-lattice',
                     path: '/tools/other/lifecount',
                     head: {
@@ -540,7 +540,7 @@ export const state = () => {
                 },
                 {
                     name: '随机数生成',
-                    en_name: 'rand numbers',
+                    search_keys: 'rand numbers',
                     icon: '#icon-random',
                     path: '/tools/other/random',
                     head: {
@@ -551,7 +551,7 @@ export const state = () => {
 
                 {
                     name: 'LINE 贴纸下载',
-                    en_name: 'line downloads',
+                    search_keys: 'line downloads',
                     icon: '#icon-line',
                     path: '/tools/other/line_sticker_download',
                     head: {
@@ -566,7 +566,7 @@ export const state = () => {
                 },
                 {
                     name: '帮你百度',
-                    en_name: 'baidu',
+                    search_keys: 'baidu',
                     icon: '#icon-baidu',
                     path: '/tools/other/search_help',
                     head: {
@@ -576,7 +576,7 @@ export const state = () => {
                 },
                 {
                     name: 'SSR/V2ray 配置解析',
-                    en_name: 'ssr v2ray config',
+                    search_keys: 'ssr v2ray config',
                     icon: '#icon-vpn',
                     path: '/tools/other/ssr_decode',
                     head: {
@@ -590,7 +590,7 @@ export const state = () => {
                 },
                 {
                     name: '亲戚关系计算器',
-                    en_name: 'relative calculate',
+                    search_keys: 'relative calculate',
                     icon: '#icon-relation',
                     path: '/tools/other/relatives_name',
                     head: {
@@ -600,7 +600,7 @@ export const state = () => {
                 },
                 {
                     name: '这是什么动漫',
-                    en_name: 'what comic',
+                    search_keys: 'what comic',
                     icon: '#icon-comic',
                     path: '/tools/other/what_anime_is_this',
                     head: {
@@ -610,7 +610,7 @@ export const state = () => {
                 },
                 {
                     name: '中国传统色',
-                    en_name: 'chinese color',
+                    search_keys: 'chinese color',
                     icon: '#icon-color',
                     path: '/tools/other/china_colors',
                     head: {
@@ -620,7 +620,7 @@ export const state = () => {
                 },
                 {
                     name: '日本传统色',
-                    en_name: 'japan color',
+                    search_keys: 'japan color',
                     icon: '#icon-japan',
                     path: '/tools/other/japan_colors',
                     head: {
@@ -630,7 +630,7 @@ export const state = () => {
                 },
                 {
                     name: '颜色处理',
-                    en_name: 'color pick',
+                    search_keys: 'color pick',
                     icon: '#icon-pick',
                     path: '/tools/other/color',
                     head: {
@@ -640,7 +640,7 @@ export const state = () => {
                 },
                 {
                     name: '收款码合并',
-                    en_name: 'qrcode merge',
+                    search_keys: 'qrcode merge',
                     icon: '#icon-pay',
                     path: '/tools/other/universal_pay',
                     head: {
@@ -656,7 +656,7 @@ export const state = () => {
                 },
                 {
                     name: '温度单位转换',
-                    en_name: 'Temperature unit conversion',
+                    search_keys: 'Temperature unit conversion',
                     icon: '#icon-temperature',
                     path: '/tools/other/temperature_conversion',
                     head: {
@@ -673,7 +673,7 @@ export const state = () => {
                 },
                 {
                     name: '身份证号码',
-                    en_name: 'id no credit number',
+                    search_keys: 'id no credit number',
                     icon: '#icon-credit',
                     path: '/tools/other/chinese_id',
                     head: {
@@ -694,20 +694,20 @@ export const state = () => {
         //     list: [
         //         {
         //             name: '网站设置',
-        //             en_name: 'setting',
+        //             search_keys: 'setting',
         //             path: '/setting',
         //             icon: 'settings-2-outline'
         //         },
         //         {
         //             name: '工具隐藏',
-        //             en_name: 'tool hide',
+        //             search_keys: 'tool hide',
         //             path: '/hide_tool',
         //             icon: 'scissors-outline'
         //
         //         },
         //         {
         //             name: '友情链接',
-        //             en_name: 'links',
+        //             search_keys: 'links',
         //             path: '/links',
         //             icon: 'link-outline'
         //         }

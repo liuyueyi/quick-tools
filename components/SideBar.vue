@@ -52,7 +52,7 @@
         </nya-panel>
 
         <nya-panel head="请作者喝一杯咖啡？" v-if="!$store.state.setting.hidePay" class="text-center"
-                   :title="this.showOnePayQrcode ? '聚合二维码': ''">
+                   :sub-title="this.showOnePayQrcode ? '聚合收款码': '打赏码'">
             <button class="nya-btn " @click="updateShowPayWay">切换</button>
             <div class="text-center" v-if="this.showOnePayQrcode">
                 <img
@@ -109,7 +109,10 @@ export default {
     name: 'Panel',
     components: {Template, NyaPanel, NyaReadonlyInput},
     props: {
-        showOnePayQrcode: true,
+        showOnePayQrcode: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {

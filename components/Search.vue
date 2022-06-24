@@ -71,7 +71,7 @@ export default {
                 } else if (tool.name.toLowerCase().indexOf(value) >= 0) {
                     // 拼音搜索
                     results.push(tool);
-                } else if (tool.en_name.toLowerCase().indexOf(value) >= 0) {
+                } else if (tool.search_keys.toLowerCase().indexOf(value) >= 0) {
                     // 英文搜索
                     results.push(tool);
                 }
