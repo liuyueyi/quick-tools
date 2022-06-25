@@ -58,7 +58,7 @@ export const state = () => {
                 {
                     name: '数字转大写中文',
                     search_keys: "digit to chinese",
-                    icon: '#icon-num-parse',
+                    icon: '#icon-money',
                     path: '/tools/text/number_to_zh',
                     head: {
                         keywords: [
@@ -68,6 +68,33 @@ export const state = () => {
                             '中文转人民币'
                         ],
                         description: '在线人民币转中文'
+                    }
+                },
+                {
+                    name: '字数统计',
+                    search_keys: "word count number",
+                    icon: '#icon-num-parse',
+                    path: '/tools/text/wordcount',
+                    head: {
+                        keywords: [
+                            '字数统计',
+                            'word count',
+                        ],
+                        description: '在线统计有效字符数'
+                    }
+                },
+                {
+                    name: '简繁转换',
+                    search_keys: "chinese simple traditional",
+                    icon: '#icon-zhong',
+                    path: '/tools/text/zhconvert',
+                    head: {
+                        keywords: [
+                            '简繁转换',
+                            '中文简体转繁体',
+                            '中文繁体转简体',
+                        ],
+                        description: '简繁互转'
                     }
                 },
                 {

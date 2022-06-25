@@ -19,6 +19,7 @@
     "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/pwa": "^2.6.0",
     "@nuxtjs/style-resources": "^1.0.0",
+    "chinese-s2t": "^1.0.0",
     "clipboard": "^2.0.4",
     "console.style": "^0.2.2",
     "crypto-js": "^3.1.9-1",
