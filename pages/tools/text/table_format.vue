@@ -55,7 +55,7 @@
             </nya-copy>
         </nya-container>
 
-        <nya-container title="说明">
+        <nya-foot-info title="Tips">
                 <li>
                     插件源码：<a
                     href="https://github.com/liuyueyi/quick-jsdemo"
@@ -63,7 +63,8 @@
                     rel="noopener noreferrer"
                 >quick-jsdemo</a> 表格数据格式化
                 </li>
-        </nya-container>
+        </nya-foot-info>
+
     </div>
 </template>
 

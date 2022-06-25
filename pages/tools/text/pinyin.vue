@@ -16,14 +16,15 @@
             <pre>{{ charRes }}</pre>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>
-                    本功能由 <a href='https://github.com/hotoo/pinyin', target="_blank" rel="noopener noreferrer">pinyin</a>
-                    提供支持；为大佬开源点赞
-                </li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>
+                部分繁体汉字转拼音可能存在异常，如有疑问，请到留言板提出
+            </li>
+            <li>
+                本功能由 <a href='https://github.com/hotoo/pinyin' target="_blank" rel="noopener noreferrer">pinyin</a>
+                提供支持；为大佬开源点赞
+            </li>
+        </nya-foot-info>
     </div>
 </template>
 

@@ -1,16 +1,26 @@
 <template>
     <div class="remove_duplicate">
-        <div class="nya-subtitle mt-15">
-            选择
-        </div>
-        <div class="radio-group">
-            <nya-radio-group v-model="index">
-                <nya-radio v-for="(label, i) in labels" class="mr-15" :value="i" :key="i" :label="label.label"/>
-            </nya-radio-group>
-        </div>
-        <nya-input label="分隔符" v-model.trim="splitChar" type="text" autocomplete="on" autofocus v-show="index === 2"/>
-
         <nya-container title="文本去重">
+            <div class="nya-subtitle mt-15">
+                选择
+            </div>
+            <div class="radio-group">
+                <nya-radio-group v-model="index">
+                    <nya-radio v-for="(label, i) in labels" class="mr-15" :value="i" :key="i" :label="label.label"/>
+                </nya-radio-group>
+            </div>
+            <nya-input label="自定义分隔符"
+                       subtitle="subtitle"
+                       v-model.trim="splitChar"
+                       type="text"
+                       autocomplete="on"
+                       autofocus
+                       v-show="index === 2"
+                       placeholder=""
+            />
+            <br/>
+
+
             <nya-input v-model.trim="content" fullwidth rows="8" type="textarea" autofocus autocomplete="off"
                        label="待处理的内容" :placeholder="'aaa\naaa'"/>
         </nya-container>
@@ -19,6 +29,9 @@
                 <div v-text="result"></div>
             </nya-copy>
         </nya-container>
+
+        <nya-foot-info title="Tips">
+        </nya-foot-info>
     </div>
 </template>
 
@@ -42,6 +55,11 @@ export default {
             ]
         };
     },
+    watch: {
+        index() {
+            this.splitChar = '';
+        }
+    },
     computed: {
         result() {
             if (this.index === 0) {
@@ -58,7 +76,14 @@ export default {
                 }
                 return ans;
             } else {
-
+                if (!this.splitChar) {
+                    // 未输入分隔符时直接返回
+                    return this.content;
+                }
+                return _.chain(this.content.split(this.splitChar))
+                    .uniq()
+                    .join(this.splitChar)
+                    .value();
             }
         }
     }

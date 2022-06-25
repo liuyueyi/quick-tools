@@ -19,13 +19,11 @@
             <pre>{{ result }}</pre>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>该转码输出字符与其他普遍方法并不一致</li>
-                <li>加密后数据体积约为原数据三倍大小，拉丁字母系显示空间约和原数据一致</li>
-                <li><b>Sot1 v1 版本使用加密方式可能有点粗糙，请误加密重要数据</b></li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>该转码输出字符与其他普遍方法并不一致</li>
+            <li>加密后数据体积约为原数据三倍大小，拉丁字母系显示空间约和原数据一致</li>
+            <li><b>Sot1 v1 版本使用加密方式可能有点粗糙，请误加密重要数据</b></li>
+        </nya-foot-info>
     </div>
 </template>
 

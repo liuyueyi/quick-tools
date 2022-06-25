@@ -33,24 +33,22 @@
             <Dynamic :template="results"/>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul className="nya-list">
-                <li>
-                    使用：<a
-                    href="https://github.com/kpdecker/jsdiff"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >jsdiff</a>生成对比数据
-                </li>
-                <li>
-                    使用：<a
-                    href="https://github.com/rtfpessoa/diff2html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >diff2html</a>渲染对比结果
-                </li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>
+                使用：<a
+                href="https://github.com/kpdecker/jsdiff"
+                target="_blank"
+                rel="noopener noreferrer"
+            >jsdiff</a>生成对比数据
+            </li>
+            <li>
+                使用：<a
+                href="https://github.com/rtfpessoa/diff2html"
+                target="_blank"
+                rel="noopener noreferrer"
+            >diff2html</a>渲染对比结果
+            </li>
+        </nya-foot-info>
     </div>
 </template>
 

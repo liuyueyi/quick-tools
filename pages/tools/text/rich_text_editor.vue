@@ -9,6 +9,10 @@
                 <Dynamic class="hljs xml" tag="code" :template="contentCode" />
             </div>
         </client-only>
+
+        <nya-foot-info title="Tips" class="top-padding-1em">
+            <li>富文本编辑器主要有 <a href="https://github.com/surmon-china/vue-quill-editor">vue-quill-editor</a> 提供支持，感谢大佬开源</li>
+        </nya-foot-info>
     </div>
 </template>
 
