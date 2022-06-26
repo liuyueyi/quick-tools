@@ -8,7 +8,7 @@
                         <ToolItem
                             :tool="tool"
                             :category="tool.category"
-                            :category-path="``"
+                            :category-path="tool.tab"
                         />
                     </template>
                 </div>
@@ -22,8 +22,8 @@
                     <li v-for="(item, index) in tabList"
                         class="nav-item"
                         @click="chooseTab(item.tag)">
-                    <span class="nav-link" :class="isTabActivated(item.tag) ? 'active' : ''"
-                          data-bs-toggle="tab">{{ item.category }}</span>
+                        <a class="nav-link" :class="isTabActivated(item.tag) ? 'active' : ''" style="color: #212529"
+                           data-bs-toggle="tab" :href="'/#' + item.tag">{{ item.category }}</a>
                     </li>
                 </ul>
                 <div class="card-body">
@@ -34,7 +34,7 @@
                                     <ToolItem
                                         :tool="tool"
                                         :category="tool.category"
-                                        :category-path="``"
+                                        :category-path="tool.tab"
                                     />
                                 </template>
                             </div>
@@ -52,6 +52,9 @@ import Search from '~/components/Search';
 import Welcome from '~/components/Welcome';
 import ToolItem from "~/components/ToolItem";
 
+const DEFAULT_TAB = "recommend";
+const DEFAULT_TAB_NAME = "推荐";
+
 export default {
     name: 'Home',
     components: {
@@ -65,31 +68,31 @@ export default {
             title: this.title
         };
     },
+    watch: {
+        $route: {
+            immediate: true,
+            handler() {
+                this.activeTab = this.getActiveTab();
+            }
+        },
+    },
     data() {
         return {
             title: `${process.env.title} - ${process.env.description}`,
             searchText: '',
-            activeTab: 'all',
+            activeTab: this.getActiveTab(),
         };
     },
     computed: {
-        toolsList() {
-            let arr = [];
-            this.$store.state.tools.forEach(tool => {
-                tool.list.forEach(item => item['category'] = tool['title']);
-                arr = arr.concat(tool.list);
-            });
-            return arr;
-        },
         tabList() {
             let arr = [{
-                category: "全部",
-                tag: 'all',
+                category: DEFAULT_TAB_NAME,
+                tag: DEFAULT_TAB,
             }];
             this.$store.state.tools.forEach(tool => {
                 arr.push({
                     category: tool.title,
-                    tag: tool.en_title,
+                    tag: tool.tab,
                 })
             });
             return arr;
@@ -97,8 +100,19 @@ export default {
         itemList() {
             let arr = [];
             this.$store.state.tools.forEach(tool => {
-                if (tool['en_title'] === this.activeTab || this.activeTab === 'all') {
-                    tool.list.forEach(item => item['category'] = tool['title']);
+                if (this.activeTab === DEFAULT_TAB) {
+                    tool.list.forEach(item => {
+                        item['category'] = tool['title'];
+                        item['tab'] = tool['tab'];
+                        if (item['recommend']) {
+                            arr.push(item);
+                        }
+                    });
+                } else if (tool['tab'] === this.activeTab) {
+                    tool.list.forEach(item => {
+                        item['category'] = tool['title'];
+                        item['tab'] = tool['tab'];
+                    });
                     arr = arr.concat(tool.list);
                 }
             });
@@ -124,7 +138,21 @@ export default {
         chooseTab(tabName) {
             // 选择某个分类对应的工具箱
             this.activeTab = tabName;
-            console.log("collected! +", tabName);
+        },
+        getActiveTab() {
+            let tags = ['all'];
+            let hash = this.$route.hash;
+            this.$store.state.tools.forEach(tool => {
+                tags.push(tool.tab);
+            });
+            let choose = DEFAULT_TAB;
+            for (let i = 0; i < tags.length; i++) {
+                if (hash.indexOf('#' + tags[i]) >= 0) {
+                    choose = tags[i];
+                    break;
+                }
+            }
+            return choose;
         }
     }
 };

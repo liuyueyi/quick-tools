@@ -2,15 +2,15 @@ export const state = () => {
     const tools = [
         {
             title: '文本',
-            en_title: 'text',
+            tab: 'text',
             icon: 'text-outline',
             list: [
-
                 {
                     name: '文本加密解密',
                     search_keys: 'text encrypt decrypt',
                     icon: '#icon-encrypted',
                     path: '/tools/code/crypto',
+                    recommend: false,
                     head: {
                         keywords: [
                             '文本加密解密',
@@ -39,6 +39,7 @@ export const state = () => {
                     search_keys: "text encode decode base64",
                     icon: '#icon-encode',
                     path: '/tools/code/encoding',
+                    recommend: false,
                     head: {
                         keywords: [
                             '文本编码解码',
@@ -48,13 +49,12 @@ export const state = () => {
                         description: 'base64,unique code,url编解码,敏感词过滤'
                     }
                 },
-
-
                 {
                     name: '文本对比',
                     search_keys: 'text compare',
                     icon: '#icon-diff',
                     path: '/tools/text/textdiff',
+                    recommend: false,
                     head: {
                         keywords: ['文本对比', '代码对比'],
                         description: '文本在线对比'
@@ -65,6 +65,7 @@ export const state = () => {
                     search_keys: "text remove duplicate",
                     icon: '#icon-text-duplicate',
                     path: '/tools/text/remove_duplicate',
+                    recommend: false,
                     head: {
                         keywords: ['文本在线去重', '文本去除重复'],
                         description: '文本在线去重'
@@ -75,6 +76,7 @@ export const state = () => {
                     search_keys: "text replace",
                     icon: '#icon-text-replace',
                     path: '/tools/text/text_replace',
+                    recommend: false,
                     head: {
                         keywords: ['文本在线替换', '字符串替换'],
                         description: '文本在线替换'
@@ -86,6 +88,7 @@ export const state = () => {
                     search_keys: "table csv sql format",
                     icon: '#icon-table',
                     path: '/tools/text/table_format',
+                    recommend: false,
                     head: {
                         keywords: ['csv', 'table', 'json', 'sql'],
                         description: 'csv/table表格数转json,sql'
@@ -97,6 +100,7 @@ export const state = () => {
                     search_keys: "word count number",
                     icon: '#icon-num-parse',
                     path: '/tools/text/wordcount',
+                    recommend: false,
                     head: {
                         keywords: [
                             '字数统计',
@@ -110,6 +114,7 @@ export const state = () => {
                     search_keys: "zao ci new word",
                     icon: '#icon-word',
                     path: '/tools/text/new_word',
+                    recommend: true,
                     head: {
                         keywords: ['造新词', '新词释义'],
                         description: '给成语添加新的解释说明'
@@ -121,6 +126,7 @@ export const state = () => {
                     search_keys: "Morse code conversion",
                     path: '/tools/text/morse',
                     icon: '#icon-mos-code',
+                    recommend: false,
                     head: {
                         keywords: ['摩斯电码转换', '中文摩斯电码转换'],
                         description: '在线摩斯电码转换'
@@ -131,6 +137,7 @@ export const state = () => {
                     search_keys: 'blind men and the elephant',
                     icon: '#icon-elephant',
                     path: '/tools/text/sot1_encrypt',
+                    recommend: false,
                     head: {
                         keywords: ['盲人摸象', '转码', '加解密'],
                         description: '在线盲人摸象加解密'
@@ -142,6 +149,7 @@ export const state = () => {
                     search_keys: "space between chinese",
                     icon: '#icon-zh-en',
                     path: '/tools/text/text_autospace',
+                    recommend: false,
                     head: {
                         keywords: ['中英文加空格'],
                         description: '在线中英文加空格'
@@ -151,7 +159,7 @@ export const state = () => {
         },
         {
             title: '转换',
-            en_title: 'convert',
+            tab: 'convert',
             icon: '',
             list: [
                 {
@@ -159,6 +167,7 @@ export const state = () => {
                     search_keys: "chinese transfer pinyin zhongwen",
                     icon: '#icon-pinyin',
                     path: '/tools/convert/pinyin',
+                    recommend: false,
                     head: {
                         keywords: ['汉字', '中文', '拼音'],
                         description: '中文汉字转拼音'
@@ -169,6 +178,7 @@ export const state = () => {
                     search_keys: "chinese simple traditional",
                     icon: '#icon-zhong',
                     path: '/tools/convert/zhconvert',
+                    recommend: false,
                     head: {
                         keywords: [
                             '简繁转换',
@@ -183,6 +193,7 @@ export const state = () => {
                     search_keys: "digit to chinese",
                     icon: '#icon-money',
                     path: '/tools/convert/num2zh',
+                    recommend: true,
                     head: {
                         keywords: [
                             '数字转大写中文',
@@ -198,6 +209,7 @@ export const state = () => {
                     search_keys: 'Binary convert',
                     icon: '#icon-binary',
                     path: '/tools/convert/hexconvert',
+                    recommend: false,
                     head: {
                         keywords: [
                             '进制转换',
@@ -216,6 +228,7 @@ export const state = () => {
                     search_keys: 'word convert up low',
                     icon: '#icon-word-up',
                     path: '/tools/convert/low2up',
+                    recommend: false,
                     head: {
                         keywords: [
                             '英文大小写转换',
@@ -230,6 +243,7 @@ export const state = () => {
                     search_keys: 'camel under line convert',
                     icon: '#icon-camel',
                     path: '/tools/convert/camel',
+                    recommend: true,
                     head: {
                         keywords: [
                             '驼峰转下换线',
@@ -243,7 +257,7 @@ export const state = () => {
         },
         {
             title: '单位转换',
-            en_title: 'calculate',
+            tab: 'calculate',
             icon: '',
             list: [
                 {
@@ -251,6 +265,7 @@ export const state = () => {
                     search_keys: 'relative calculate convert',
                     icon: '#icon-relation',
                     path: '/tools/convert/relative',
+                    recommend: false,
                     head: {
                         keywords: ['亲戚关系计算器'],
                         description: '在线亲戚关系计算器'
@@ -261,6 +276,7 @@ export const state = () => {
                     search_keys: 'Temperature unit convert',
                     icon: '#icon-temperature',
                     path: '/tools/convert/temperature',
+                    recommend: false,
                     head: {
                         keywords: [
                             '温度单位转换',
@@ -277,7 +293,7 @@ export const state = () => {
         },
         {
             title: '编辑器',
-            en_title: 'editor',
+            tab: 'editor',
             icon: '',
             list: [
                 {
@@ -285,6 +301,7 @@ export const state = () => {
                     search_keys: "text editor",
                     icon: '#icon-text-editor',
                     path: '/tools/editor/richText',
+                    recommend: false,
                     head: {
                         keywords: ['富文本编辑器'],
                         description: '在线富文本编辑器'
@@ -295,6 +312,7 @@ export const state = () => {
                     search_keys: "markdown editor",
                     icon: '#icon-markdown',
                     path: '/tools/editor/md',
+                    recommend: false,
                     head: {
                         keywords: ['Markdown编辑器'],
                         description: '在线Markdown编辑器'
@@ -305,6 +323,7 @@ export const state = () => {
                     search_keys: 'json editor',
                     icon: '#icon-json',
                     path: '/tools/editor/json',
+                    recommend: true,
                     head: {
                         keywords: ['在线JSON编辑器', 'JSON格式化', 'JSON压缩'],
                         description: '在线JSON编辑器'
@@ -315,6 +334,7 @@ export const state = () => {
                     search_keys: "wechat editor markdown",
                     icon: '#icon-wechat',
                     path: 'https://wechat.hhui.top',
+                    recommend: true,
                     head: {
                         keywords: ['微信公众号编辑器'],
                         description: '基于markdown生成微信公众号文章的编辑器'
@@ -324,7 +344,7 @@ export const state = () => {
         },
         {
             title: '编程',
-            en_title: 'code',
+            tab: 'code',
             icon: 'code-outline',
             list: [
                 {
@@ -332,6 +352,7 @@ export const state = () => {
                     search_keys: "timestamp",
                     icon: '#icon-timestamp',
                     path: '/tools/code/timestamp',
+                    recommend: true,
                     head: {
                         keywords: ['时间戳转换', '时间戳获取', "timestamp"],
                         description: '在线时间戳转换|格式化工具'
@@ -342,6 +363,7 @@ export const state = () => {
                     search_keys: 'http parse',
                     icon: '#icon-http',
                     path: '/tools/code/http',
+                    recommend: false,
                     head: {
                         keywords: ['URL参数查看', 'URL参数解析', 'URL编码', 'URL解码', '请求头转JSON', 'JSON转请求头'],
                         description: 'HTTP参数解析、编解码、请求头处理'
@@ -352,6 +374,7 @@ export const state = () => {
                     search_keys: 'UserAgent decode',
                     icon: '#icon-user-agent',
                     path: '/tools/code/ua',
+                    recommend: false,
                     head: {
                         keywords: ['在线 UserAgent 解析'],
                         description: 'UserAgent 解析'
@@ -362,6 +385,7 @@ export const state = () => {
                     search_keys: "css",
                     icon: '#icon-css',
                     path: '/tools/code/autoprefixer',
+                    recommend: false,
                     head: {
                         keywords: ['CSS兼容性处理', 'autoprefixer', 'postcss'],
                         description: '在线CSS兼容性处理'
@@ -372,6 +396,7 @@ export const state = () => {
                     search_keys: "linux",
                     icon: '#icon-linux',
                     path: '/tools/code/linux',
+                    recommend: false,
                     head: {
                         keywords: ['Linux命令查询'],
                         description: '在线Linux命令查询'
@@ -382,6 +407,7 @@ export const state = () => {
                     search_keys: 'cron expression',
                     icon: '#icon-crond',
                     path: '/tools/code/crontab',
+                    recommend: true,
                     head: {
                         keywords: ['在线执行Cron表达式', '在线模拟Cron表达式'],
                         description: '在线执行Cron表达式'
@@ -392,6 +418,7 @@ export const state = () => {
                     search_keys: 'cdn query',
                     icon: '#icon-cdn',
                     path: '/tools/code/cdnjs',
+                    recommend: false,
                     head: {
                         keywords: [
                             '前端CDN',
@@ -409,6 +436,7 @@ export const state = () => {
                     search_keys: 'regular demo',
                     icon: '#icon-regular',
                     path: '/tools/code/regular',
+                    recommend: true,
                     head: {
                         keywords: ['正则大全'],
                         description: '正则实例大全'
@@ -418,7 +446,7 @@ export const state = () => {
         },
         {
             title: '设计',
-            en_title: 'design',
+            tab: 'design',
             icon: 'browser-outline',
             list: [
                 {
@@ -426,6 +454,7 @@ export const state = () => {
                     search_keys: 'chinese color china',
                     icon: '#icon-color',
                     path: '/tools/design/chinaColors',
+                    recommend: false,
                     head: {
                         keywords: ['中国传统色'],
                         description: '中国传统色'
@@ -436,6 +465,7 @@ export const state = () => {
                     search_keys: 'japan color',
                     icon: '#icon-japan',
                     path: '/tools/design/japanColors',
+                    recommend: false,
                     head: {
                         keywords: ['日本传统色', '日本の伝統色'],
                         description: '日本传统色'
@@ -446,6 +476,7 @@ export const state = () => {
                     search_keys: 'color pick transformation',
                     icon: '#icon-pick',
                     path: '/tools/design/color',
+                    recommend: false,
                     head: {
                         keywords: ['hex转rgb', '颜色代码转换', '在线颜色选择'],
                         description: '在线图片颜色提取，颜色格式转换'
@@ -455,7 +486,7 @@ export const state = () => {
         },
         {
             title: '图像',
-            en_title: 'img',
+            tab: 'img',
             icon: 'image-outline',
             list: [
                 {
@@ -463,6 +494,7 @@ export const state = () => {
                     search_keys: 'image format conversion',
                     icon: '#icon-img-mine',
                     path: 'https://svgtopng.com/',
+                    recommend: false,
                     head: {
                         keywords: ['svg', 'jpg', 'png', 'pdf', 'eps'],
                         description: 'svg/png/jpg/pdf格式互转'
@@ -473,6 +505,7 @@ export const state = () => {
                     search_keys: 'image compress',
                     icon: '#icon-compress',
                     path: 'https://squoosh.app/',
+                    recommend: false,
                     head: {
                         keywords: ['svg', 'jpg', 'png', 'pdf', 'eps'],
                         description: '图片压缩'
@@ -483,6 +516,7 @@ export const state = () => {
                     search_keys: 'Anime 4k comic',
                     icon: '#icon-4k',
                     path: '/tools/image/anime4k',
+                    recommend: false,
                     head: {
                         keywords: ['anime'],
                         description: '3毫秒放大你老婆，支持视频/图片。'
@@ -493,6 +527,7 @@ export const state = () => {
                     search_keys: 'image older',
                     icon: '#icon-image-older',
                     path: '/tools/image/imagePatina',
+                    recommend: false,
                     head: {
                         keywords: [
                             '图片做旧',
@@ -508,6 +543,7 @@ export const state = () => {
                     search_keys: 'squared paper for practicing calligraphy nine',
                     icon: '#icon-nine-cell',
                     path: '/tools/image/jiugongge',
+                    recommend: false,
                     head: {
                         keywords: ['图片九宫格', '九宫格切图', '九宫格'],
                         description: '图片分割成九宫格'
@@ -518,6 +554,7 @@ export const state = () => {
                     search_keys: "video to gif",
                     icon: '#icon-video',
                     path: '/tools/image/video2gif',
+                    recommend: false,
                     head: {
                         keywords: ['视频转换GIF图片'],
                         description: '在线视频转换GIF图片'
@@ -528,6 +565,7 @@ export const state = () => {
                     search_keys: "gif to images",
                     icon: '#icon-gif',
                     path: '/tools/image/gifSplitter',
+                    recommend: false,
                     head: {
                         keywords: ['GIF图片分解'],
                         description: '在线分解GIF图片'
@@ -538,6 +576,7 @@ export const state = () => {
                     search_keys: "watermark",
                     icon: '#icon-watermark',
                     path: '/tools/image/watermark',
+                    recommend: false,
                     head: {
                         keywords: [
                             '身份证加水印',
@@ -552,6 +591,7 @@ export const state = () => {
                     search_keys: 'image operate editor',
                     icon: '#icon-edit-image',
                     path: '/tools/image/imageEditor',
+                    recommend: false,
                     head: {
                         keywords: ['图片编辑器', '图片处理', '表情包制作'],
                         description: '在线图片编辑器'
@@ -561,7 +601,7 @@ export const state = () => {
         },
         {
             title: '表情包',
-            en_title: 'merge',
+            tab: 'merge',
             icon: '',
             list: [
                 {
@@ -569,6 +609,7 @@ export const state = () => {
                     search_keys: 'Cyberpunk 2077 image create',
                     icon: '#icon-cyberpunk',
                     path: '/tools/merge/cyberpunk2077',
+                    recommend: false,
                     head: {
                         keywords: [
                             'Cyberpunk2077',
@@ -583,6 +624,7 @@ export const state = () => {
                     search_keys: 'show image create',
                     icon: '#icon-brand',
                     path: '/tools/merge/linghe',
+                    recommend: false,
                     head: {
                         keywords: ['令和举牌风格图片制作'],
                         description: '在线令和举牌风格图片制作'
@@ -591,6 +633,7 @@ export const state = () => {
                 {
                     name: 'ACG 表情包制作',
                     search_keys: 'acg emoticon create ',
+                    recommend: true,
                     icon: '#icon-acg',
                     path: '/tools/merge/acg_meme',
                     head: {
@@ -608,6 +651,7 @@ export const state = () => {
                     search_keys: 'Pornhub style logo',
                     icon: '#icon-p',
                     path: '/tools/merge/pornhub_logo',
+                    recommend: false,
                     head: {
                         keywords: ['PornHub 风格图片制作', 'PornHub Logo 制作'],
                         description: '在线 PornHub 风格图片制作'
@@ -618,6 +662,7 @@ export const state = () => {
                     search_keys: 'YouTube style logo',
                     icon: '#icon-youtube',
                     path: '/tools/merge/youtube_logo',
+                    recommend: false,
                     head: {
                         keywords: ['YouTube 风格图片制作', 'YouTube Logo 制作'],
                         description: '在线 YouTube 风格图片制作'
@@ -628,6 +673,7 @@ export const state = () => {
                     search_keys: "weibo generate",
                     icon: '#icon-weibo',
                     path: '/tools/merge/weibo',
+                    recommend: false,
                     head: {
                         keywords: ['微博生成器', '王思聪微博生成器'],
                         description: '在线微博生成器'
@@ -638,6 +684,7 @@ export const state = () => {
                     search_keys: "TikTok style generate ",
                     icon: '#icon-tiktok',
                     path: '/tools/merge/douyin_text',
+                    recommend: false,
                     head: {
                         keywords: ['抖音风格文字生成', '抖音样式文字生成'],
                         description: '在线抖音风格文字生成'
@@ -647,7 +694,7 @@ export const state = () => {
         },
         {
             title: '二维码',
-            en_title: 'qrcode',
+            tab: 'qrcode',
             icon: '',
             list: [
                 {
@@ -655,6 +702,7 @@ export const state = () => {
                     search_keys: 'qrcode generate decode',
                     icon: '#icon-qrcode',
                     path: '/tools/qr/qrcode',
+                    recommend: false,
                     head: {
                         keywords: ['在线二维码生成', '在线二维码内容解析'],
                         description: '二维码生成/解析'
@@ -665,6 +713,7 @@ export const state = () => {
                     search_keys: 'qrcode merge pay credit',
                     icon: '#icon-pay',
                     path: '/tools/qr/universal_pay',
+                    recommend: true,
                     head: {
                         keywords: [
                             '免费收款码合并',
@@ -680,7 +729,7 @@ export const state = () => {
         },
         {
             title: '运维&站长',
-            en_title: 'devops',
+            tab: 'devops',
             icon: '',
             list: [
                 {
@@ -688,6 +737,7 @@ export const state = () => {
                     search_keys: 'ssr v2ray config',
                     icon: '#icon-vpn',
                     path: '/tools/devops/ssr_decode',
+                    recommend: false,
                     head: {
                         keywords: [
                             'SSR配置解密',
@@ -702,6 +752,7 @@ export const state = () => {
                     search_keys: 'CIDR(Classless Inter-Domain Routing)',
                     path: '/tools/devops/cidr',
                     icon: '#icon-cidr',
+                    recommend: false,
                     head: {
                         keywords: [
                             'CIDR',
@@ -719,13 +770,14 @@ export const state = () => {
         },
         {
             title: '其他工具',
-            en_title: 'other',
+            tab: 'other',
             icon: 'layers-outline',
             list: [
                 {
                     name: '屏幕录制',
                     search_keys: 'screen record',
                     path: '/tools/other/screen_record',
+                    recommend: true,
                     head: {
                         keywords: ['屏幕录制', '在线录屏'],
                         description: '在网页上完成录屏'
@@ -737,6 +789,7 @@ export const state = () => {
                     search_keys: 'tomato clock',
                     icon: '#icon-clock',
                     path: '/tools/other/pomodoro_technique',
+                    recommend: true,
                     head: {
                         keywords: ['在线番茄时钟', '番茄工作法'],
                         description: '在线番茄时钟'
@@ -747,6 +800,7 @@ export const state = () => {
                     search_keys: 'life cell lattice',
                     icon: '#icon-lattice',
                     path: '/tools/other/lifecount',
+                    recommend: true,
                     head: {
                         keywords: [
                             '人生小格',
@@ -762,6 +816,7 @@ export const state = () => {
                     search_keys: 'rand numbers',
                     icon: '#icon-random',
                     path: '/tools/other/random',
+                    recommend: false,
                     head: {
                         keywords: ['在线随机数生成'],
                         description: '在线随机数生成'
@@ -772,6 +827,7 @@ export const state = () => {
                     search_keys: 'line downloads',
                     icon: '#icon-line',
                     path: '/tools/other/line_sticker_download',
+                    recommend: false,
                     head: {
                         keywords: [
                             '怎么下载LINE表情包',
@@ -787,6 +843,7 @@ export const state = () => {
                     search_keys: 'baidu',
                     icon: '#icon-baidu',
                     path: '/tools/other/search_help',
+                    recommend: false,
                     head: {
                         keywords: ['帮你百度', '怎么用百度', '怎么用谷歌'],
                         description: '帮你百度'
@@ -797,6 +854,7 @@ export const state = () => {
                     search_keys: 'what comic',
                     icon: '#icon-comic',
                     path: '/tools/other/what_anime_is_this',
+                    recommend: false,
                     head: {
                         keywords: ['根据截图搜索动漫', 'whatanime'],
                         description: '根据截图搜索动漫'
@@ -807,6 +865,7 @@ export const state = () => {
                     search_keys: 'id no credit number',
                     icon: '#icon-credit',
                     path: '/tools/other/chinese_id',
+                    recommend: false,
                     head: {
                         keywords: [
                             '身份证号码查询',

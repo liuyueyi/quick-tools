@@ -49,8 +49,10 @@ export default {
             for (let i = 0; i < tools.length; i++) {
                 const tool = tools[i];
                 const category = tool['title'];
+                const tab = tool['tab'];
                 for (let j = 0; j < tool.list.length; j++) {
                     tool.list[j]['category'] = category;
+                    tool.list[j]['tab'] = tab;
                 }
                 arr = arr.concat(tool.list);
             }

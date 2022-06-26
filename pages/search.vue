@@ -8,7 +8,7 @@
                             <ToolItem
                                 :tool="tool"
                                 :category="tool.category"
-                                :category-path="``"
+                                :category-path="tool.tab"
                             />
                         </template>
                     </div>

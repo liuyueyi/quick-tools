@@ -6,7 +6,7 @@
                     <ToolItem
                         :tool="tool"
                         :category="tool.category"
-                        :category-path="``"
+                        :category-path="tool.tab"
                     />
                 </template>
             </div>
@@ -35,7 +35,10 @@ export default {
         toolsList() {
             let arr = [];
             this.$store.state.tools.forEach(tool => {
-                tool.list.forEach(item => item['category'] = tool['title']);
+                tool.list.forEach(item => {
+                    item['category'] = tool['title'];
+                    item['tab'] = tool['tab'];
+                });
                 arr = arr.concat(tool.list);
             });
             return arr;
