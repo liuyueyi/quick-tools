@@ -29,7 +29,7 @@
 
         <nya-container title="说明">
             <ul class="nya-list">
-                <li><b><nuxt-link to="/tools/image/youtube_logo">点这里切换为YouTube 风格制作</nuxt-link></b></li>
+                <li><b><nuxt-link to="/tools/merge/youtube_logo">点这里切换为YouTube 风格制作</nuxt-link></b></li>
                 <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
             </ul>
         </nya-container>

@@ -1,39 +1,32 @@
 <template>
-    <client-only>
-        <div class="crypto">
-            <nya-container title="在线加密解密">
-                <nya-input v-model="content" fullwidth rows="5" type="textarea" autofocus autocomplete="off"
-                           label="待处理的内容" placeholder="请输入要处理的内容"/>
-                <nya-input v-if="ciphersList[encryption] || HMACList.includes(encryption)" v-model="key" fullwidth
-                           autocomplete="off" :label="HMACList.includes(encryption) ? 'salt' : '密钥'"
-                           :placeholder="`请输入${HMACList.includes(encryption) ? 'salt' : '密钥'}`"/>
-                <nya-input v-if="encryption === 'RC4Drop'" v-model="drop" fullwidth type="number" autocomplete="off"
-                           label="drop" placeholder="RC4Drop特有参数，请输入要丢弃的密匙初始数量"/>
-                <br>
-                <nya-select v-if="!type" v-model="encryption" fullwidth :items="encryptionList" label="选择加密方式"/>
-                <nya-select v-else v-model="encryption" fullwidth :items="ciphersList" label="选择解密方式"/>
-                <br>
-                <nya-checkbox v-model="type" label="解密"/>
-                <br>
-                <button
-                    type="button"
-                    class="nya-btn"
-                    @click="conversion"
-                >
-                    开始转换
-                </button>
-            </nya-container>
+    <div class="crypto">
+        <nya-container title="在线加密解密">
+            <nya-input v-model="content" fullwidth rows="5" type="textarea" autofocus autocomplete="off" label="待处理的内容" placeholder="请输入要处理的内容" />
+            <nya-input v-if="ciphersList[encryption] || HMACList.includes(encryption)" v-model="key" fullwidth autocomplete="off" :label="HMACList.includes(encryption) ? 'salt' : '密钥'" :placeholder="`请输入${HMACList.includes(encryption) ? 'salt' : '密钥'}`" />
+            <nya-input v-if="encryption === 'RC4Drop'" v-model="drop" fullwidth type="number" autocomplete="off" label="drop" placeholder="RC4Drop特有参数，请输入要丢弃的密匙初始数量" />
+            <br>
+            <nya-select v-if="!type" v-model="encryption" fullwidth :items="encryptionList" label="选择加密方式" />
+            <nya-select v-else v-model="encryption" fullwidth :items="ciphersList" label="选择解密方式" />
+            <br>
+            <nya-checkbox v-model="type" label="解密" />
+            <br>
+            <button
+                type="button"
+                class="nya-btn"
+                @click="conversion"
+            >
+                开始转换
+            </button>
+        </nya-container>
 
-            <nya-container v-show="result" :title="`${type ? '解密' : '加密'}成功`">
-                <pre>{{ result }}</pre>
-            </nya-container>
-        </div>
-    </client-only>
+        <nya-container v-show="result" :title="`${type ? '解密' : '加密'}成功`">
+            <pre>{{ result }}</pre>
+        </nya-container>
+    </div>
 </template>
 
 <script>
 import CryptoJS from 'crypto-js';
-
 export default {
     name: 'Crypto',
     head() {

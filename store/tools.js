@@ -113,7 +113,7 @@ export const state = () => {
                     name: '新词释义',
                     search_keys: "zao ci new word",
                     icon: '#icon-word',
-                    path: '/tools/text/new_word',
+                    path: '/tools/text/newWord',
                     recommend: true,
                     head: {
                         keywords: ['造新词', '新词释义'],

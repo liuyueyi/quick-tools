@@ -120,7 +120,7 @@ export default {
             let cells = [];
             for (let index = 0; index < this.newWord.length; index++) {
                 let py = ans[index] ? ans[index][0] : ' ';
-                wordPinyin += p + ' ';
+                wordPinyin += py + ' ';
 
                 cells.push({
                     word: this.newWord.charAt(index),
