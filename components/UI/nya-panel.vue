@@ -1,5 +1,5 @@
 <template>
-    <div class="card margin-padding-1em"
+    <div class="card top-margin-1em"
          :class="{ 'transparent': $store.state.setting.bg.type !== 'none' && $store.state.setting.bg.transparentEl, 'pt': title }">
         <div class="card-header" v-if="head">
             {{ head }}

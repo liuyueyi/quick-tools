@@ -1,10 +1,55 @@
 export const state = () => {
     const tools = [
         {
-            title: '文字处理',
+            title: '文本',
             en_title: 'text',
             icon: 'text-outline',
             list: [
+
+                {
+                    name: '文本加密解密',
+                    search_keys: 'text encrypt decrypt',
+                    icon: '#icon-encrypted',
+                    path: '/tools/code/crypto',
+                    head: {
+                        keywords: [
+                            '文本加密解密',
+                            '文本哈希计算',
+                            'MD5加密',
+                            'AES',
+                            'DES',
+                            'HmacMD5',
+                            'HmacSHA1',
+                            'HmacSHA256',
+                            'HmacSHA512',
+                            'RC4',
+                            'RC4Drop',
+                            'RIPEMD160',
+                            'Rabbit',
+                            'SHA1',
+                            'SHA256',
+                            'SHA3',
+                            'TripleDES'
+                        ],
+                        description: '在线文本哈希散列计算'
+                    }
+                },
+                {
+                    name: '文本编码解码',
+                    search_keys: "text encode decode base64",
+                    icon: '#icon-encode',
+                    path: '/tools/code/encoding',
+                    head: {
+                        keywords: [
+                            '文本编码解码',
+                            '文本base64编码',
+                            '社会主义核心价值观加密'
+                        ],
+                        description: 'base64,unique code,url编解码,敏感词过滤'
+                    }
+                },
+
+
                 {
                     name: '文本对比',
                     search_keys: 'text compare',
@@ -35,6 +80,7 @@ export const state = () => {
                         description: '文本在线替换'
                     }
                 },
+
                 {
                     name: '表格数据格式化',
                     search_keys: "table csv sql format",
@@ -45,31 +91,7 @@ export const state = () => {
                         description: 'csv/table表格数转json,sql'
                     }
                 },
-                {
-                    name: '汉字转拼音',
-                    search_keys: "chinese transfer pinyin zhongwen",
-                    icon: '#icon-pinyin',
-                    path: '/tools/text/pinyin',
-                    head: {
-                        keywords: ['汉字', '中文', '拼音'],
-                        description: '中文汉字转拼音'
-                    }
-                },
-                {
-                    name: '数字转大写中文',
-                    search_keys: "digit to chinese",
-                    icon: '#icon-money',
-                    path: '/tools/text/number_to_zh',
-                    head: {
-                        keywords: [
-                            '数字转大写中文',
-                            '中文金额转换',
-                            '人民币转中文',
-                            '中文转人民币'
-                        ],
-                        description: '在线人民币转中文'
-                    }
-                },
+
                 {
                     name: '字数统计',
                     search_keys: "word count number",
@@ -84,39 +106,16 @@ export const state = () => {
                     }
                 },
                 {
-                    name: '简繁转换',
-                    search_keys: "chinese simple traditional",
-                    icon: '#icon-zhong',
-                    path: '/tools/text/zhconvert',
+                    name: '新词释义',
+                    search_keys: "zao ci new word",
+                    icon: '#icon-word',
+                    path: '/tools/text/new_word',
                     head: {
-                        keywords: [
-                            '简繁转换',
-                            '中文简体转繁体',
-                            '中文繁体转简体',
-                        ],
-                        description: '简繁互转'
+                        keywords: ['造新词', '新词释义'],
+                        description: '给成语添加新的解释说明'
                     }
                 },
-                {
-                    name: '富文本编辑器',
-                    search_keys: "text editor",
-                    icon: '#icon-text-editor',
-                    path: '/tools/text/rich_text_editor',
-                    head: {
-                        keywords: ['富文本编辑器'],
-                        description: '在线富文本编辑器'
-                    }
-                },
-                {
-                    name: 'Markdown 编辑器',
-                    search_keys: "markdown editor",
-                    icon: '#icon-markdown',
-                    path: '/tools/text/markdown',
-                    head: {
-                        keywords: ['Markdown编辑器'],
-                        description: '在线Markdown编辑器'
-                    }
-                },
+
                 {
                     name: '摩斯电码转换',
                     search_keys: "Morse code conversion",
@@ -137,6 +136,7 @@ export const state = () => {
                         description: '在线盲人摸象加解密'
                     }
                 },
+
                 {
                     name: '中英文加空格',
                     search_keys: "space between chinese",
@@ -146,121 +146,58 @@ export const state = () => {
                         keywords: ['中英文加空格'],
                         description: '在线中英文加空格'
                     }
-                }
+                },
             ]
         },
         {
-            title: '编程开发',
-            en_title: 'code',
-            icon: 'code-outline',
+            title: '转换',
+            en_title: 'convert',
+            icon: '',
             list: [
                 {
-                    name: '微信公众号编辑器',
-                    search_keys: "wechat edit",
-                    icon: '#icon-wechat',
-                    path: 'https://wechat.hhui.top',
+                    name: '汉字转拼音',
+                    search_keys: "chinese transfer pinyin zhongwen",
+                    icon: '#icon-pinyin',
+                    path: '/tools/convert/pinyin',
                     head: {
-                        keywords: ['微信公众号编辑器'],
-                        description: '基于markdown生成微信公众号文章的编辑器'
+                        keywords: ['汉字', '中文', '拼音'],
+                        description: '中文汉字转拼音'
                     }
                 },
                 {
-                    name: 'CSS 兼容性处理',
-                    search_keys: "css",
-                    icon: '#icon-css',
-                    path: '/tools/code/autoprefixer',
-                    head: {
-                        keywords: ['CSS兼容性处理', 'autoprefixer', 'postcss'],
-                        description: '在线CSS兼容性处理'
-                    }
-                },
-                {
-                    name: '时间戳转换',
-                    search_keys: "timestamp",
-                    icon: '#icon-timestamp',
-                    path: '/tools/code/timestamp',
-                    head: {
-                        keywords: ['时间戳转换', '时间戳获取', "timestamp"],
-                        description: '在线时间戳转换|格式化工具'
-                    }
-                },
-                {
-                    name: 'HTTP解析',
-                    search_keys: 'http parse',
-                    icon: '#icon-http',
-                    path: '/tools/code/http_format',
-                    head: {
-                        keywords: ['URL参数查看', 'URL参数解析', 'URL编码', 'URL解码', '请求头转JSON', 'JSON转请求头'],
-                        description: 'HTTP参数解析、编解码、请求头处理'
-                    }
-                },
-                {
-                    name: '文本加密解密',
-                    search_keys: 'text encrypt decrypt',
-                    icon: '#icon-encrypted',
-                    path: '/tools/code/crypto',
+                    name: '简繁转换',
+                    search_keys: "chinese simple traditional",
+                    icon: '#icon-zhong',
+                    path: '/tools/convert/zhconvert',
                     head: {
                         keywords: [
-                            '文本加密解密',
-                            '文本哈希计算',
-                            'MD5加密',
-                            'AES',
-                            'DES',
-                            'HmacMD5',
-                            'HmacSHA1',
-                            'HmacSHA256',
-                            'HmacSHA512',
-                            'RC4',
-                            'RC4Drop',
-                            'RIPEMD160',
-                            'Rabbit',
-                            'SHA1',
-                            'SHA256',
-                            'SHA3',
-                            'TripleDES'
+                            '简繁转换',
+                            '中文简体转繁体',
+                            '中文繁体转简体',
                         ],
-                        description: '在线文本哈希散列计算'
+                        description: '简繁互转'
                     }
                 },
                 {
-                    name: 'Linux 命令查询',
-                    search_keys: "linux",
-                    icon: '#icon-linux',
-                    path: '/tools/code/linux_command',
-                    head: {
-                        keywords: ['Linux命令查询'],
-                        description: '在线Linux命令查询'
-                    }
-                },
-                {
-                    name: '文本编码解码',
-                    search_keys: "text encode decode",
-                    icon: '#icon-encode',
-                    path: '/tools/code/encoding',
+                    name: '金额大小写转换',
+                    search_keys: "digit to chinese",
+                    icon: '#icon-money',
+                    path: '/tools/convert/num2zh',
                     head: {
                         keywords: [
-                            '文本编码解码',
-                            '文本base64编码',
-                            '社会主义核心价值观加密'
+                            '数字转大写中文',
+                            '中文金额转换',
+                            '人民币转中文',
+                            '中文转人民币'
                         ],
-                        description: '在线文本编码解码'
-                    }
-                },
-                {
-                    name: '执行 Cron 表达式',
-                    search_keys: 'cron expression',
-                    icon: '#icon-crond',
-                    path: '/tools/code/crontab',
-                    head: {
-                        keywords: ['在线执行Cron表达式', '在线模拟Cron表达式'],
-                        description: '在线执行Cron表达式'
+                        description: '在线人民币转中文'
                     }
                 },
                 {
                     name: '进制转换',
-                    search_keys: 'Binary conversion',
+                    search_keys: 'Binary convert',
                     icon: '#icon-binary',
-                    path: '/tools/code/hexconvert',
+                    path: '/tools/convert/hexconvert',
                     head: {
                         keywords: [
                             '进制转换',
@@ -275,30 +212,179 @@ export const state = () => {
                     hot: 100
                 },
                 {
-                    name: '无类别域间路由(CIDR)计算',
-                    search_keys: 'CIDR(Classless Inter-Domain Routing)',
-                    path: '/tools/code/cidr',
-                    icon: '#icon-cidr',
+                    name: '大小写转换',
+                    search_keys: 'word convert up low',
+                    icon: '#icon-word-up',
+                    path: '/tools/convert/low2up',
                     head: {
                         keywords: [
-                            'CIDR',
-                            'IP',
-                            '网络ID',
-                            'IP地址',
-                            '子网掩码',
-                            '广播地址'
+                            '英文大小写转换',
+                            '首字母大写'
                         ],
-                        description: '在线CIDR子网计算'
+                        description: '大小写转换,首字母大写'
+                    },
+                    hot: 100
+                },
+                {
+                    name: '驼峰下划线',
+                    search_keys: 'camel under line convert',
+                    icon: '#icon-camel',
+                    path: '/tools/convert/camel',
+                    head: {
+                        keywords: [
+                            '驼峰转下换线',
+                            '下划线转驼峰'
+                        ],
+                        description: '驼峰下划线互转'
+                    },
+                    hot: 100
+                },
+            ]
+        },
+        {
+            title: '单位转换',
+            en_title: 'calculate',
+            icon: '',
+            list: [
+                {
+                    name: '亲戚关系计算器',
+                    search_keys: 'relative calculate convert',
+                    icon: '#icon-relation',
+                    path: '/tools/convert/relative',
+                    head: {
+                        keywords: ['亲戚关系计算器'],
+                        description: '在线亲戚关系计算器'
+                    }
+                },
+                {
+                    name: '温度单位转换',
+                    search_keys: 'Temperature unit convert',
+                    icon: '#icon-temperature',
+                    path: '/tools/convert/temperature',
+                    head: {
+                        keywords: [
+                            '温度单位转换',
+                            '摄氏度单位转换',
+                            '华氏度转单位换',
+                            '开氏度单位转换',
+                            '兰氏度单位转换',
+                            '列氏度单位转换'
+                        ],
+                        description: '在线国际温度单位转换'
+                    }
+                },
+            ]
+        },
+        {
+            title: '编辑器',
+            en_title: 'editor',
+            icon: '',
+            list: [
+                {
+                    name: '富文本编辑器',
+                    search_keys: "text editor",
+                    icon: '#icon-text-editor',
+                    path: '/tools/editor/richText',
+                    head: {
+                        keywords: ['富文本编辑器'],
+                        description: '在线富文本编辑器'
+                    }
+                },
+                {
+                    name: 'Markdown 编辑器',
+                    search_keys: "markdown editor",
+                    icon: '#icon-markdown',
+                    path: '/tools/editor/md',
+                    head: {
+                        keywords: ['Markdown编辑器'],
+                        description: '在线Markdown编辑器'
+                    }
+                },
+                {
+                    name: 'JSON 编辑器',
+                    search_keys: 'json editor',
+                    icon: '#icon-json',
+                    path: '/tools/editor/json',
+                    head: {
+                        keywords: ['在线JSON编辑器', 'JSON格式化', 'JSON压缩'],
+                        description: '在线JSON编辑器'
+                    }
+                },
+                {
+                    name: '微信公众号编辑器',
+                    search_keys: "wechat editor markdown",
+                    icon: '#icon-wechat',
+                    path: 'https://wechat.hhui.top',
+                    head: {
+                        keywords: ['微信公众号编辑器'],
+                        description: '基于markdown生成微信公众号文章的编辑器'
+                    }
+                },
+            ]
+        },
+        {
+            title: '编程',
+            en_title: 'code',
+            icon: 'code-outline',
+            list: [
+                {
+                    name: '时间戳转换',
+                    search_keys: "timestamp",
+                    icon: '#icon-timestamp',
+                    path: '/tools/code/timestamp',
+                    head: {
+                        keywords: ['时间戳转换', '时间戳获取', "timestamp"],
+                        description: '在线时间戳转换|格式化工具'
+                    }
+                },
+                {
+                    name: 'HTTP解析',
+                    search_keys: 'http parse',
+                    icon: '#icon-http',
+                    path: '/tools/code/http',
+                    head: {
+                        keywords: ['URL参数查看', 'URL参数解析', 'URL编码', 'URL解码', '请求头转JSON', 'JSON转请求头'],
+                        description: 'HTTP参数解析、编解码、请求头处理'
                     }
                 },
                 {
                     name: 'UserAgent 解析',
                     search_keys: 'UserAgent decode',
                     icon: '#icon-user-agent',
-                    path: '/tools/code/ua_parser',
+                    path: '/tools/code/ua',
                     head: {
                         keywords: ['在线 UserAgent 解析'],
                         description: 'UserAgent 解析'
+                    }
+                },
+                {
+                    name: 'CSS 兼容性处理',
+                    search_keys: "css",
+                    icon: '#icon-css',
+                    path: '/tools/code/autoprefixer',
+                    head: {
+                        keywords: ['CSS兼容性处理', 'autoprefixer', 'postcss'],
+                        description: '在线CSS兼容性处理'
+                    }
+                },
+                {
+                    name: 'Linux 命令查询',
+                    search_keys: "linux",
+                    icon: '#icon-linux',
+                    path: '/tools/code/linux',
+                    head: {
+                        keywords: ['Linux命令查询'],
+                        description: '在线Linux命令查询'
+                    }
+                },
+                {
+                    name: '执行 Cron 表达式',
+                    search_keys: 'cron expression',
+                    icon: '#icon-crond',
+                    path: '/tools/code/crontab',
+                    head: {
+                        keywords: ['在线执行Cron表达式', '在线模拟Cron表达式'],
+                        description: '在线执行Cron表达式'
                     }
                 },
                 {
@@ -319,20 +405,10 @@ export const state = () => {
                     }
                 },
                 {
-                    name: 'JSON 编辑器',
-                    search_keys: 'json editor',
-                    icon: '#icon-json',
-                    path: '/tools/code/json_editor',
-                    head: {
-                        keywords: ['在线JSON编辑器', 'JSON格式化', 'JSON压缩'],
-                        description: '在线JSON编辑器'
-                    }
-                },
-                {
                     name: '正则实例大全',
                     search_keys: 'regular demo',
                     icon: '#icon-regular',
-                    path: '/tools/code/any_rule',
+                    path: '/tools/code/regular',
                     head: {
                         keywords: ['正则大全'],
                         description: '正则实例大全'
@@ -341,8 +417,45 @@ export const state = () => {
             ]
         },
         {
-            title: '图片相关',
-            en_title: 'images',
+            title: '设计',
+            en_title: 'design',
+            icon: 'browser-outline',
+            list: [
+                {
+                    name: '中国传统色',
+                    search_keys: 'chinese color china',
+                    icon: '#icon-color',
+                    path: '/tools/design/chinaColors',
+                    head: {
+                        keywords: ['中国传统色'],
+                        description: '中国传统色'
+                    }
+                },
+                {
+                    name: '日本传统色',
+                    search_keys: 'japan color',
+                    icon: '#icon-japan',
+                    path: '/tools/design/japanColors',
+                    head: {
+                        keywords: ['日本传统色', '日本の伝統色'],
+                        description: '日本传统色'
+                    }
+                },
+                {
+                    name: '颜色提取/转换',
+                    search_keys: 'color pick transformation',
+                    icon: '#icon-pick',
+                    path: '/tools/design/color',
+                    head: {
+                        keywords: ['hex转rgb', '颜色代码转换', '在线颜色选择'],
+                        description: '在线图片颜色提取，颜色格式转换'
+                    }
+                },
+            ]
+        },
+        {
+            title: '图像',
+            en_title: 'img',
             icon: 'image-outline',
             list: [
                 {
@@ -366,20 +479,20 @@ export const state = () => {
                     }
                 },
                 {
-                    name: '二维码生成/解析',
-                    search_keys: 'qrcode generate decode',
-                    icon: '#icon-qrcode',
-                    path: '/tools/image/qrcode_generation',
+                    name: '动画4K高清处理',
+                    search_keys: 'Anime 4k comic',
+                    icon: '#icon-4k',
+                    path: '/tools/image/anime4k',
                     head: {
-                        keywords: ['在线二维码生成', '在线二维码内容解析'],
-                        description: '二维码生成/解析'
+                        keywords: ['anime'],
+                        description: '3毫秒放大你老婆，支持视频/图片。'
                     }
                 },
                 {
                     name: '图片加包浆',
                     search_keys: 'image older',
                     icon: '#icon-image-older',
-                    path: '/tools/image/image_patina',
+                    path: '/tools/image/imagePatina',
                     head: {
                         keywords: [
                             '图片做旧',
@@ -392,81 +505,12 @@ export const state = () => {
                 },
                 {
                     name: '九宫格切图',
-                    search_keys: 'squared paper for practicing calligraphy',
+                    search_keys: 'squared paper for practicing calligraphy nine',
                     icon: '#icon-nine-cell',
-                    path: '/tools/image/img_jiugongge',
+                    path: '/tools/image/jiugongge',
                     head: {
                         keywords: ['图片九宫格', '九宫格切图', '九宫格'],
                         description: '图片分割成九宫格'
-                    }
-                },
-                {
-                    name: 'Anime 4K高清处理',
-                    search_keys: 'Anime 4k',
-                    icon: '#icon-4k',
-                    path: '/tools/image/anime4k',
-                    head: {
-                        keywords: ['anime'],
-                        description: '3毫秒放大你老婆，支持视频/图片。'
-                    }
-                },
-                {
-                    name: '赛博朋克2077图片制作',
-                    search_keys: 'Cyberpunk 2077 image create',
-                    icon: '#icon-cyberpunk',
-                    path: '/tools/image/cyberpunk2077',
-                    head: {
-                        keywords: [
-                            'Cyberpunk2077',
-                            '赛博朋克2077',
-                            'Cyberpunk 2077 meme'
-                        ],
-                        description: '在线Cyberpunk 2077风格图片制作'
-                    }
-                },
-                {
-                    name: '令和举牌生成',
-                    search_keys: 'show image create',
-                    icon: '#icon-brand',
-                    path: '/tools/image/linghe',
-                    head: {
-                        keywords: ['令和举牌风格图片制作'],
-                        description: '在线令和举牌风格图片制作'
-                    }
-                },
-                {
-                    name: 'ACG 表情包制作',
-                    search_keys: 'acg emoticon create ',
-                    icon: '#icon-acg',
-                    path: '/tools/image/acg_meme',
-                    head: {
-                        keywords: [
-                            '动漫表情包制作',
-                            '表情包制作',
-                            '咋百度啊',
-                            '啥玩意儿啊'
-                        ],
-                        description: '在线动漫表情包制作'
-                    }
-                },
-                {
-                    name: 'Pornhub 风格Logo',
-                    search_keys: 'Pornhub style logo',
-                    icon: '#icon-p',
-                    path: '/tools/image/pornhub_logo',
-                    head: {
-                        keywords: ['PornHub 风格图片制作', 'PornHub Logo 制作'],
-                        description: '在线 PornHub 风格图片制作'
-                    }
-                },
-                {
-                    name: 'YouTube 风格Logo',
-                    search_keys: 'YouTube style logo',
-                    icon: '#icon-youtube',
-                    path: '/tools/image/youtube_logo',
-                    head: {
-                        keywords: ['YouTube 风格图片制作', 'YouTube Logo 制作'],
-                        description: '在线 YouTube 风格图片制作'
                     }
                 },
                 {
@@ -483,40 +527,10 @@ export const state = () => {
                     name: 'GIF 图片分解',
                     search_keys: "gif to images",
                     icon: '#icon-gif',
-                    path: '/tools/image/gif_splitter',
+                    path: '/tools/image/gifSplitter',
                     head: {
                         keywords: ['GIF图片分解'],
                         description: '在线分解GIF图片'
-                    }
-                },
-                {
-                    name: '微博生成器',
-                    search_keys: "weibo generate",
-                    icon: '#icon-weibo',
-                    path: '/tools/image/meme-weibo',
-                    head: {
-                        keywords: ['微博生成器', '王思聪微博生成器'],
-                        description: '在线微博生成器'
-                    }
-                },
-                {
-                    name: '抖音风格文字生成',
-                    search_keys: "TikTok style generate ",
-                    icon: '#icon-tiktok',
-                    path: '/tools/image/douyin_text',
-                    head: {
-                        keywords: ['抖音风格文字生成', '抖音样式文字生成'],
-                        description: '在线抖音风格文字生成'
-                    }
-                },
-                {
-                    name: '图片编辑',
-                    search_keys: 'image operate edit',
-                    icon: '#icon-edit-image',
-                    path: '/tools/image/image_editor',
-                    head: {
-                        keywords: ['图片编辑器', '图片处理', '表情包制作'],
-                        description: '在线图片编辑器'
                     }
                 },
                 {
@@ -532,8 +546,176 @@ export const state = () => {
                         ],
                         description: '在线身份证加水印'
                     }
+                },
+                {
+                    name: '图片编辑',
+                    search_keys: 'image operate editor',
+                    icon: '#icon-edit-image',
+                    path: '/tools/image/imageEditor',
+                    head: {
+                        keywords: ['图片编辑器', '图片处理', '表情包制作'],
+                        description: '在线图片编辑器'
+                    }
                 }
             ]
+        },
+        {
+            title: '表情包',
+            en_title: 'merge',
+            icon: '',
+            list: [
+                {
+                    name: '赛博朋克2077图片制作',
+                    search_keys: 'Cyberpunk 2077 image create',
+                    icon: '#icon-cyberpunk',
+                    path: '/tools/merge/cyberpunk2077',
+                    head: {
+                        keywords: [
+                            'Cyberpunk2077',
+                            '赛博朋克2077',
+                            'Cyberpunk 2077 meme'
+                        ],
+                        description: '在线Cyberpunk 2077风格图片制作'
+                    }
+                },
+                {
+                    name: '令和举牌生成',
+                    search_keys: 'show image create',
+                    icon: '#icon-brand',
+                    path: '/tools/merge/linghe',
+                    head: {
+                        keywords: ['令和举牌风格图片制作'],
+                        description: '在线令和举牌风格图片制作'
+                    }
+                },
+                {
+                    name: 'ACG 表情包制作',
+                    search_keys: 'acg emoticon create ',
+                    icon: '#icon-acg',
+                    path: '/tools/merge/acg_meme',
+                    head: {
+                        keywords: [
+                            '动漫表情包制作',
+                            '表情包制作',
+                            '咋百度啊',
+                            '啥玩意儿啊'
+                        ],
+                        description: '在线动漫表情包制作'
+                    }
+                },
+                {
+                    name: 'Pornhub 风格Logo',
+                    search_keys: 'Pornhub style logo',
+                    icon: '#icon-p',
+                    path: '/tools/merge/pornhub_logo',
+                    head: {
+                        keywords: ['PornHub 风格图片制作', 'PornHub Logo 制作'],
+                        description: '在线 PornHub 风格图片制作'
+                    }
+                },
+                {
+                    name: 'YouTube 风格Logo',
+                    search_keys: 'YouTube style logo',
+                    icon: '#icon-youtube',
+                    path: '/tools/merge/youtube_logo',
+                    head: {
+                        keywords: ['YouTube 风格图片制作', 'YouTube Logo 制作'],
+                        description: '在线 YouTube 风格图片制作'
+                    }
+                },
+                {
+                    name: '微博生成器',
+                    search_keys: "weibo generate",
+                    icon: '#icon-weibo',
+                    path: '/tools/merge/weibo',
+                    head: {
+                        keywords: ['微博生成器', '王思聪微博生成器'],
+                        description: '在线微博生成器'
+                    }
+                },
+                {
+                    name: '抖音风格文字生成',
+                    search_keys: "TikTok style generate ",
+                    icon: '#icon-tiktok',
+                    path: '/tools/merge/douyin_text',
+                    head: {
+                        keywords: ['抖音风格文字生成', '抖音样式文字生成'],
+                        description: '在线抖音风格文字生成'
+                    }
+                },
+            ]
+        },
+        {
+            title: '二维码',
+            en_title: 'qrcode',
+            icon: '',
+            list: [
+                {
+                    name: '二维码生成/解析',
+                    search_keys: 'qrcode generate decode',
+                    icon: '#icon-qrcode',
+                    path: '/tools/qr/qrcode',
+                    head: {
+                        keywords: ['在线二维码生成', '在线二维码内容解析'],
+                        description: '二维码生成/解析'
+                    }
+                },
+                {
+                    name: '收款码合并',
+                    search_keys: 'qrcode merge pay credit',
+                    icon: '#icon-pay',
+                    path: '/tools/qr/universal_pay',
+                    head: {
+                        keywords: [
+                            '免费收款码合并',
+                            '免费三码合一',
+                            '支付宝收款码合并',
+                            '微信收款码合并',
+                            'QQ收款码合并'
+                        ],
+                        description: '在线免费收款码合并'
+                    }
+                },
+            ]
+        },
+        {
+            title: '运维&站长',
+            en_title: 'devops',
+            icon: '',
+            list: [
+                {
+                    name: 'SSR/V2ray 配置解析',
+                    search_keys: 'ssr v2ray config',
+                    icon: '#icon-vpn',
+                    path: '/tools/devops/ssr_decode',
+                    head: {
+                        keywords: [
+                            'SSR配置解密',
+                            'SS配置解密',
+                            'V2ray配置解密'
+                        ],
+                        description: '在线SSR配置解析'
+                    }
+                },
+                {
+                    name: '无类别域间路由(CIDR)计算',
+                    search_keys: 'CIDR(Classless Inter-Domain Routing)',
+                    path: '/tools/devops/cidr',
+                    icon: '#icon-cidr',
+                    head: {
+                        keywords: [
+                            'CIDR',
+                            'IP',
+                            '网络ID',
+                            'IP地址',
+                            '子网掩码',
+                            '广播地址'
+                        ],
+                        description: '在线CIDR子网计算'
+                    }
+                },
+
+            ],
         },
         {
             title: '其他工具',
@@ -585,7 +767,6 @@ export const state = () => {
                         description: '在线随机数生成'
                     }
                 },
-
                 {
                     name: 'LINE 贴纸下载',
                     search_keys: 'line downloads',
@@ -612,30 +793,6 @@ export const state = () => {
                     }
                 },
                 {
-                    name: 'SSR/V2ray 配置解析',
-                    search_keys: 'ssr v2ray config',
-                    icon: '#icon-vpn',
-                    path: '/tools/other/ssr_decode',
-                    head: {
-                        keywords: [
-                            'SSR配置解密',
-                            'SS配置解密',
-                            'V2ray配置解密'
-                        ],
-                        description: '在线SSR配置解析'
-                    }
-                },
-                {
-                    name: '亲戚关系计算器',
-                    search_keys: 'relative calculate',
-                    icon: '#icon-relation',
-                    path: '/tools/other/relatives_name',
-                    head: {
-                        keywords: ['亲戚关系计算器'],
-                        description: '在线亲戚关系计算器'
-                    }
-                },
-                {
                     name: '这是什么动漫',
                     search_keys: 'what comic',
                     icon: '#icon-comic',
@@ -643,69 +800,6 @@ export const state = () => {
                     head: {
                         keywords: ['根据截图搜索动漫', 'whatanime'],
                         description: '根据截图搜索动漫'
-                    }
-                },
-                {
-                    name: '中国传统色',
-                    search_keys: 'chinese color',
-                    icon: '#icon-color',
-                    path: '/tools/other/china_colors',
-                    head: {
-                        keywords: ['中国传统色'],
-                        description: '中国传统色'
-                    }
-                },
-                {
-                    name: '日本传统色',
-                    search_keys: 'japan color',
-                    icon: '#icon-japan',
-                    path: '/tools/other/japan_colors',
-                    head: {
-                        keywords: ['日本传统色', '日本の伝統色'],
-                        description: '日本传统色'
-                    }
-                },
-                {
-                    name: '颜色提取/转换',
-                    search_keys: 'color pick transformation',
-                    icon: '#icon-pick',
-                    path: '/tools/other/color',
-                    head: {
-                        keywords: ['hex转rgb', '颜色代码转换', '在线颜色选择'],
-                        description: '在线图片颜色提取，颜色格式转换'
-                    }
-                },
-                {
-                    name: '收款码合并',
-                    search_keys: 'qrcode merge pay credit',
-                    icon: '#icon-pay',
-                    path: '/tools/other/universal_pay',
-                    head: {
-                        keywords: [
-                            '免费收款码合并',
-                            '免费三码合一',
-                            '支付宝收款码合并',
-                            '微信收款码合并',
-                            'QQ收款码合并'
-                        ],
-                        description: '在线免费收款码合并'
-                    }
-                },
-                {
-                    name: '温度单位转换',
-                    search_keys: 'Temperature unit conversion',
-                    icon: '#icon-temperature',
-                    path: '/tools/other/temperature_conversion',
-                    head: {
-                        keywords: [
-                            '温度单位转换',
-                            '摄氏度单位转换',
-                            '华氏度转单位换',
-                            '开氏度单位转换',
-                            '兰氏度单位转换',
-                            '列氏度单位转换'
-                        ],
-                        description: '在线国际温度单位转换'
                     }
                 },
                 {
@@ -723,33 +817,7 @@ export const state = () => {
                     }
                 }
             ]
-        },
-        // {
-        //     title: '网站相关',
-        //     en_title: 'website settings',
-        //     icon: 'settings-2-outline',
-        //     list: [
-        //         {
-        //             name: '网站设置',
-        //             search_keys: 'setting',
-        //             path: '/setting',
-        //             icon: 'settings-2-outline'
-        //         },
-        //         {
-        //             name: '工具隐藏',
-        //             search_keys: 'tool hide',
-        //             path: '/hide_tool',
-        //             icon: 'scissors-outline'
-        //
-        //         },
-        //         {
-        //             name: '友情链接',
-        //             search_keys: 'links',
-        //             path: '/links',
-        //             icon: 'link-outline'
-        //         }
-        //     ]
-        // }
+        }
     ];
 
     tools.forEach(i => {

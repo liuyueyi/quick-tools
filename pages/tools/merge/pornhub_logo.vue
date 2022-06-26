@@ -1,5 +1,5 @@
 <template>
-    <div class="pornhub_logo">
+    <div class="new_word">
         <nya-container title="Pornhub 风格Logo生成">
             <div class="nya-subtitle">
                 点击下面的文字开始编辑
@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style lang="scss">
-.pornhub_logo {
+.new_word {
     .logo {
         overflow: auto;
         background-color: #000000;
