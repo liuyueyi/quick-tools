@@ -4,7 +4,8 @@
         <a class="navbar-brand" href="/">
             <img src="/icon.svg" width="30" height="30" alt="" loading="lazy">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+                @click="showOrHide">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -90,7 +91,16 @@ export default {
         },
         login() {
             this.$noty.success('登录功能尚未完成，敬请期待');
-        }
+        },
+        showOrHide() {
+            let display = document.getElementById('collapsibleNavbar').style.display;
+            if (display && display == 'block') {
+                document.getElementById('collapsibleNavbar').style.display = 'none';
+            } else {
+                document.getElementById('collapsibleNavbar').style.display = 'block';
+            }
+            console.log('dis', display);
+        },
     }
 };
 </script>
