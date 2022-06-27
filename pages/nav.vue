@@ -1,19 +1,19 @@
 <template>
     <div class="home">
-        <Search v-model="searchText" @enter="enterFirst">
-            <template slot-scope="data">
-                <nuxt-link
-                    v-for="(tool, index) in data.data"
-                    v-show="showBtn(tool)"
-                    :key="index"
-                    :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                    :to="tool.path"
-                    class="nya-btn"
-                >
-                    {{ tool.name }}
-                </nuxt-link>
-            </template>
-        </Search>
+<!--        <Search v-model="searchText" @enter="enterFirst">-->
+<!--            <template slot-scope="data">-->
+<!--                <nuxt-link-->
+<!--                    v-for="(tool, index) in data.data"-->
+<!--                    v-show="showBtn(tool)"-->
+<!--                    :key="index"-->
+<!--                    :target="$store.state.setting.inNewTab ? '_blank' : '_self'"-->
+<!--                    :to="tool.path"-->
+<!--                    class="nya-btn"-->
+<!--                >-->
+<!--                    {{ tool.name }}-->
+<!--                </nuxt-link>-->
+<!--            </template>-->
+<!--        </Search>-->
 
         <!-- 分类展示   -->
         <template v-show="!searchText">
@@ -23,19 +23,8 @@
                 :key="index"
                 :icon="item.icon"
                 :title="item.title">
-                <template v-for="(tool, index2) in item.list">
-                    <nav-item
-                        v-if="showBtn(tool)"
-                        :key="index2"
-                        :title="tool.name"
-                        :desc="tool.name"
-                        :to="tool.path"
-                        :icon="tool.icon"
-                        class="nya-btn"
-                        :class="[tool.hot, {'badge': tool.hot}]"
-                    >
-                    </nav-item>
-                </template>
+                <nav-box :item="item">
+                </nav-box>
 
             </nya-container>
         </template>
@@ -45,11 +34,15 @@
 <script>
 import isMobile from 'ismobilejs';
 import NavItem from "../components/NavItem";
+import NavBox from "../components/NavBox";
+import Template from "./tools/code/cdnjs";
 
 export default {
     name: 'Home',
     components: {
+        Template,
         NavItem,
+        NavBox,
     },
     head() {
         return {
@@ -65,13 +58,13 @@ export default {
         };
     },
     computed: {
-        toolsList() {
-            let arr = [];
-            this.$store.state.navs.forEach(tool => {
-                arr = arr.concat(tool.list);
-            });
-            return arr;
-        }
+        // toolsList() {
+            // let arr = [];
+            // this.$store.state.navs.forEach(tool => {
+            //     arr = arr.concat(tool.list);
+            // });
+            // return arr;
+        // }
     },
     methods: {
         enterFirst(e) {

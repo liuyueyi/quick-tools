@@ -95,14 +95,13 @@ export default {
     },
     watch: {
         index() {
-            this.tableString = '';
+            this.t1 = '';
+            this.t2 = '';
         },
         t1() {
-            console.log("t1", this.t1);
             this.tableFormat();
         },
         t2() {
-            console.log("t2", this.t2);
             this.tableFormat();
         },
         tableString() {

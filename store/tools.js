@@ -256,7 +256,7 @@ export const state = () => {
             ]
         },
         {
-            title: '单位转换',
+            title: '计算',
             tab: 'calculate',
             icon: '',
             list: [
