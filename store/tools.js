@@ -289,6 +289,21 @@ export const state = () => {
                         description: '在线国际温度单位转换'
                     }
                 },
+                {
+                    name: '时间转换',
+                    search_keys: 'time unit convert',
+                    icon: '#icon-time',
+                    path: '/tools/convert/time',
+                    recommend: false,
+                    head: {
+                        keywords: [
+                            '时间转换',
+                            '年周天',
+                            '时分秒',
+                        ],
+                        description: '年、周、天、时分秒、毫秒相互之间的时间单位转换'
+                    }
+                },
             ]
         },
         {

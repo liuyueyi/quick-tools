@@ -47,6 +47,7 @@ export default {
     data() {
         return {
             tabLinks: [
+                {path: "/nav", tab: "导航"},
                 {path: "/favorite", tab: "收藏"},
                 {path: "/setting", tab: "设置"},
             ],

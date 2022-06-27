@@ -104,8 +104,8 @@ export default {
             this.$noty.success('导入成功');
         },
         clearCache() {
-            localStorage.removeItem('mikudb');
-            localStorage.removeItem('miku_vuex');
+            localStorage.removeItem('quick_db');
+            localStorage.removeItem('quick_vuex');
             alert('清除成功，即将刷新页面');
             window.location.reload();
         }

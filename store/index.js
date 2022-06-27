@@ -38,7 +38,10 @@ export const state = () => ({
     welcome: true,
     isMobile: {},
     env: env,
-    syncTime: 0
+    syncTime: 0,
+    uuid: '',
+    navigation: [
+    ]
 });
 
 const disabledMouseWheel = e => e.stopPropagation();
