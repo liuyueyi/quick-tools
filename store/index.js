@@ -16,6 +16,7 @@ export const state = () => ({
         hideCategory: false,
         hideSidebar: false,
         hidePay: true,
+        hideQuickLink: false,
         hideNotice: false,
         hideHomeSearch: false,
         hideHomeFavorite: false,

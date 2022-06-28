@@ -17,7 +17,8 @@
         </nya-panel>
 
 
-        <nya-panel title="快捷导航">
+        <nya-panel title="快捷导航" v-show="!this.$store.state.setting.hideQuickLink"
+                   :sub-title="this.favorites && this.favorites.length > 0 ? '' : '收藏的工具栏可以显示在这里哦~'">
             <template v-for="(tool, index2) in this.favorites" v-show="this.favorites">
                 <nya-link
                     :to="tool.path"
@@ -25,7 +26,6 @@
                     {{ tool.name }}
                 </nya-link>
             </template>
-            <span v-show="!this.favorites">收藏的工具栏可以显示在这里哦~</span>
         </nya-panel>
 
 

@@ -1,33 +1,43 @@
 <template>
     <div class="home">
-<!--        <Search v-model="searchText" @enter="enterFirst">-->
-<!--            <template slot-scope="data">-->
-<!--                <nuxt-link-->
-<!--                    v-for="(tool, index) in data.data"-->
-<!--                    v-show="showBtn(tool)"-->
-<!--                    :key="index"-->
-<!--                    :target="$store.state.setting.inNewTab ? '_blank' : '_self'"-->
-<!--                    :to="tool.path"-->
-<!--                    class="nya-btn"-->
-<!--                >-->
-<!--                    {{ tool.name }}-->
-<!--                </nuxt-link>-->
-<!--            </template>-->
-<!--        </Search>-->
+        <nya-container>
+            <div class="card no-border card-panel" v-show="!searchText">
+                <ul class="nav nav-tabs" data-bs-toggle="tabs">
+                    <li v-for="(item, index) in tabList"
+                        class="nav-item"
+                        @click="chooseTab(item.tag)">
+                        <a class="nav-link" :class="isTabActivated(item.tag) ? 'active' : ''" style="color: #212529"
+                           data-bs-toggle="tab" :href="'/nav/#' + item.tag">{{ item.category }}</a>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active show">
+                            <div class="item-list">
+                                <template v-for="(tool, index3) in this.itemList" class="item-list">
+                                    <nav-box :item="tool">
+                                    </nav-box>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nya-container>
 
-        <!-- 分类展示   -->
-        <template v-show="!searchText">
-            <nya-container
-                v-for="(item, index) in $store.state.navs"
-                v-show="!searchText"
-                :key="index"
-                :icon="item.icon"
-                :title="item.title">
-                <nav-box :item="item">
-                </nav-box>
+<!--        &lt;!&ndash; 分类展示   &ndash;&gt;-->
+<!--        <template v-show="!searchText">-->
+<!--            <nya-container-->
+<!--                v-for="(item, index) in $store.state.navs"-->
+<!--                v-show="!searchText"-->
+<!--                :key="index"-->
+<!--                :icon="item.icon"-->
+<!--                :title="item.title">-->
+<!--                <nav-box :item="item">-->
+<!--                </nav-box>-->
 
-            </nya-container>
-        </template>
+<!--            </nya-container>-->
+<!--        </template>-->
     </div>
 </template>
 
@@ -36,6 +46,9 @@ import isMobile from 'ismobilejs';
 import NavItem from "../components/NavItem";
 import NavBox from "../components/NavBox";
 import Template from "./tools/code/cdnjs";
+
+const DEFAULT_TAB = "recommend";
+const DEFAULT_TAB_NAME = "精选";
 
 export default {
     name: 'Home',
@@ -50,21 +63,48 @@ export default {
         };
     },
     props: {},
+    watch: {
+        $route: {
+            immediate: true,
+            handler() {
+                this.activeTab = this.getActiveTab();
+            }
+        },
+    },
     data() {
         return {
             title: `${process.env.title} - ${process.env.description}`,
             searchText: '',
+            activeTab: 'design',
             isMobile
         };
     },
     computed: {
-        // toolsList() {
-            // let arr = [];
-            // this.$store.state.navs.forEach(tool => {
-            //     arr = arr.concat(tool.list);
-            // });
-            // return arr;
-        // }
+        tabList() {
+            let arr = [{
+                category: DEFAULT_TAB_NAME,
+                tag: DEFAULT_TAB,
+            }];
+            arr = [];
+            this.$store.state.navs.forEach(tool => {
+                arr.push({
+                    category: tool.title,
+                    tag: tool.tab,
+                })
+            });
+            return arr;
+        },
+        itemList() {
+            let arr = [];
+            this.$store.state.navs.forEach(tool => {
+                if (this.activeTab === DEFAULT_TAB) {
+                    arr.push(tool)
+                } else if (tool['tab'] === this.activeTab) {
+                    arr.push(tool);
+                }
+            });
+            return arr;
+        }
     },
     methods: {
         enterFirst(e) {
@@ -81,6 +121,29 @@ export default {
         },
         showBtn(tool) {
             return this.$store.state.setting.hide.indexOf(tool.path) === -1;
+        },
+        isTabActivated(tabName) {
+            // 判断当前tab页是否被选中
+            return this.activeTab === tabName;
+        },
+        chooseTab(tabName) {
+            // 选择某个分类对应的工具箱
+            this.activeTab = tabName;
+        },
+        getActiveTab() {
+            let tags = [DEFAULT_TAB];
+            let hash = this.$route.hash;
+            this.$store.state.navs.forEach(tool => {
+                tags.push(tool.tab);
+            });
+            let choose = DEFAULT_TAB;
+            for (let i = 0; i < tags.length; i++) {
+                if (hash.indexOf('#' + tags[i]) >= 0) {
+                    choose = tags[i];
+                    break;
+                }
+            }
+            return choose;
         }
     }
 };
@@ -102,6 +165,9 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .no-border {
+        border: 0 solid #ced4da;
     }
 
     .nya-btn {

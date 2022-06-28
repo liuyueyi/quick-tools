@@ -11,6 +11,9 @@
                 </template>
             </div>
         </nya-container>
+        <nya-panel v-else title="收藏夹" text="暂无收藏项，快到工具箱去收藏喜欢的小工具吧~">
+
+        </nya-panel>
     </div>
 </template>
 

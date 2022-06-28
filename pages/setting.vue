@@ -17,6 +17,8 @@
                           @change="handleChange('setting.hideSidebar', $event)"/>
             <nya-checkbox :checked="$store.state.setting.hidePay" label="隐藏打赏"
                           @change="handleChange('setting.hidePay', $event)"/>
+            <nya-checkbox :checked="$store.state.setting.hideQuickLink" label="隐藏快捷导航"
+                          @change="handleChange('setting.hideQuickLink', $event)"/>
             <nya-checkbox :checked="$store.state.setting.inNewTab" label="新标签打开工具"
                           @change="handleChange('setting.inNewTab', $event)"/>
             <nya-checkbox :checked="$store.state.setting.animations" label="启用过渡动画"

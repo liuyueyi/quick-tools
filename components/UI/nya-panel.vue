@@ -10,7 +10,7 @@
             <h6 class="card-subtitle mb-2 text-muted" v-if="subTitle">{{ subTitle }}</h6>
             <slot v-else name="subTitle"></slot>
 
-            <p class="card-text" v-if="text">{{ text }}</p>
+            <p class="card-text" v-show="text">{{ text }}</p>
             <slot></slot>
         </div>
     </div>

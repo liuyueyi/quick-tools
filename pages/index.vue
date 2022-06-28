@@ -140,7 +140,7 @@ export default {
             this.activeTab = tabName;
         },
         getActiveTab() {
-            let tags = ['all'];
+            let tags = [DEFAULT_TAB];
             let hash = this.$route.hash;
             this.$store.state.tools.forEach(tool => {
                 tags.push(tool.tab);
