@@ -25,19 +25,19 @@
             </div>
         </nya-container>
 
-<!--        &lt;!&ndash; 分类展示   &ndash;&gt;-->
-<!--        <template v-show="!searchText">-->
-<!--            <nya-container-->
-<!--                v-for="(item, index) in $store.state.navs"-->
-<!--                v-show="!searchText"-->
-<!--                :key="index"-->
-<!--                :icon="item.icon"-->
-<!--                :title="item.title">-->
-<!--                <nav-box :item="item">-->
-<!--                </nav-box>-->
+        <!--        &lt;!&ndash; 分类展示   &ndash;&gt;-->
+        <!--        <template v-show="!searchText">-->
+        <!--            <nya-container-->
+        <!--                v-for="(item, index) in $store.state.navs"-->
+        <!--                v-show="!searchText"-->
+        <!--                :key="index"-->
+        <!--                :icon="item.icon"-->
+        <!--                :title="item.title">-->
+        <!--                <nav-box :item="item">-->
+        <!--                </nav-box>-->
 
-<!--            </nya-container>-->
-<!--        </template>-->
+        <!--            </nya-container>-->
+        <!--        </template>-->
     </div>
 </template>
 
@@ -47,8 +47,9 @@ import NavItem from "../components/NavItem";
 import NavBox from "../components/NavBox";
 import Template from "./tools/code/cdnjs";
 
-const DEFAULT_TAB = "recommend";
-const DEFAULT_TAB_NAME = "精选";
+const RECOMMEND_TAB = "recommend";
+const RECOMMEND_TAB_NAME = "精选";
+const DEFAULT_TAB = "design";
 
 export default {
     name: 'Home',
@@ -75,15 +76,15 @@ export default {
         return {
             title: `${process.env.title} - ${process.env.description}`,
             searchText: '',
-            activeTab: 'design',
+            activeTab: DEFAULT_TAB,
             isMobile
         };
     },
     computed: {
         tabList() {
             let arr = [{
-                category: DEFAULT_TAB_NAME,
-                tag: DEFAULT_TAB,
+                category: RECOMMEND_TAB_NAME,
+                tag: RECOMMEND_TAB,
             }];
             arr = [];
             this.$store.state.navs.forEach(tool => {
@@ -97,7 +98,7 @@ export default {
         itemList() {
             let arr = [];
             this.$store.state.navs.forEach(tool => {
-                if (this.activeTab === DEFAULT_TAB) {
+                if (this.activeTab === RECOMMEND_TAB) {
                     arr.push(tool)
                 } else if (tool['tab'] === this.activeTab) {
                     arr.push(tool);
@@ -131,7 +132,7 @@ export default {
             this.activeTab = tabName;
         },
         getActiveTab() {
-            let tags = [DEFAULT_TAB];
+            let tags = [RECOMMEND_TAB];
             let hash = this.$route.hash;
             this.$store.state.navs.forEach(tool => {
                 tags.push(tool.tab);
@@ -155,6 +156,7 @@ export default {
         display: block;
         margin-bottom: 15px;
     }
+
     table {
         width: 100%;
         table-layout: auto;
@@ -166,6 +168,7 @@ export default {
         align-items: center;
         justify-content: center;
     }
+
     .no-border {
         border: 0 solid #ced4da;
     }
