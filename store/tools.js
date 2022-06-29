@@ -261,6 +261,17 @@ export const state = () => {
             icon: '',
             list: [
                 {
+                    name: '集合计算',
+                    search_keys: 'set calculate',
+                    icon: '#icon-set-collection',
+                    path: '/tools/convert/set',
+                    recommend: false,
+                    head: {
+                        keywords: ['集合计算', '交集', '并集', '补集', '差集', '全集'],
+                        description: '集合操作计算'
+                    }
+                },
+                {
                     name: '亲戚关系计算器',
                     search_keys: 'relative calculate convert',
                     icon: '#icon-relation',
@@ -504,6 +515,17 @@ export const state = () => {
             tab: 'img',
             icon: 'image-outline',
             list: [
+                {
+                    name: 'SVG渲染',
+                    search_keys: 'svg format conversion render',
+                    icon: '#icon-svg',
+                    path: '/tools/image/svg',
+                    recommend: false,
+                    head: {
+                        keywords: ['svg', 'jpg', 'png', 'pdf', 'eps'],
+                        description: 'svg渲染 & svg转png/jpg/pdf'
+                    }
+                },
                 {
                     name: '图片格式转换',
                     search_keys: 'image format conversion',
