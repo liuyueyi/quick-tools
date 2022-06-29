@@ -166,12 +166,12 @@ module.exports = {
         '@nuxtjs/axios',
         '@nuxtjs/pwa',
         '@nuxtjs/style-resources',
-        // [
-        //     '@nuxtjs/google-analytics',
-        //     {
-        //         id: ''
-        //     }
-        // ],
+        [
+            '@nuxtjs/google-analytics',
+            {
+                id: 'G-BB1TDY2FS9'
+            }
+        ],
         [
             'vue-sweetalert2/nuxt',
             {

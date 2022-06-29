@@ -7,6 +7,9 @@
             <li title="打赏" @click="$modal.show('pay')">
                 <i class="eva eva-gift"></i>
             </li>
+            <li title="手机" @click="viewInPhone">
+                <i class="eva eva-smartphone-outline"></i>
+            </li>
             <li title="分享" @click="share">
                 <i class="eva eva-share"></i>
                 <span></span>

@@ -1,21 +1,5 @@
 <template>
     <div class="home">
-        <Welcome/>
-        <Search v-model="searchText" @enter="enterFirst" v-show="!this.$store.state.setting.hideHomeSearch">
-            <template slot-scope="data">
-                <div class="item-list">
-                    <template class="item-list" v-for="(tool, index2) in data.data">
-                        <ToolItem
-                            :tool="tool"
-                            :category="tool.category"
-                            :category-path="tool.tab"
-                        />
-                    </template>
-                </div>
-            </template>
-        </Search>
-        <Favorites v-show="!searchText && !this.$store.state.setting.hideHomeFavorite"/>
-
         <nya-container>
             <div class="card no-border card-panel" v-show="!searchText">
                 <ul class="nav nav-tabs" data-bs-toggle="tabs">
@@ -23,7 +7,7 @@
                         class="nav-item"
                         @click="chooseTab(item.tag)">
                         <a class="nav-link" :class="isTabActivated(item.tag) ? 'active' : ''" style="color: #212529"
-                           data-bs-toggle="tab" :href="'/#' + item.tag">{{ item.category }}</a>
+                           data-bs-toggle="tab" :href="'/nav/#' + item.tag">{{ item.category }}</a>
                     </li>
                 </ul>
                 <div class="card-body">
@@ -31,11 +15,8 @@
                         <div class="tab-pane active show">
                             <div class="item-list">
                                 <template v-for="(tool, index3) in this.itemList" class="item-list">
-                                    <ToolItem
-                                        :tool="tool"
-                                        :category="tool.category"
-                                        :category-path="tool.tab"
-                                    />
+                                    <nav-box :item="tool">
+                                    </nav-box>
                                 </template>
                             </div>
                         </div>
@@ -43,31 +24,46 @@
                 </div>
             </div>
         </nya-container>
+
+        <!--        &lt;!&ndash; 分类展示   &ndash;&gt;-->
+        <!--        <template v-show="!searchText">-->
+        <!--            <nya-container-->
+        <!--                v-for="(item, index) in $store.state.navs"-->
+        <!--                v-show="!searchText"-->
+        <!--                :key="index"-->
+        <!--                :icon="item.icon"-->
+        <!--                :title="item.title">-->
+        <!--                <nav-box :item="item">-->
+        <!--                </nav-box>-->
+
+        <!--            </nya-container>-->
+        <!--        </template>-->
     </div>
 </template>
 
 <script>
-import Favorites from '~/components/Favorites';
-import Search from '~/components/Search';
-import Welcome from '~/components/Welcome';
-import ToolItem from "~/components/ToolItem";
+import isMobile from 'ismobilejs';
+import NavItem from "../components/NavItem";
+import NavBox from "../components/NavBox";
+import Template from "./tools/code/cdnjs";
 
-const DEFAULT_TAB = "recommend";
-const DEFAULT_TAB_NAME = "推荐";
+const RECOMMEND_TAB = "recommend";
+const RECOMMEND_TAB_NAME = "精选";
+const DEFAULT_TAB = "design";
 
 export default {
     name: 'Home',
     components: {
-        Favorites,
-        Search,
-        Welcome,
-        ToolItem,
+        Template,
+        NavItem,
+        NavBox,
     },
     head() {
         return {
             title: this.title
         };
     },
+    props: {},
     watch: {
         $route: {
             immediate: true,
@@ -80,16 +76,18 @@ export default {
         return {
             title: `${process.env.title} - ${process.env.description}`,
             searchText: '',
-            activeTab: this.getActiveTab(),
+            activeTab: DEFAULT_TAB,
+            isMobile
         };
     },
     computed: {
         tabList() {
             let arr = [{
-                category: DEFAULT_TAB_NAME,
-                tag: DEFAULT_TAB,
+                category: RECOMMEND_TAB_NAME,
+                tag: RECOMMEND_TAB,
             }];
-            this.$store.state.tools.forEach(tool => {
+            arr = [];
+            this.$store.state.navs.forEach(tool => {
                 arr.push({
                     category: tool.title,
                     tag: tool.tab,
@@ -99,21 +97,11 @@ export default {
         },
         itemList() {
             let arr = [];
-            this.$store.state.tools.forEach(tool => {
-                if (this.activeTab === DEFAULT_TAB) {
-                    tool.list.forEach(item => {
-                        item['category'] = tool['title'];
-                        item['tab'] = tool['tab'];
-                        if (item['recommend']) {
-                            arr.push(item);
-                        }
-                    });
+            this.$store.state.navs.forEach(tool => {
+                if (this.activeTab === RECOMMEND_TAB) {
+                    arr.push(tool)
                 } else if (tool['tab'] === this.activeTab) {
-                    tool.list.forEach(item => {
-                        item['category'] = tool['title'];
-                        item['tab'] = tool['tab'];
-                    });
-                    arr = arr.concat(tool.list);
+                    arr.push(tool);
                 }
             });
             return arr;
@@ -121,14 +109,18 @@ export default {
     },
     methods: {
         enterFirst(e) {
-            if (this.$store.state.setting.inNewTab) {
-                window.open(e.path);
-            } else {
-                this.$router.push(e.path);
-            }
+            window.open(e.path);
+        },
+        showSection(item) {
+            return !(
+                item.list.filter(i => {
+                    return (
+                        this.$store.state.setting.hide.indexOf(i.path) !== -1
+                    );
+                }).length === item.list.length
+            );
         },
         showBtn(tool) {
-            // 隐藏的工具栏不再显示
             return this.$store.state.setting.hide.indexOf(tool.path) === -1;
         },
         isTabActivated(tabName) {
@@ -140,9 +132,9 @@ export default {
             this.activeTab = tabName;
         },
         getActiveTab() {
-            let tags = [DEFAULT_TAB];
+            let tags = [RECOMMEND_TAB];
             let hash = this.$route.hash;
-            this.$store.state.tools.forEach(tool => {
+            this.$store.state.navs.forEach(tool => {
                 tags.push(tool.tab);
             });
             let choose = DEFAULT_TAB;
@@ -177,19 +169,8 @@ export default {
         justify-content: center;
     }
 
-    .item-list {
-        display: grid;
-        gap: 13px;
-        grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-        justify-content: space-evenly;
-    }
-
     .no-border {
         border: 0 solid #ced4da;
-    }
-
-    .card-panel {
-        margin-top: -2em;
     }
 
     .nya-btn {
@@ -204,8 +185,10 @@ export default {
         white-space: nowrap;
         transition: all 0.3s ease;
         background-color: transparent;
-        font-size: 18px;
+        font-size: 1.1em;
         border-radius: 4px;
+        padding-top: 0.4em;
+        padding-bottom: 0.4em;
 
         &:hover {
             transform: translateY(-2px);
@@ -223,32 +206,6 @@ export default {
             box-shadow: none;
             margin: 5px;
             width: calc(50% - 10px);
-        }
-    }
-
-    .pay {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: space-around;
-
-        li {
-            margin: 0;
-            list-style: none;
-            padding: 10px;
-
-            .name {
-                text-align: center;
-                font-size: 25px;
-                font-weight: bold;
-                margin-top: 5px;
-            }
-
-            img {
-                width: 200px;
-                max-width: 100%;
-            }
         }
     }
 

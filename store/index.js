@@ -16,6 +16,7 @@ export const state = () => ({
         hideCategory: false,
         hideSidebar: false,
         hidePay: true,
+        hideQuickLink: false,
         hideNotice: false,
         hideHomeSearch: false,
         hideHomeFavorite: false,
@@ -38,7 +39,8 @@ export const state = () => ({
     welcome: true,
     isMobile: {},
     env: env,
-    syncTime: 0
+    syncTime: 0,
+    uuid: '',
 });
 
 const disabledMouseWheel = e => e.stopPropagation();

@@ -1,5 +1,5 @@
 <template>
-    <div class="card margin-padding-1em"
+    <div class="card top-margin-1em"
          :class="{ 'transparent': $store.state.setting.bg.type !== 'none' && $store.state.setting.bg.transparentEl, 'pt': title }">
         <div class="card-header" v-if="head">
             {{ head }}
@@ -10,7 +10,7 @@
             <h6 class="card-subtitle mb-2 text-muted" v-if="subTitle">{{ subTitle }}</h6>
             <slot v-else name="subTitle"></slot>
 
-            <p class="card-text" v-if="text">{{ text }}</p>
+            <p class="card-text" v-show="text">{{ text }}</p>
             <slot></slot>
         </div>
     </div>

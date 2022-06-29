@@ -7,6 +7,9 @@
         <nya-container v-if="results" title="处理成功">
             <pre>{{ results }}</pre>
         </nya-container>
+
+        <nya-foot-info title="Tips">
+        </nya-foot-info>
     </div>
 </template>
 

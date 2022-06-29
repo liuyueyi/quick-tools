@@ -14,19 +14,19 @@
         <nya-container v-if="number!=''" title="结果">
             <table>
                 <tbody>
-                    <template v-for="chars in hans">
-                        <template v-for="(value, index) in chars.data">
-                            <tr :key="index+chars.lang+'0'">
-                                <td rowspan="2">
-                                    {{ chars.lang == 'cn'?'简体':'繁体' }}{{ value.name }}
-                                </td>
-                                <td>{{ value.encode[0] }}</td>
-                            </tr>
-                            <tr :key="index+chars.lang+'1'">
-                                <td>{{ value.encode[1] }}</td>
-                            </tr>
-                        </template>
+                <template v-for="chars in hans">
+                    <template v-for="(value, index) in chars.data">
+                        <tr :key="index+chars.lang+'0'">
+                            <td rowspan="2">
+                                {{ chars.lang == 'cn' ? '简体' : '繁体' }}{{ value.name }}
+                            </td>
+                            <td>{{ value.encode[0] }}</td>
+                        </tr>
+                        <tr :key="index+chars.lang+'1'">
+                            <td>{{ value.encode[1] }}</td>
+                        </tr>
                     </template>
+                </template>
                 </tbody>
             </table>
         </nya-container>
@@ -48,17 +48,15 @@
         <nya-container v-show="numResult" title="转换成功">
             <pre>{{ numResult }}</pre>
         </nya-container>
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>基于 nzh 把数字转换为大小写中文。</li>
-                <li>
-                    超大数转换中文争议请访问 <a href="https://github.com/cnwhy/nzh#nzh" target="_blank" rel="noopener noreferrer">
-                        nzh
-                    </a>。
-                </li>
-                <li>中文转数字仅支持简体大小写汉字。</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="说明">
+            <li>基于 nzh 把数字转换为大小写中文。</li>
+            <li>
+                超大数转换中文争议请访问 <a href="https://github.com/cnwhy/nzh#nzh" target="_blank" rel="noopener noreferrer">
+                nzh
+            </a>。
+            </li>
+            <li>中文转数字仅支持简体大小写汉字。</li>
+        </nya-foot-info>
     </div>
 </template>
 
@@ -90,20 +88,20 @@ export default {
                             name: '中文小写',
                             encode: [
                                 nzhcn.encodeS(n),
-                                nzhcn.encodeS(n, { tenMin: false })
+                                nzhcn.encodeS(n, {tenMin: false})
                             ]
                         },
                         {
                             name: '中文大写',
                             encode: [
                                 nzhcn.encodeB(n),
-                                nzhcn.encodeB(n, { tenMin: true })
+                                nzhcn.encodeB(n, {tenMin: true})
                             ]
                         },
                         {
                             name: '金额大写',
                             encode: [
-                                nzhcn.toMoney(n, { outSymbol: false }),
+                                nzhcn.toMoney(n, {outSymbol: false}),
                                 nzhcn.toMoney(n, {
                                     outSymbol: false,
                                     complete: true
@@ -119,20 +117,20 @@ export default {
                             name: '中文小写',
                             encode: [
                                 nzhhk.encodeS(n),
-                                nzhhk.encodeS(n, { tenMin: false })
+                                nzhhk.encodeS(n, {tenMin: false})
                             ]
                         },
                         {
                             name: '中文大写',
                             encode: [
                                 nzhhk.encodeB(n),
-                                nzhhk.encodeB(n, { tenMin: true })
+                                nzhhk.encodeB(n, {tenMin: true})
                             ]
                         },
                         {
                             name: '金额大写',
                             encode: [
-                                nzhhk.toMoney(n, { outSymbol: false }),
+                                nzhhk.toMoney(n, {outSymbol: false}),
                                 nzhhk.toMoney(n, {
                                     outSymbol: false,
                                     complete: true
@@ -181,17 +179,21 @@ export default {
         border-collapse: collapse;
         border-spacing: 0;
         width: 100%;
+
         td {
             &[rowspan='2'] {
                 text-align: center;
             }
+
             border: 0.0625rem solid #dbdbdb;
             padding: 0.5em 0.75em;
+
             video {
                 max-width: 100%;
             }
         }
     }
+
     .ntz {
         width: 100%;
     }

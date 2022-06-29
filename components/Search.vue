@@ -17,7 +17,7 @@
             >
         </div>
 
-        <nya-container v-if="value" title="搜索结果" icon="search-outline">
+        <nya-container v-show="value" title="搜索结果" icon="search-outline">
             <slot :data="searchList"></slot>
             <p v-show="!searchList.length" class="search-placeholder">
                 暂无搜索结果
@@ -49,8 +49,10 @@ export default {
             for (let i = 0; i < tools.length; i++) {
                 const tool = tools[i];
                 const category = tool['title'];
+                const tab = tool['tab'];
                 for (let j = 0; j < tool.list.length; j++) {
                     tool.list[j]['category'] = category;
+                    tool.list[j]['tab'] = tab;
                 }
                 arr = arr.concat(tool.list);
             }
@@ -71,7 +73,7 @@ export default {
                 } else if (tool.name.toLowerCase().indexOf(value) >= 0) {
                     // 拼音搜索
                     results.push(tool);
-                } else if (tool.en_name.toLowerCase().indexOf(value) >= 0) {
+                } else if (tool.search_keys.toLowerCase().indexOf(value) >= 0) {
                     // 英文搜索
                     results.push(tool);
                 }

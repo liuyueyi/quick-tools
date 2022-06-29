@@ -17,6 +17,8 @@
                           @change="handleChange('setting.hideSidebar', $event)"/>
             <nya-checkbox :checked="$store.state.setting.hidePay" label="隐藏打赏"
                           @change="handleChange('setting.hidePay', $event)"/>
+            <nya-checkbox :checked="$store.state.setting.hideQuickLink" label="隐藏快捷导航"
+                          @change="handleChange('setting.hideQuickLink', $event)"/>
             <nya-checkbox :checked="$store.state.setting.inNewTab" label="新标签打开工具"
                           @change="handleChange('setting.inNewTab', $event)"/>
             <nya-checkbox :checked="$store.state.setting.animations" label="启用过渡动画"
@@ -104,8 +106,8 @@ export default {
             this.$noty.success('导入成功');
         },
         clearCache() {
-            localStorage.removeItem('mikudb');
-            localStorage.removeItem('miku_vuex');
+            localStorage.removeItem('quick_db');
+            localStorage.removeItem('quick_vuex');
             alert('清除成功，即将刷新页面');
             window.location.reload();
         }

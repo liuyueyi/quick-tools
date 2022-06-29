@@ -36,7 +36,7 @@
             <ul class="nya-list">
                 <li>
                     <b>
-                        <nuxt-link to="/tools/image/pornhub_logo">点这里切换为Pornhub 风格制作</nuxt-link>
+                        <nuxt-link to="/tools/merge/pornhub_logo">点这里切换为Pornhub 风格制作</nuxt-link>
                     </b>
                 </li>
                 <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>

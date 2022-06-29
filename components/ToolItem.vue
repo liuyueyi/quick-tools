@@ -1,5 +1,5 @@
 <template>
-    <div class="item" @click="jumpTo">
+    <div class="item">
         <div class="item-inner">
             <div class="item-hd">
                 <nya-link :to="tool.path" class="item-icon">
@@ -12,17 +12,19 @@
                 </h3>
                 <span v-if="category" class="item-category mid-font">
                     [<nya-link :target="$store.state.setting.inNewTab ? '_blank' : '_self'"
-                               :to="categoryPath" rel="nofollow">{{
+                               :to="'/#' + categoryPath" rel="nofollow" @click.stop="">{{
                         category
                     }}</nya-link>]</span>
                 <a title="收藏" class="collectable collect" href="javascript:;" data-url="/">
-                    <i v-if="collected" class="eva eva-star small-font" @click.stop="collect"><var>取消</var> </i>
-                    <i v-else class="eva eva-star-outline small-font" @click.stop="collect"><var>收藏</var> </i>
+                    <i v-if="collected" class="eva eva-star small-font" style="color:gray"
+                       @click.stop="collect"><var>取消</var> </i>
+                    <i v-else class="eva eva-star-outline small-font" style="color:blue"
+                       @click.stop="collect"><var>收藏</var> </i>
                 </a>
             </div>
-            <div class="item-bd">
+            <div class="item-bd" @click="jumpTo">
                 <div v-if="tool.head.description !== null " class="item-desc dd"
-                     :title="`${tool.head.description}`">
+                     title="工具描述">
                     {{ getDesc(tool.head.meta, tool.name) }}
                 </div>
                 <div v-else class="item-desc" :title="`${tool.name}`">{{ tool.name }}</div>

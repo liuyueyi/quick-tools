@@ -425,18 +425,22 @@ img {
     padding-top: 6em;
 }
 
-.margin-padding-1em {
+.top-margin-1em {
     margin-top: 1em;
 }
 
-.margin-padding-2em {
+.top-margin-2em {
     margin-top: 2em;
 }
 
-.margin-padding-4em {
+.top-margin-4em {
     margin-top: 4em;
 }
 
-.margin-padding-6em {
+.top-margin-6em {
     margin-top: 6em;
+}
+
+.no-border {
+    border: 0 solid #ced4da;
 }

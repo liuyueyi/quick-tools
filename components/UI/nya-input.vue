@@ -1,6 +1,6 @@
 <template>
     <div class="nya-input" :class="{ 'fullwidth': fullwidth }">
-        <Dynamic v-if="label" class="input-title" tag="label" :for="id" :template="label"/>
+        <Dynamic v-if="label" :class="subtitle ? 'input-sub-title': 'input-title'" tag="label" :for="id" :template="label"/>
         <div v-if="type === 'file'" class="input-file">
             <input
                 :id="id"
@@ -70,6 +70,10 @@ export default {
             default: '',
             type: String
         },
+        subtitle:{
+            type: Boolean,
+            default: false,
+        },
         value: {
             default: null,
             type: [String, Number]
@@ -131,6 +135,13 @@ export default {
     .input-title {
         display: block;
         font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .input-sub-title {
+        display: block;
+        font-size: 14px;
         margin-bottom: 10px;
         font-weight: bold;
     }

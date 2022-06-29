@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NyaReadonlyInput v-if="this.$route.path !== '/'"
+        <NyaReadonlyInput v-show="this.$route.path !== '/'"
                           :val="currentPath"
                           :copy-icon="true">
         </NyaReadonlyInput>
@@ -14,6 +14,18 @@
                 <a href="https://github.com/liuyueyi/quick-tools" target="_blank"><i
                     class="eva eva-github-outline"/></a>
             </div>
+        </nya-panel>
+
+
+        <nya-panel title="快捷导航" v-show="!this.$store.state.setting.hideQuickLink"
+                   :sub-title="this.favorites && this.favorites.length > 0 ? '' : '收藏的工具栏可以显示在这里哦~'">
+            <template v-for="(tool, index2) in this.favorites" v-show="this.favorites">
+                <nya-link
+                    :to="tool.path"
+                    class="quick-link">
+                    {{ tool.name }}
+                </nya-link>
+            </template>
         </nya-panel>
 
 
@@ -52,7 +64,7 @@
         </nya-panel>
 
         <nya-panel head="请作者喝一杯咖啡？" v-if="!$store.state.setting.hidePay" class="text-center"
-                   :title="this.showOnePayQrcode ? '聚合二维码': ''">
+                   :sub-title="this.showOnePayQrcode ? '聚合收款码': '打赏码'">
             <button class="nya-btn " @click="updateShowPayWay">切换</button>
             <div class="text-center" v-if="this.showOnePayQrcode">
                 <img
@@ -109,7 +121,16 @@ export default {
     name: 'Panel',
     components: {Template, NyaPanel, NyaReadonlyInput},
     props: {
-        showOnePayQrcode: true,
+        showOnePayQrcode: {
+            type: Boolean,
+            default: true,
+        },
+    },
+    watch: {
+        '$route'() {
+            // 解决页面跳转之后，sidebar不更新的问题
+            this.currentPath = process.env.url + this.$route.fullPath;
+        }
     },
     data() {
         return {
@@ -121,10 +142,46 @@ export default {
         updateShowPayWay() {
             this.showOnePayQrcode = !this.showOnePayQrcode;
         }
+    },
+    computed: {
+        toolsList() {
+            let arr = [];
+            this.$store.state.tools.forEach(tool => {
+                tool.list.forEach(item => {
+                    item['category'] = tool['title'];
+                    item['tab'] = tool['tab'];
+                });
+                arr = arr.concat(tool.list);
+            });
+            return arr;
+        },
+        favorites() {
+            let results = [];
+            this.toolsList.forEach(tool => {
+                if (
+                    this.$store.state.setting.favorites.indexOf(tool.path) !==
+                    -1
+                )
+                    results.push(tool);
+            });
+            return results;
+        }
     }
 };
 </script>
 
 <style lang="scss">
-
+.quick-link {
+    display: inline-block;
+    font-size: 0.8em;
+    padding: 2px;
+    margin: 2px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid var(--border-color);
+    background-color: rgba($color: var(--theme), $alpha: .1);
+    color: var(--t1);
+    transition: border-color .2s ease, color .2s ease;
+    letter-spacing: 1px;
+}
 </style>

@@ -60,17 +60,15 @@
             </div>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul className="nya-list">
-                <li>
-                    使用：<a
-                    href="https://github.com/liuyueyi/quick-jsdemo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >quick-jsdemo</a> js文本替换
-                </li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="说明">
+            <li>
+                使用：<a
+                href="https://github.com/liuyueyi/quick-jsdemo"
+                target="_blank"
+                rel="noopener noreferrer"
+            >quick-jsdemo</a> js文本替换
+            </li>
+        </nya-foot-info>
     </div>
 </template>
 
@@ -175,13 +173,5 @@ export default {
 </script>
 
 <style>
-.d2h-file-header {
-    display: none;
-}
 
-.d2h-file-wrapper {
-    border: none;
-    border-radius: none;
-    margin-bottom: none;
-}
 </style>
