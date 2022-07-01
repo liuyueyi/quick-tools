@@ -1,13 +1,16 @@
 <template>
     <div class="nya-container" :class="{ 'transparent': $store.state.setting.bg.type !== 'none' && $store.state.setting.bg.transparentEl, 'pt': title }">
         <div v-if="title" class="nya-title">
-            <i v-if="icon" :class="'eva eva-' + icon"></i>
+            <i v-show="icon" :class="'eva eva-' + icon"></i>
             <span v-if="title">{{ title }}</span>
             <slot v-else name="title"></slot>
         </div>
         <div v-if="$store.state.inFrames" class="nya-stitle">
             <span>本工具来自：</span>
             <a :href="`${$store.state.env.url}`" target="_blank" rel="noopener noreferrer">{{ $store.state.env.url }}</a>
+        </div>
+        <div v-if="desc">
+            <blockquote >{{ desc }}</blockquote>
         </div>
         <slot></slot>
     </div>
@@ -17,6 +20,10 @@
 export default {
     props: {
         title: {
+            type: String,
+            default: ''
+        },
+        desc: {
             type: String,
             default: ''
         },

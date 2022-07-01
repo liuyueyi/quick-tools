@@ -1,9 +1,9 @@
 <template>
     <div class="json_editor">
-        <button class="nya-btn mt-15" @click="download">
+        <button class="btn btn-outline-primary" @click="download">
             下载 JSON 文件
         </button>
-        <div ref="jsonEditor" class="jsonEditor"></div>
+        <div ref="jsonEditor" class="jsonEditor nya-top"></div>
     </div>
 </template>
 
@@ -57,7 +57,7 @@ export default {
     .jsonEditor {
         height: 700px;
     }
-    .nya-btn {
+    .nya-top {
         margin-top: 15px;
     }
 }

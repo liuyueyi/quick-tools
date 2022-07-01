@@ -2,13 +2,13 @@
     <div class="vfooter">
         <div>
             <span class="small-font">
-                更新时间: 2022-06-24 | 工具数量: <nya-link to="/">{{ this.toolNum }}</nya-link>
+                更新时间: 2022-07-01 | 工具数量: <nya-link to="/">{{ this.toolNum }}</nya-link>
             </span>
         </div>
         <div>
             <span class="small-font">
                     © 2022 <a target="_blank" href="https://github.com/liuyueyi">一灰灰Blog</a> 版权所有 |
-                <a href="http://www.beian.miit.gov.cn" target="_blank">鄂ICP备18017282号</a>
+                <a href="http://beian.miit.gov.cn" target="_blank">鄂ICP备18017282号</a>
             </span>
         </div>
         <div>

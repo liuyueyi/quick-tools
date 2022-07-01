@@ -637,10 +637,32 @@ export const state = () => {
             ]
         },
         {
-            title: '表情包',
+            title: '图片合成',
             tab: 'merge',
             icon: '',
             list: [
+                {
+                    name: '占位图',
+                    search_keys: 'image placeholder',
+                    icon: '#icon-place-holder',
+                    path: '/tools/merge/imgholder',
+                    recommend: false,
+                    head: {
+                        keywords: ['image', 'placeholder', 'holder', '占位图'],
+                        description: '生成占位图'
+                    }
+                },
+                {
+                    name: '专栏封面',
+                    search_keys: 'image cover blog',
+                    icon: '#icon-banner',
+                    path: '/tools/merge/blogCover',
+                    recommend: false,
+                    head: {
+                        keywords: ['image', 'blog', 'cover'],
+                        description: '博文封面、专栏封面便捷生成器'
+                    }
+                },
                 {
                     name: '赛博朋克2077图片制作',
                     search_keys: 'Cyberpunk 2077 image create',
