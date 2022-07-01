@@ -30,6 +30,10 @@ module.exports = {
                 charset: 'utf-8'
             },
             {
+                name: '360-site-verification',
+                content: "aba65fcc68a4639d33bb5b88a8a680af"
+            },
+            {
                 hid: 'viewport',
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1'
@@ -56,7 +60,7 @@ module.exports = {
             },
             {
                 property: 'og:site_name',
-                content: 'QuickTools'
+                content: '神奇工具箱'
             },
             {
                 name: 'mobile-web-app-capable',
@@ -64,7 +68,7 @@ module.exports = {
             },
             {
                 name: 'apple-mobile-web-app-title',
-                content: 'QuickTools'
+                content: '神奇工具箱'
             },
             {
                 name: 'apple-mobile-web-app-status-bar-style',

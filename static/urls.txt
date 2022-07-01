@@ -22,7 +22,6 @@ https://tool.hhui.top/tools/convert/time
 https://tool.hhui.top/tools/editor/richText
 https://tool.hhui.top/tools/editor/md
 https://tool.hhui.top/tools/editor/json
-https://tool.hhui.tophttps://wechat.hhui.top
 https://tool.hhui.top/tools/code/timestamp
 https://tool.hhui.top/tools/code/http
 https://tool.hhui.top/tools/code/ua
@@ -36,8 +35,6 @@ https://tool.hhui.top/tools/design/japanColors
 https://tool.hhui.top/tools/design/color
 https://tool.hhui.top/tools/image/imgholder
 https://tool.hhui.top/tools/image/svg
-https://tool.hhui.tophttps://svgtopng.com/
-https://tool.hhui.tophttps://squoosh.app/
 https://tool.hhui.top/tools/image/anime4k
 https://tool.hhui.top/tools/image/imagePatina
 https://tool.hhui.top/tools/image/jiugongge
@@ -64,6 +61,7 @@ https://tool.hhui.top/tools/other/line_sticker_download
 https://tool.hhui.top/tools/other/search_help
 https://tool.hhui.top/tools/other/what_anime_is_this
 https://tool.hhui.top/tools/other/chinese_id
+https://tool.hhui.top/tools/merge/blogCover
 https://tool.hhui.top/nav
 https://tool.hhui.top/favorite
 https://tool.hhui.top/setting
