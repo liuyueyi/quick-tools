@@ -42,10 +42,9 @@
                 </div>
             </div>
         </nya-container>
-        <nya-container title="计算结果" :desc="resultDesc">
+        <nya-container title="计算结果" :desc="resultDesc" v-show="this.setA || this.setB">
             <nya-copy :copy="results">
-                <Dynamic :template="results"/>
-                <!--                <pre>{{results}}</pre>-->
+                <pre>{{results}}</pre>
             </nya-copy>
         </nya-container>
 
@@ -74,9 +73,7 @@ export default {
                 {label: '不同时在AB', desc: '要么在A，要么在B集合中的元素'},
             ],
             setA: '',
-            setANum: 0,
             setB: '',
-            setBNum: 0,
             results: '',
             resultDesc: '',
             joinSymbol: ',',
