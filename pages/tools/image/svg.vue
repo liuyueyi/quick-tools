@@ -33,23 +33,15 @@
 </template>
 
 <script>
-import 'vue-slider-component/theme/default.css';
-import {Compact} from 'vue-color';
 import domtoimage from "dom-to-image";
 import createDownload from '~/utils/createDownload.js';
 
-let VueSlider;
-if (process.browser) {
-    VueSlider = require('vue-slider-component');
-}
 export default {
     name: 'Svg',
     head() {
         return this.$store.state.currentTool.head;
     },
     components: {
-        'compact-picker': Compact,
-        VueSlider
     },
     data() {
         return {

@@ -516,6 +516,17 @@ export const state = () => {
             icon: 'image-outline',
             list: [
                 {
+                    name: '占位图',
+                    search_keys: 'image placeholder',
+                    icon: '#icon-place-holder',
+                    path: '/tools/image/imgholder',
+                    recommend: false,
+                    head: {
+                        keywords: ['image', 'placeholder', 'holder', '占位图'],
+                        description: '生成占位图'
+                    }
+                },
+                {
                     name: 'SVG渲染',
                     search_keys: 'svg format conversion render',
                     icon: '#icon-svg',

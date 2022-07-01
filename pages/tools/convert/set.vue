@@ -7,6 +7,10 @@
                         <nya-radio v-for="(label, i) in labels" class="mr-15" :value="i" :key="i" :label="label.label"/>
                     </nya-radio-group>
                 </div>
+                <span> &nbsp; | &nbsp; </span>
+
+                <nya-checkbox :checked="newLineOutput" label="换行输出"
+                              @change="handleChange"/>
             </div>
             <small> {{ labels[index].desc }} </small>
 
@@ -46,7 +50,7 @@
         </nya-container>
 
         <nya-foot-info title="Tips">
-            <li> 纯JS实现集合运算：计算数组的交、差、并、补 </li>
+            <li> 纯JS实现集合运算：计算数组的交、差、并、补</li>
         </nya-foot-info>
     </div>
 </template>
@@ -71,7 +75,9 @@ export default {
                 {label: '不同时在AB', desc: '要么在A，要么在B集合中的元素'},
             ],
             newString: '',
-            results: ''
+            results: '',
+            joinSymbol: ',',
+            newLineOutput: false,
         };
     },
     watch: {
@@ -125,8 +131,17 @@ export default {
                 res = res.concat(b.filter(i => !a.includes(i)));
             }
 
-            this.results = res.join(",");
-        }
+            this.results = res.join(this.joinSymbol);
+        },
+        handleChange() {
+            this.newLineOutput = !this.newLineOutput
+            if (this.newLineOutput) {
+                this.joinSymbol = '\n';
+            } else {
+                this.joinSymbol = ',';
+            }
+            this.diff();
+        },
     }
 };
 </script>
