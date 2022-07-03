@@ -6,8 +6,22 @@ export const state = () => {
             icon: 'text-outline',
             list: [
                 {
+                    name: '文件base64',
+                    search_keys: 'file base64',
+                    icon: '#icon-file-encode',
+                    path: '/tools/code/base64',
+                    recommend: false,
+                    head: {
+                        keywords: [
+                            'base64',
+                            'image',
+                        ],
+                        description: '文件base64编码'
+                    }
+                },
+                {
                     name: '文本加密解密',
-                    search_keys: 'text encrypt decrypt',
+                    search_keys: 'text encrypt decrypt base64',
                     icon: '#icon-encrypted',
                     path: '/tools/code/crypto',
                     recommend: false,
@@ -46,7 +60,7 @@ export const state = () => {
                             '文本base64编码',
                             '社会主义核心价值观加密'
                         ],
-                        description: 'base64,unique code,url编解码,敏感词过滤'
+                        description: 'base64,unicode,url编解码,敏感词过滤'
                     }
                 },
                 {
