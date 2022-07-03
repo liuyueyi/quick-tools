@@ -60,7 +60,7 @@
             </div>
         </nya-container>
 
-        <nya-foot-info title="说明">
+        <nya-foot-info title="Tips">
             <li>
                 使用：<a
                 href="https://github.com/liuyueyi/quick-jsdemo"

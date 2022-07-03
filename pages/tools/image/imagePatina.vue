@@ -24,7 +24,7 @@
                 图片质量
             </div>
             <client-only>
-                <vue-slider v-model="quality" lazy :min="0" :max="100" />
+                <vue-slider v-model="quality" lazy :min="0" :max="100"/>
             </client-only>
 
             <nya-input
@@ -54,23 +54,23 @@
             </div>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>为什么要写这个功能可以参考：<a href="https://www.zhihu.com/question/29345490" target="_blank" rel="noopener noreferrer">https://www.zhihu.com/question/29345490</a></li>
-                <li>新做的表情包没人用？表情包没有年代感？这时即可使用本工具把图片做旧，让表情包看起来传播次数更多，更有收藏价值</li>
-                <li>如果处理时间过长或处理失败，请使用其他浏览器，推荐使用 Chrome</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>为什么要写这个功能可以参考：<a href="https://www.zhihu.com/question/29345490" target="_blank"
+                                 rel="noopener noreferrer">https://www.zhihu.com/question/29345490</a></li>
+            <li>新做的表情包没人用？表情包没有年代感？这时即可使用本工具把图片做旧，让表情包看起来传播次数更多，更有收藏价值</li>
+            <li>如果处理时间过长或处理失败，请使用其他浏览器，推荐使用 Chrome</li>
+        </nya-foot-info>
     </div>
 </template>
 
 <script>
 let VueSlider;
 import 'vue-slider-component/theme/default.css';
+import createDownload from '~/utils/createDownload';
+
 if (process.browser) {
     VueSlider = require('vue-slider-component');
 }
-import createDownload from '~/utils/createDownload';
 export default {
     name: 'ImagePatina',
     head() {
@@ -198,23 +198,28 @@ export default {
     .nya-subtitle {
         margin-top: 15px;
     }
+
     .vue-slider {
         margin-bottom: 15px;
     }
+
     .preview {
         width: 100%;
         font-size: 0;
         display: flex;
         justify-content: space-between;
+
         .nya-subtitle {
             padding: 0;
         }
+
         div {
             width: 50%;
             padding: 0 20px;
             box-sizing: border-box;
             display: inline-block;
         }
+
         @media (max-width: 600px) {
             div {
                 width: 100%;
@@ -222,6 +227,7 @@ export default {
             }
             display: block;
         }
+
         img {
             width: 100%;
         }

@@ -64,7 +64,7 @@
                 <img :src="results" alt="results">
             </nya-container>
 
-            <nya-foot-info title="说明">
+            <nya-foot-info title="Tips">
                 <li>本工具基于 <a href="https://github.com/tsayen/dom-to-image" target="_blank">dom-to-image</a> 实现，感谢大佬开源 </li>
                 <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
             </nya-foot-info>

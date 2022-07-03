@@ -15,6 +15,8 @@
         <nya-container v-show="result" title="转换成功">
             <pre>{{ result }}</pre>
         </nya-container>
+
+        <nya-foot-info title="Tips"></nya-foot-info>
     </div>
 
 </template>

@@ -33,35 +33,35 @@
                 字体大小
             </div>
             <client-only>
-                <vue-slider v-model="options.fontSize" lazy :min="10" :max="30" />
+                <vue-slider v-model="options.fontSize" lazy :min="10" :max="30"/>
             </client-only>
 
             <div class="nya-subtitle">
                 透明度
             </div>
             <client-only>
-                <vue-slider v-model="options.alpha" lazy :min="0" :max="10" />
+                <vue-slider v-model="options.alpha" lazy :min="0" :max="10"/>
             </client-only>
 
             <div class="nya-subtitle">
                 旋转角度
             </div>
             <client-only>
-                <vue-slider v-model="options.rotate" lazy :min="0" :max="360" />
+                <vue-slider v-model="options.rotate" lazy :min="0" :max="360"/>
             </client-only>
 
             <div class="nya-subtitle">
                 文本间距
             </div>
             <client-only>
-                <vue-slider v-model="options.width" lazy :min="0" :max="100" />
+                <vue-slider v-model="options.width" lazy :min="0" :max="100"/>
             </client-only>
 
             <div class="nya-subtitle">
                 文字颜色
             </div>
             <client-only>
-                <compact-picker v-model="colors" @input="updateColor" />
+                <compact-picker v-model="colors" @input="updateColor"/>
             </client-only>
 
             <div v-if="preview" class="nya-subtitle">
@@ -73,13 +73,10 @@
             </div>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li><b>主要用于某些需要实名认证的情况下，避免将您的一些信息泄露出去</b></li>
-                <li><b>全部过程均在本地进行，不会在云端存储您的任何信息</b></li>
-                <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li><b>主要用于某些需要实名认证的情况下，避免将您的一些信息泄露出去</b></li>
+            <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
+        </nya-foot-info>
     </div>
 </template>
 
@@ -87,7 +84,8 @@
 import createDownload from '~/utils/createDownload.js';
 import domtoimage from 'dom-to-image';
 import 'vue-slider-component/theme/default.css';
-import { Compact } from 'vue-color';
+import {Compact} from 'vue-color';
+
 let VueSlider;
 if (process.browser) {
     VueSlider = require('vue-slider-component');
@@ -185,13 +183,16 @@ export default {
     .nya-subtitle {
         margin-top: 15px;
     }
+
     .preview {
         position: relative;
         max-width: 800px;
+
         img {
             width: 100%;
             height: 100%;
         }
+
         .watermark {
             position: absolute;
             left: 0;
@@ -200,9 +201,11 @@ export default {
             height: 100%;
         }
     }
+
     .results {
         max-width: 100%;
     }
+
     .inputbtn {
         margin-bottom: 15px;
     }

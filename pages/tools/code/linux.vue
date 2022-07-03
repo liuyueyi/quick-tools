@@ -5,7 +5,7 @@
                 <div class="title">
                     {{ command }} 命令详情
                 </div>
-                <Dynamic class="content typo" :template="content" />
+                <Dynamic class="content typo" :template="content"/>
                 <div class="close-modal" @click="$modal.hide('readCommand')">
                     关闭
                 </div>
@@ -36,16 +36,14 @@
             </a>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>
-                    数据来自 <a href="https://github.com/jaywcjlove/linux-command" target="_blank" rel="noopener noreferrer">
-                        jaywcjlove/linux-command
-                    </a>
-                </li>
-                <li>部分地区无法访问unpkg的cdn，如果出现网络错误请自行更换环境使用</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>
+                数据来自 <a href="https://github.com/jaywcjlove/linux-command" target="_blank" rel="noopener noreferrer">
+                jaywcjlove/linux-command
+            </a>
+            </li>
+            <li>部分地区无法访问unpkg的cdn，如果出现网络错误请自行更换环境使用</li>
+        </nya-foot-info>
     </div>
 </template>
 
@@ -53,6 +51,7 @@
 import dayjs from 'dayjs';
 import md from '~/utils/markdown.js';
 import Dynamic from '@/components/Dynamic';
+
 export default {
     name: 'LinuxCommand',
     components: {
@@ -165,18 +164,22 @@ export default {
     .nya-subtitle {
         margin-top: 15px;
     }
+
     li {
         cursor: pointer;
+
         &:active,
         &:hover {
             text-decoration: underline;
         }
     }
+
     .readCommand_modal {
         padding: 15px;
         border-radius: 5px;
         background-color: var(--t2);
         max-width: 100%;
+
         .title {
             text-align: center;
             margin-bottom: 10px;
@@ -185,6 +188,7 @@ export default {
             padding-bottom: 15px;
             border-bottom: 1px solid #dad9d9;
         }
+
         .close-modal {
             text-align: center;
             padding-top: 15px;

@@ -19,7 +19,7 @@
 
         </nya-container>
 
-        <nya-foot-info title="说明">
+        <nya-foot-info title="Tips">
             <li>按1年365天计算</li>
         </nya-foot-info>
     </div>

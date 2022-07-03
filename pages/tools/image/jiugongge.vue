@@ -35,6 +35,9 @@
             </div>
             <img v-if="source" :src="image.src" alt="原图" />
         </nya-container>
+
+        <nya-foot-info title="Tips">
+        </nya-foot-info>
     </div>
 </template>
 <script>

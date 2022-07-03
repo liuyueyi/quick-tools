@@ -64,7 +64,7 @@
             <img :src="results" alt="results">
         </nya-container>
 
-        <nya-container title="说明">
+        <nya-container title="Tips">
             <ul class="nya-list">
                 <li><b>如果你看到的文字不是书法字体，请等待1分钟左右，或更换浏览器使用</b></li>
                 <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 <b>Chrome</b></li>

@@ -25,7 +25,7 @@
             <p><b>生肖：</b>{{ results.birthDay.zodiac_zh }}</p>
         </nya-container>
 
-        <nya-container title="说明">
+        <nya-container title="Tips">
             <ul class="nya-list">
                 <li>若因使用这些随机生成的身份证号码而产生任何问题和纠纷，本网站不承担任何直接或间接的责任！</li>
                 <li>所有计算均在本地进行，不会保存您的任何数据</li>

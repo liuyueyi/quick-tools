@@ -81,7 +81,7 @@
             </div>
         </nya-container>
 
-        <nya-foot-info title="说明">
+        <nya-foot-info title="Tips">
             <li>图片裁剪功能基于<a href="https://github.com/fengyuanchen/cropperjs" target="_blank">cropperjs</a>实现，请右键保存裁剪后的图片
             </li>
             <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>

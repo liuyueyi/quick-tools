@@ -76,7 +76,7 @@
             </nya-copy>
         </nya-container>
 
-        <nya-container title="说明">
+        <nya-container title="Tips">
             <li><small>参考了小程序<b> lifecount </b>而制作的网页版本</small></li>
             <li><b>假设我们的寿命是80岁,分为400个方块。</b></li>
             <div class="hint">

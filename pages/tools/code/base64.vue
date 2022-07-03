@@ -21,7 +21,7 @@
             </nya-copy>
         </nya-container>
 
-        <nya-foot-info title="说明">
+        <nya-foot-info title="Tips">
             <li>文件base64编码便于网络传输，注意不要选择太大的文件哦</li>
         </nya-foot-info>
     </div>

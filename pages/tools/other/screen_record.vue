@@ -15,7 +15,7 @@
         <nya-container v-show="previewUrl && !mediaStream" title="预览">
             <video ref="preview" :src="previewUrl" style="width:100%" loop controls autoplay></video>
         </nya-container>
-        <nya-container title="说明">
+        <nya-container title="Tips">
             <ul class="nya-list">
                 <li>选项设置不生效？Chrome 了解一下！</li>
                 <li>

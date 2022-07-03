@@ -27,6 +27,11 @@
                 <img :src="item" alt="">
             </div>
         </nya-container>
+
+
+        <nya-foot-info title="Tips">
+            <li>如果转换时间过长请使用其他浏览器尝试，推荐使用Chrome</li>
+        </nya-foot-info>
     </div>
 </template>
 

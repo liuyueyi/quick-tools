@@ -32,18 +32,18 @@
             <img v-else :src="dataUrl" alt="QRCode" class="qrcode">
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>本站仅提供简单的二维码生成，如有其他样式需求可自行选择其他工具</li>
-                <li>二维码识别若出现错误，可能由于二维码内容过于复杂或不是一个二维码</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>本站仅提供简单的二维码生成，如有其他样式需求可自行选择其他工具</li>
+            <li>二维码识别若出现错误，可能由于二维码内容过于复杂或不是一个二维码</li>
+            <li>对生成个性化二维码有需求的小伙伴，可以尝试一下[https://github.com/liuyueyi/quick-media](quick-media)，一个java侧的个性二维码生成工具包</li>
+        </nya-foot-info>
     </div>
 </template>
 
 <script>
 import QR from 'qr-image';
 import qrcodeReader from '~/utils/qrcode-reader.js';
+
 export default {
     name: 'QrcodeGeneration',
     head() {
@@ -116,6 +116,7 @@ export default {
     .upfile {
         width: 100%;
     }
+
     .qrcode {
         display: block;
         max-width: 100%;

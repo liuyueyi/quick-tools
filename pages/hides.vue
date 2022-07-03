@@ -29,11 +29,9 @@
             </div>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>如果你不希望某些工具在首页显示，可以点击改至透明后进行隐藏</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>如果你不希望某些工具在首页显示，可以点击改至透明后进行隐藏</li>
+        </nya-foot-info>
     </div>
 </template>
 

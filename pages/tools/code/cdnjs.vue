@@ -3,7 +3,8 @@
         <client-only>
             <modal name="viewall" classes="cdnjs_modal" height="auto">
                 <div class="title">
-                    请自行选择一个速度最佳的使用 <div class="start-speed" @click="startSpeed">
+                    请自行选择一个速度最佳的使用
+                    <div class="start-speed" @click="startSpeed">
                         开始测速
                     </div>
                 </div>
@@ -17,10 +18,11 @@
                         <tr v-for="(item, index) in cdnjsUrl" :key="index">
                             <td>{{ index }}</td>
                             <td class="cdnlink" :title="currentJs" @click="doCopy(item+currentJs)">
-                                {{ item+currentJs }}
+                                {{ item + currentJs }}
                             </td>
                             <td>
-                                <span v-if="speed[item+currentJs]" :class="getSpeedClass(speed[item+currentJs])">{{ speed[item+currentJs] }}</span>
+                                <span v-if="speed[item+currentJs]"
+                                      :class="getSpeedClass(speed[item+currentJs])">{{ speed[item + currentJs] }}</span>
                                 <span v-else>未测试</span>
                             </td>
                         </tr>
@@ -101,7 +103,10 @@
                     </li>
                     <li v-if="allInfo.author">
                         <span class="title">作者：</span>
-                        <span>{{ allInfo.author.name }} / <a :href="allInfo.author.url" target="_blank" rel="noopener noreferrer">{{ allInfo.author.url }}</a></span>
+                        <span>{{ allInfo.author.name }} / <a :href="allInfo.author.url" target="_blank"
+                                                             rel="noopener noreferrer">{{
+                                allInfo.author.url
+                            }}</a></span>
                     </li>
                     <li v-if="allInfo.autoupdate">
                         <span class="title">自动更新：</span>
@@ -117,7 +122,8 @@
                         <td>{{ item.version }}</td>
                         <td class="view-cdn-list">
                             <ul>
-                                <li v-for="file in item.files" :key="file" @click="viewAll2(allInfo.name, item.version, file)">
+                                <li v-for="file in item.files" :key="file"
+                                    @click="viewAll2(allInfo.name, item.version, file)">
                                     {{ file }}
                                 </li>
                             </ul>
@@ -127,11 +133,9 @@
             </div>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>数据来自：<a href="https://cdnjs.com/" target="_blank" rel="noopener noreferrer">https://cdnjs.com/</a></li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>数据来自：<a href="https://cdnjs.com/" target="_blank" rel="noopener noreferrer">https://cdnjs.com/</a></li>
+        </nya-foot-info>
     </div>
 </template>
 
@@ -270,8 +274,10 @@ export default {
     table {
         table-layout: auto;
         width: 100%;
+
         .latest {
             max-width: 500px;
+
             div {
                 color: var(--theme);
                 cursor: pointer;
@@ -280,45 +286,55 @@ export default {
                 white-space: nowrap;
             }
         }
+
         .view-all {
             cursor: pointer;
         }
     }
+
     .show-info {
         ul {
             margin: 0;
             padding: 0;
+
             li {
                 list-style: none;
             }
         }
+
         ul.info {
             margin: 15px 0;
+
             li {
                 line-height: 1.3;
+
                 .title {
                     font-weight: bold;
                 }
             }
         }
+
         .view-cdn-list {
             li {
                 cursor: pointer;
             }
         }
     }
+
     .cdnjs_modal {
         padding: 15px;
         border-radius: 5px;
         background-color: var(--t2);
         max-width: 100%;
         font-size: 18px;
+
         .title {
             text-align: center;
             margin-bottom: 10px;
             font-weight: bold;
             padding-bottom: 15px;
             border-bottom: 1px solid #dad9d9;
+
             .start-speed {
                 display: inline-block;
                 font-size: 14px;
@@ -328,6 +344,7 @@ export default {
                 cursor: pointer;
             }
         }
+
         table {
             .cdnlink {
                 overflow: hidden;
@@ -337,6 +354,7 @@ export default {
             }
         }
     }
+
     .fullversion_modal {
     }
 }

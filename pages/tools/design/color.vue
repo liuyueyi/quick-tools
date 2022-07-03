@@ -61,6 +61,8 @@
                 <b>{{ index }}：</b><span>{{ item }}</span>
             </p>
         </nya-container>
+
+        <nya-foot-info title="Tips"></nya-foot-info>
     </div>
 </template>
 

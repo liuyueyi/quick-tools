@@ -40,12 +40,10 @@
             </a>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>全部转换均在浏览器内进行，不会消耗设备流量</li>
-                <li>如果转换时间过长请使用其他浏览器尝试，推荐使用Chrome</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>全部转换均在浏览器内进行，不会消耗设备流量</li>
+            <li>如果转换时间过长请使用其他浏览器尝试，推荐使用Chrome</li>
+        </nya-foot-info>
     </div>
 </template>
 
@@ -142,9 +140,9 @@ export default {
                     const pixels = ctx.getImageData(0, 0, width, height);
                     const duration = video.currentTime - lastTime;
                     this.progress = `Reading Video ${((video.currentTime /
-                        video.duration) *
+                            video.duration) *
                         100) |
-                        0}%..`;
+                    0}%..`;
                     if (!lastPixels || !isSameFrame(lastPixels, pixels)) {
                         lastPixels = pixels;
                         lastTime = video.currentTime;
@@ -172,6 +170,7 @@ export default {
         }
     }
 };
+
 function isSameFrame(a, b) {
     if (a.data.length !== b.data.length) {
         return false;
@@ -191,12 +190,15 @@ function isSameFrame(a, b) {
     img {
         max-width: 100%;
     }
+
     .videoUrl {
         margin-top: 15px;
+
         video {
             max-width: 100%;
         }
     }
+
     .progress {
         margin-top: 15px;
     }
