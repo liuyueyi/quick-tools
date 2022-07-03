@@ -516,6 +516,18 @@ export const state = () => {
             icon: 'image-outline',
             list: [
                 {
+                    name: '图片编辑',
+                    search_keys: 'image cut operate',
+                    icon: '#icon-cut',
+                    path: '/tools/image/cut',
+                    recommend: true,
+                    hot: 1000,
+                    head: {
+                        keywords: ['image', 'jpg', 'png', 'pdf', 'rotate', 'cut', 'operate', '裁剪', '编辑', '镜像'],
+                        description: '图片旋转、裁剪、镜像操作'
+                    }
+                },
+                {
                     name: 'SVG渲染',
                     search_keys: 'svg format conversion render',
                     icon: '#icon-svg',
@@ -773,6 +785,7 @@ export const state = () => {
                     icon: '#icon-pay',
                     path: '/tools/qr/universal_pay',
                     recommend: true,
+                    hot: 1000,
                     head: {
                         keywords: [
                             '免费收款码合并',
@@ -837,6 +850,7 @@ export const state = () => {
                     search_keys: 'screen record',
                     path: '/tools/other/screen_record',
                     recommend: true,
+                    hot: 1000,
                     head: {
                         keywords: ['屏幕录制', '在线录屏'],
                         description: '在网页上完成录屏'
@@ -860,6 +874,7 @@ export const state = () => {
                     icon: '#icon-lattice',
                     path: '/tools/other/lifecount',
                     recommend: true,
+                    hot: 1000,
                     head: {
                         keywords: [
                             '人生小格',
