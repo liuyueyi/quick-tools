@@ -20,9 +20,9 @@
             </div>
         </nya-container>
 
-        <nya-container title="说明">
-            <p>正则数据来自：<a href="https://any86.github.io/any-rule/" target="_blank" rel="noopener noreferrer">正则大全</a></p>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>正则数据来自：<a href="https://any86.github.io/any-rule/" target="_blank" rel="noopener noreferrer">正则大全</a></li>
+        </nya-foot-info>
     </div>
 </template>
 

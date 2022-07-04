@@ -6,8 +6,8 @@
         </NyaReadonlyInput>
 
         <nya-panel
-            title="站长"
-            text="一个神奇的百宝箱，收集各路小工具">
+            title="神奇工具箱"
+            text="一个神奇的百宝箱，收集各路直接在本地浏览器实现全功能的小工具，安全无风险，还支持离线使用哦，欢迎品鉴">
             <div class="form-control" style="border: 0">
                 @一灰灰 &nbsp;
                 <a href="mailto:bangzewu@126.com" style="text-decoration: none;"><i class="eva eva-email-outline"/></a>

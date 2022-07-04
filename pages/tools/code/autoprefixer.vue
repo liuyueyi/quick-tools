@@ -13,6 +13,9 @@
                 <span v-text="result"></span>
             </nya-copy>
         </nya-container>
+
+        <nya-foot-info title="Tips"></nya-foot-info>
+
     </div>
 </template>
 

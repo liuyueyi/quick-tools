@@ -49,7 +49,7 @@
             </a>
         </nya-container>
 
-        <nya-container title="说明">
+        <nya-container title="Tips">
             <ul class="nya-list">
                 <li>如果生成时间过长或生成失败请使用其他浏览器，推荐使用 Chrome</li>
                 <li>右键另存为下载或长按保存</li>

@@ -20,9 +20,9 @@
                 文字大小
             </div>
             <client-only>
-                <vue-slider v-model="fontSize" lazy :min="60" :max="200" />
+                <vue-slider v-model="fontSize" lazy :min="60" :max="200"/>
             </client-only>
-            <nya-checkbox v-model="transparent" label="使用透明背景" />
+            <nya-checkbox v-model="transparent" label="使用透明背景"/>
             <div class="nya-btn" @click="convert">
                 {{ loading ? '生成中' : '立即生成' }}
             </div>
@@ -32,28 +32,27 @@
             <img :src="results" alt="results">
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>
-                    <b>
-                        <nuxt-link to="/tools/merge/pornhub_logo">点这里切换为Pornhub 风格制作</nuxt-link>
-                    </b>
-                </li>
-                <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
-                <li>由于某些原因，圆角可能不太平滑，如果你是开发者有更好的方案可以联系我</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>
+                <b>
+                    <nuxt-link to="/tools/merge/pornhub_logo">点这里切换为Pornhub 风格制作</nuxt-link>
+                </b>
+            </li>
+            <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
+            <li>由于某些原因，圆角可能不太平滑，如果你是开发者有更好的方案可以联系我</li>
+        </nya-foot-info>
     </div>
 </template>
 
 <script>
 import 'vue-slider-component/theme/default.css';
+import domtoimage from 'dom-to-image';
+import createDownload from '~/utils/createDownload.js';
+
 let VueSlider;
 if (process.browser) {
     VueSlider = require('vue-slider-component');
 }
-import domtoimage from 'dom-to-image';
-import createDownload from '~/utils/createDownload.js';
 export default {
     name: 'YoutubeLogo',
     head() {
@@ -101,43 +100,43 @@ export default {
     font-style: normal;
     font-weight: 400;
     src: local('Oswald Regular'), local('Oswald-Regular'),
-        url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752HT8Ghe4.woff2)
-            format('woff2');
+    url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752HT8Ghe4.woff2) format('woff2');
     unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
+
 /* vietnamese */
 @font-face {
     font-family: 'Oswald';
     font-style: normal;
     font-weight: 400;
     src: local('Oswald Regular'), local('Oswald-Regular'),
-        url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752Fj8Ghe4.woff2)
-            format('woff2');
+    url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752Fj8Ghe4.woff2) format('woff2');
     unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
 }
+
 /* latin-ext */
 @font-face {
     font-family: 'Oswald';
     font-style: normal;
     font-weight: 400;
     src: local('Oswald Regular'), local('Oswald-Regular'),
-        url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752Fz8Ghe4.woff2)
-            format('woff2');
+    url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752Fz8Ghe4.woff2) format('woff2');
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
-        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
     font-family: 'Oswald';
     font-style: normal;
     font-weight: 400;
     src: local('Oswald Regular'), local('Oswald-Regular'),
-        url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752GT8G.woff2)
-            format('woff2');
+    url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752GT8G.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
-        U+2215, U+FEFF, U+FFFD;
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
+
 .youtube_logo {
     .logo {
         overflow: auto;
@@ -145,6 +144,7 @@ export default {
         border: var(--t1) 1px solid;
         border-radius: 5px;
         text-align: center;
+
         .box {
             background-color: #ffffff;
             padding: 30px 35px;
@@ -153,19 +153,23 @@ export default {
             margin: 0 auto;
             display: inline-block;
             font-family: 'Oswald', sans-serif, 'Microsoft YaHei';
+
             .pl {
                 visibility: hidden;
             }
+
             .l,
             .r {
                 display: inline-block;
                 white-space: nowrap;
                 font-size: 60px;
             }
+
             .l {
                 color: #090909;
                 margin-right: 15px;
             }
+
             .r {
                 z-index: 1;
                 position: relative;
@@ -175,10 +179,12 @@ export default {
                 box-sizing: border-box;
                 font-weight: bold;
                 border-radius: 60px;
+
                 span {
                     display: block;
                     min-width: 90px;
                 }
+
                 .lt,
                 .lb,
                 .rt,
@@ -188,47 +194,58 @@ export default {
                     height: calc(50% + 1px);
                     pointer-events: none;
                 }
+
                 .lb {
                     transform: rotate(180deg) scaleX(-1);
                 }
+
                 .rb {
                     transform: rotate(180deg);
                 }
+
                 .rt {
                     transform: rotate(180deg) scaleY(-1);
                 }
+
                 .lt,
                 .lb {
                     left: -10px;
                 }
+
                 .rt,
                 .rb {
                     right: -10px;
                 }
+
                 .lt,
                 .rt {
                     top: 0;
                 }
+
                 .lb,
                 .rb {
                     bottom: 0;
                 }
             }
         }
+
         &.transparent {
             .box {
                 background-color: transparent;
             }
         }
     }
+
     .nya-checkbox {
         display: block;
         margin-top: 15px;
     }
+
     .nya-btn,
     .nya-subtitle {
         margin-top: 15px;
     }
+
     img {
         max-width: 100%;
     }

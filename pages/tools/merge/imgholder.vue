@@ -50,7 +50,7 @@
             </a>
         </nya-container>
 
-        <nya-foot-info title="说明">
+        <nya-foot-info title="Tips">
             <li>预览区图片无法直接使用，请点击生成按钮获取图片</li>
             <li>请不要直接引用图片http地址，如有需要右键保存</li>
         </nya-foot-info>

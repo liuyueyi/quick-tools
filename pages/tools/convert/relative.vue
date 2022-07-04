@@ -1,9 +1,12 @@
 <template>
     <div class="relatives_name">
         <nya-container title="亲戚称谓&关系计算器">
-            <nya-select v-model="type" class="mb-15" fullwidth :items="{'default': '算称谓', 'chain': '找关系'}" label="选择处理方式" />
-            <nya-input v-show="type === 'default'" v-model="content" class="mb-15" fullwidth autofocus autocomplete="off" label="要找的称谓" placeholder="如：爸爸的儿子的女儿" />
-            <nya-input v-show="!(type === 'default')" v-model="chain" class="mb-15" fullwidth autofocus autocomplete="off" label="要找的关系" placeholder="如：奶奶" />
+            <nya-select v-model="type" class="mb-15" fullwidth :items="{'default': '算称谓', 'chain': '找关系'}"
+                        label="选择处理方式"/>
+            <nya-input v-show="type === 'default'" v-model="content" class="mb-15" fullwidth autofocus
+                       autocomplete="off" label="要找的称谓" placeholder="如：爸爸的儿子的女儿"/>
+            <nya-input v-show="!(type === 'default')" v-model="chain" class="mb-15" fullwidth autofocus
+                       autocomplete="off" label="要找的关系" placeholder="如：奶奶"/>
             <div v-show="type === 'default'" class="btn-list">
                 <div class="nya-subtitle">
                     点击添加关系
@@ -42,12 +45,12 @@
                     <i class="eva eva-arrow-back-outline"></i>
                 </button>
             </div>
-            <nya-checkbox v-show="type === 'default'" v-model="reverse" class="mb-15" label="对方称呼我" />
+            <nya-checkbox v-show="type === 'default'" v-model="reverse" class="mb-15" label="对方称呼我"/>
             <br>
             <div v-show="type === 'default'">
                 <nya-radio-group v-model="sex">
-                    <nya-radio :value="0" label="我是女的" />
-                    <nya-radio :value="1" label="我是男的" />
+                    <nya-radio :value="0" label="我是女的"/>
+                    <nya-radio :value="1" label="我是男的"/>
                 </nya-radio-group>
             </div>
         </nya-container>
@@ -55,27 +58,26 @@
         <nya-container v-if="(type === 'default') ? data.length : chain" title="获取成功">
             <pre>{{ result }}</pre>
         </nya-container>
-        
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>如果有多个结果说明有多个称谓</li>
-                <li>
-                    称谓歧义可到 <a href="https://github.com/mumuy/relationship" target="_blank" rel="noopener noreferrer">
-                        relationship
-                    </a> 进行反馈
-                </li>
-                <li>
-                    算法来自 <a href="https://github.com/mumuy/relationship" target="_blank" rel="noopener noreferrer">
-                        relationship
-                    </a>
-                </li>
-            </ul>
-        </nya-container>
+
+        <nya-foot-info title="Tips">
+            <li>如果有多个结果说明有多个称谓</li>
+            <li>
+                称谓歧义可到 <a href="https://github.com/mumuy/relationship" target="_blank" rel="noopener noreferrer">
+                relationship
+            </a> 进行反馈
+            </li>
+            <li>
+                算法来自 <a href="https://github.com/mumuy/relationship" target="_blank" rel="noopener noreferrer">
+                relationship
+            </a>
+            </li>
+        </nya-foot-info>
     </div>
 </template>
 
 <script>
 import relationship from 'relationship.js';
+
 export default {
     name: 'RelativesName',
     head() {
@@ -124,16 +126,19 @@ export default {
 .relatives_name {
     .set {
         margin-bottom: 5px;
+
         .nya-checkbox {
             margin-right: 10px;
         }
     }
+
     .btn-list {
         font-size: 0;
         @media (max-width: 400px) {
             margin-bottom: 10px;
         }
     }
+
     .nya-btn {
         margin-right: 15px;
         margin-bottom: 15px;

@@ -14,7 +14,8 @@
         <nya-container v-if="colors.length" title="颜色列表">
             <div v-for="(item, index) in colors" :key="index" class="color">
                 <div class="color-block">
-                    <div class="bg" :style="{'background-color': item.hex, 'box-shadow': `0px 15px 30px 0px rgba(${item.RGB.join(',')}, .8)`}"></div>
+                    <div class="bg"
+                         :style="{'background-color': item.hex, 'box-shadow': `0px 15px 30px 0px rgba(${item.RGB.join(',')}, .8)`}"></div>
                     <div class="name-n">
                         {{ item.name }}
                     </div>
@@ -36,16 +37,15 @@
             </div>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>数据来自：<a href="http://zhongguose.com" target="_blank" rel="noopener noreferrer">中国传统色</a></li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>数据来自：<a href="http://zhongguose.com" target="_blank" rel="noopener noreferrer">中国传统色</a></li>
+        </nya-foot-info>
     </div>
 </template>
 
 <script>
 import colors from '~/utils/china_colors';
+
 export default {
     name: 'ChinaColors',
     head() {
@@ -100,14 +100,17 @@ export default {
         width: calc(100% / 6 - 20px);
         display: inline-block;
         margin: 10px;
+
         .color-block {
             position: relative;
         }
+
         .bg {
             height: 100px;
             transition: all 0.3s ease;
             box-sizing: border-box;
         }
+
         .copy {
             position: absolute;
             width: 100%;
@@ -122,29 +125,36 @@ export default {
             color: #ffffff;
             font-size: 14px;
             line-height: 1.8;
+
             div {
                 cursor: pointer;
                 transition: 0.15s ease color;
+
                 &:hover {
                     color: var(--theme);
                 }
             }
         }
+
         .name {
             text-align: center;
             margin-top: 10px;
         }
+
         .name-n {
             display: none;
         }
+
         &:hover {
             .copy {
                 opacity: 1;
             }
+
             .bg {
                 box-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0) !important;
             }
         }
+
         @media (max-width: 1080px) {
             width: calc(100% / 5 - 20px) !important;
         }
@@ -161,6 +171,7 @@ export default {
                     height: 60px;
                     box-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0) !important;
                 }
+
                 .copy {
                     opacity: 1;
                     color: var(--t1);
@@ -172,6 +183,7 @@ export default {
                     box-sizing: border-box;
                     background-color: transparent !important;
                 }
+
                 .name-n {
                     display: block;
                     margin-top: 10px;

@@ -29,8 +29,20 @@
 
 ## Dev-开发
 
+环境版本:
+
+- node: node/16.14.0
+- npm: 8.3.1  
+
+依赖安装：
+
 ```bash
+# 安装
 yarn install
+# 使用npm安装也可以
+npm install
+
+# 本地开发
 yarn dev
 ```
 

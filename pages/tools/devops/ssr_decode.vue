@@ -15,11 +15,8 @@
             <pre>{{ results }}</pre>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>所有解析均在本地进行，不会收集任何配置</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+        </nya-foot-info>
     </div>
 </template>
 

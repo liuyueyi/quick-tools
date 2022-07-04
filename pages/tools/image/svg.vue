@@ -26,7 +26,7 @@
             />
         </nya-container>
 
-        <nya-foot-info title="说明">
+        <nya-foot-info title="Tips">
             <li>通过dom-to-image实现图片下载，当svg中引入外部图片时，可能下载失败!</li>
         </nya-foot-info>
     </div>

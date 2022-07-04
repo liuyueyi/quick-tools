@@ -33,6 +33,8 @@
                 <b>广播地址：</b><span>{{ Broaddr }}</span>
             </p>
         </nya-container>
+
+        <nya-foot-info title="Tips"></nya-foot-info>
     </div>
 </template>
 

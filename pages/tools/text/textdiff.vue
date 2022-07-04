@@ -24,7 +24,7 @@
                         type="textarea"
                         autocomplete="off"
                         label="新文本"
-                        placeholder="欢迎使用quick-tools -->by 一灰灰blog"
+                        placeholder="欢迎使用神奇工具箱 -->by 一灰灰blog"
                     />
                 </div>
             </div>

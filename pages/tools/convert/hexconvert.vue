@@ -59,11 +59,9 @@
             <br>
         </nya-container>
 
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>请规范的输入相应进制，否则将无法正确计算</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>请规范的输入相应进制，否则将无法正确计算</li>
+        </nya-foot-info>
     </div>
 </template>
 

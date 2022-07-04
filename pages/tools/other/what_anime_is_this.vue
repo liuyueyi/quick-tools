@@ -28,50 +28,48 @@
         >
             <table>
                 <tbody>
-                    <tr>
-                        <td>匹配位置：</td>
-                        <td>{{ secToTime(doc.at) }}</td>
-                    </tr>
-                    <tr>
-                        <td>中文名称</td>
-                        <td>{{ doc.title_chinese }}</td>
-                    </tr>
-                    <tr>
-                        <td>日文名称</td>
-                        <td>{{ doc.title_native }}</td>
-                    </tr>
-                    <tr>
-                        <td>英文名称</td>
-                        <td>{{ doc.title_english }}</td>
-                    </tr>
-                    <tr>
-                        <td>相似度</td>
-                        <td>{{ toPercent(doc.similarity) }}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align:center">
-                            <video
-                                controls
-                                loop
-                                :src="'https://trace.moe/preview.php?anilist_id='+doc.anilist_id+'&file='+encodeURIComponent(doc.filename)+'&t='+doc.at+'&token='+doc.tokenthumb"
-                            ></video>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>匹配位置：</td>
+                    <td>{{ secToTime(doc.at) }}</td>
+                </tr>
+                <tr>
+                    <td>中文名称</td>
+                    <td>{{ doc.title_chinese }}</td>
+                </tr>
+                <tr>
+                    <td>日文名称</td>
+                    <td>{{ doc.title_native }}</td>
+                </tr>
+                <tr>
+                    <td>英文名称</td>
+                    <td>{{ doc.title_english }}</td>
+                </tr>
+                <tr>
+                    <td>相似度</td>
+                    <td>{{ toPercent(doc.similarity) }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center">
+                        <video
+                            controls
+                            loop
+                            :src="'https://trace.moe/preview.php?anilist_id='+doc.anilist_id+'&file='+encodeURIComponent(doc.filename)+'&t='+doc.at+'&token='+doc.tokenthumb"
+                        ></video>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </nya-container>
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>
-                    使用 trace.moe API，有使用次数限制。(
-                    <a @click="myCount">
-                        查看我的次数
-                    </a>)
-                </li>
-                <li>识别成功率取决于上传的截图</li>
-                <li>多个相同/类似结果是因为返回的数据包含多个相同/类似结果</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>
+                使用 trace.moe API，有使用次数限制。(
+                <a @click="myCount">
+                    查看我的次数
+                </a>)
+            </li>
+            <li>识别成功率取决于上传的截图</li>
+            <li>多个相同/类似结果是因为返回的数据包含多个相同/类似结果</li>
+        </nya-foot-info>
     </div>
 </template>
 
@@ -214,18 +212,22 @@ export default {
     .nya-subtitle {
         margin-top: 15px;
     }
+
     .preview {
         max-height: 200px;
     }
+
     table {
         color: #363636;
         border-collapse: collapse;
         border-spacing: 0;
         width: 100%;
+
         td {
             border: 0.0625rem solid #dbdbdb;
             padding: 0.5em 0.75em;
             vertical-align: top;
+
             video {
                 max-width: 100%;
             }

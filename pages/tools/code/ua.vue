@@ -29,6 +29,8 @@
                 架构：{{ results.cpu.architecture }}
             </p>
         </nya-container>
+
+        <nya-foot-info title="Tips"></nya-foot-info>
     </div>
 </template>
 

@@ -48,7 +48,7 @@
         <nya-container v-show="numResult" title="转换成功">
             <pre>{{ numResult }}</pre>
         </nya-container>
-        <nya-foot-info title="说明">
+        <nya-foot-info title="Tips">
             <li>基于 nzh 把数字转换为大小写中文。</li>
             <li>
                 超大数转换中文争议请访问 <a href="https://github.com/cnwhy/nzh#nzh" target="_blank" rel="noopener noreferrer">

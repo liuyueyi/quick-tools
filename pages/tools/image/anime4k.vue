@@ -2,7 +2,7 @@
     <div class="anime4k">
         <nya-container title="Anime4k">
             <div class="inputbtn">
-                <nya-input v-model="txtSrc" label="请输入视频/图片地址" placeholder="https://..." />
+                <nya-input v-model="txtSrc" label="请输入视频/图片地址" placeholder="https://..."/>
                 <button type="button" class="nya-btn" @click="onSourceChanged">
                     生成
                 </button>
@@ -35,13 +35,13 @@
                 Bold
             </div>
             <client-only>
-                <vue-slider v-model="bold" lazy :min="0" :max="8" :interval="0.001" />
+                <vue-slider v-model="bold" lazy :min="0" :max="8" :interval="0.001"/>
             </client-only>
             <div class="nya-subtitle">
                 Blur
             </div>
             <client-only>
-                <vue-slider v-model="blur" lazy :min="0" :max="8" :interval="0.001" />
+                <vue-slider v-model="blur" lazy :min="0" :max="8" :interval="0.001"/>
             </client-only>
         </nya-container>
         <nya-container title="预览">
@@ -59,19 +59,19 @@
                 @error="onError"
             ></video>
         </nya-container>
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li>算法来源：<a href="https://github.com/bloc97/Anime4K" target="_blank" rel="noopener noreferrer">Anime4K</a></li>
-                <li>只是把官方 web 实现简单的移植到了quick-tools；纯浏览器实现，因此原图（视频）、Scale 过大会卡死，请珍惜您的设备</li>
-                <li>暂时不支持下载视频</li>
-            </ul>
-        </nya-container>
+        <nya-foot-info title="Tips">
+            <li>算法来源：<a href="https://github.com/bloc97/Anime4K" target="_blank" rel="noopener noreferrer">Anime4K</a>
+            </li>
+            <li>只是把官方 web 实现简单的移植到了quick-tools；纯浏览器实现，因此原图（视频）、Scale 过大会卡死，请珍惜您的设备</li>
+            <li>暂时不支持下载视频</li>
+        </nya-foot-info>
     </div>
 </template>
 
 <script>
 import Scaler from '../../../utils/anime4k';
 import 'vue-slider-component/theme/default.css';
+
 let VueSlider;
 if (process.browser) {
     VueSlider = require('vue-slider-component');
@@ -114,6 +114,7 @@ export default {
                 }
                 requestAnimationFrame(render.bind(this));
             }
+
             requestAnimationFrame(render.bind(this));
         },
         getSourceType(uri) {
@@ -138,13 +139,13 @@ export default {
             const inputImg = new Image();
             inputImg.crossOrigin = 'Anonymous';
             inputImg.src = src;
-            inputImg.onload = function() {
+            inputImg.onload = function () {
                 this.errorMsg = '';
                 const scale = parseFloat(this.scale);
                 this.scaler.inputImage(inputImg);
                 this.scaler.resize(scale);
             }.bind(this);
-            inputImg.onerror = function() {
+            inputImg.onerror = function () {
                 this.errorMsg = "Can't load the image.";
             };
         },
@@ -160,11 +161,11 @@ export default {
                 this.changeVideo(uri);
             }
         },
-        onCanplaythrough({ target }) {
+        onCanplaythrough({target}) {
             this.errorMsg = '';
             target.play();
         },
-        onLoadedmetadata({ target }) {
+        onLoadedmetadata({target}) {
             this.scaler = new Scaler(this.gl);
             this.scaler.inputVideo(target);
             this.scaler.resize(this.scale);
@@ -175,10 +176,10 @@ export default {
         onScaleChanged(value) {
             this.scaler.resize(parseFloat(value));
         },
-        onSelectFile({ target }) {
+        onSelectFile({target}) {
             if (target.files && target.files[0]) {
                 let reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     let src = e.target.result;
                     if (this.getSourceType(target.value) == 'img') {
                         this.changeImage(src);

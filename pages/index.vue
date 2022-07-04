@@ -104,6 +104,9 @@ export default {
                     tool.list.forEach(item => {
                         item['category'] = tool['title'];
                         item['tab'] = tool['tab'];
+                        if (!item['hot']) {
+                            item['hot'] = 0;
+                        }
                         if (item['recommend']) {
                             arr.push(item);
                         }
@@ -116,6 +119,11 @@ export default {
                     arr = arr.concat(tool.list);
                 }
             });
+            // fixme 排序之后首次进入顺序显示有问题，先注释
+            // if (this.activeTab === DEFAULT_TAB) {
+            //     arr.sort((a, b) => b['hot'] - a['hot']);
+            //     console.log("new ar:", arr);
+            // }
             return arr;
         }
     },
@@ -189,7 +197,7 @@ export default {
     }
 
     .card-panel {
-        margin-top: -2em;
+        margin-top: -1em;
     }
 
     .nya-btn {

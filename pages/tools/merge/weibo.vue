@@ -90,6 +90,8 @@
         <nya-container v-if="img" title="生成成功">
             <img :src="img" class="img">
         </nya-container>
+
+        <nya-foot-info title="Tips"></nya-foot-info>
     </div>
 </template>
 

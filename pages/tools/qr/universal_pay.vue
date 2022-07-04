@@ -47,24 +47,23 @@
         <nya-container v-show="short_url" title="合并成功">
             <img :src="qrcodeUrl" alt="QRCode" class="qrcode">
             收款地址：<a :href="short_url" target="_blank" rel="noopener noreferrer">
-                {{ short_url }}
-            </a>
+            {{ short_url }}
+        </a>
         </nya-container>
-        
-        <nya-container title="说明">
-            <ul class="nya-list">
-                <li><b>全部过程均在本地进行，不会在云端存储您的任何信息</b></li>
-                <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
-                <li>请保存您的收款地址，可自行去转换为短链接</li>
-                <li>请使用新版 QQ/微信/支付宝 生成的收款码</li>
-            </ul>
-        </nya-container>
+
+        <nya-foot-info title="Tips">
+            <li><b>全部过程均在本地进行，不会在云端存储您的任何信息</b></li>
+            <li>如果生成时间过长或生成失败，请使用其他浏览器，推荐使用 Chrome</li>
+            <li>请保存您的收款地址，可自行去转换为短链接</li>
+            <li>请使用新版 QQ/微信/支付宝 生成的收款码</li>
+        </nya-foot-info>
     </div>
 </template>
 
 <script>
 import qrcodeReader from '~/utils/qrcode-reader.js';
 import QR from 'qr-image';
+
 export default {
     name: 'UniversalPay',
     head() {

@@ -1,6 +1,6 @@
 <template>
     <nya-container v-if="$store.state.welcome" class="welcome">
-        <h2>欢迎使用QuickTools</h2>
+        <h2>欢迎使用神奇工具箱(QuickTools)</h2>
         <p>
             使用工具箱合集，如觉得不错，不妨推荐安利一波；有更好的建议，欢迎在 <a href="https://github.com/liuyueyi/quick-tools" target="_blank">quick-tools</a> 提
         </p>

@@ -186,6 +186,10 @@ time.time()</pre>
                 </tbody>
             </table>
         </nya-container>
+
+        <nya-foot-info title="Tips">
+
+        </nya-foot-info>
     </div>
 </template>
 

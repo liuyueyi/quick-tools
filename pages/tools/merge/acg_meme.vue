@@ -74,7 +74,7 @@
             </client-only>
         </nya-container>
 
-        <nya-container title="说明">
+        <nya-container title="Tips">
             <ul class="nya-list">
                 <li>图片来自：<a href="https://www.pixiv.net/member.php?id=27304867" target="_blank" rel="noopener noreferrer">長門ちゃん（Pixiv）</a></li>
             </ul>
