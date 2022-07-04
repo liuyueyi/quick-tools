@@ -24,8 +24,8 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <span class="form-label required"><b>裁剪框(回车确认)</b></span>
+            <div class="form-groupp">
+                <span class="form-label required"><b>裁剪框</b></span>
                 <span class="form-label required">宽(像素)</span>
                 <input type="number" class="form-control-sm" v-model="width" @keyup.enter="updateCropperWH"
                        @blur="updateCropperWH"/>
