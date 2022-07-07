@@ -1,7 +1,7 @@
 <template>
     <div class="markdown">
         <client-only>
-            <mavon-editor
+            <mavonEditor
                 ref="md"
                 v-model="content"
                 class="typo"
@@ -55,7 +55,7 @@ export default {
             }
         }
         this.$nextTick(() => {
-            this.$refs.md.markdownIt.set({
+            mavonEditor.getMarkdownIt().set({
                 highlight: function(str, lang) {
                     if (lang && hljs.getLanguage(lang)) {
                         return hljs.highlight(lang, str).value;

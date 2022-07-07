@@ -14,6 +14,8 @@
         <div>
             <span> {{ this.nowTime }} </span>
         </div>
+        <div id="self_count_cnt" v-if="visit" v-html="visit">
+        </div>
     </div>
 </template>
 
@@ -33,7 +35,38 @@ export default {
         });
         return {
             toolNum: num,
+            visit: "",
         }
+    },
+    mounted() {
+        this.cnt();
+    },
+    methods: {
+        cnt() {
+            let site = this.$store.state.env.url + this.$route.path;
+            this.$axios
+                .get('https://story.hhui.top/count/ncc?appKey=tool&referer=' + decodeURI(site))
+                .then(e => {
+                    let result = e.data;
+                    console.log(result);
+                    if (result.status.code === 200) {
+                        result = result.result;
+                        this.visit = '本站总访量: <span class="visit_cnt">' + result.appVO.hot + '</span> &nbsp;| 总访问人次: <span class="visit_cnt">' + result.appVO.uv + '</span> &nbsp;| 恭喜您为第 <span class="visit_cnt">' + result.appVO.rank + '</span>&nbsp; 访问者';
+
+                        let node = document.getElementById("tool_visit_count")
+                        if (node) {
+                            node.innerHTML = '当前工具访问次数：' + result.uriVO.hot;
+                        }
+                    }
+                })
+                .catch(err => {
+                    this.$swal({
+                        type: 'error',
+                        title: '计数失败',
+                        text: `ERROR: 获取数据失败，请刷新页面重试 ${err}`
+                    });
+                });
+        },
     }
 };
 </script>
@@ -56,6 +89,12 @@ export default {
     .small-font {
         margin: 4px;
         font-size: .8em;
+    }
+
+
+    .visit_cnt {
+        color: #e96900;
+        font-size: 1.4em;
     }
 }
 </style>

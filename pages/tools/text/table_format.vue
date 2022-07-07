@@ -2,7 +2,7 @@
     <div class="table_format">
         <nya-container title="表格数据格式化">
             <div class="nya-subtitle mt-15">
-                直接拷贝表格/excel/csv中的数据，转换为插入sql,json对象
+                转换类型
             </div>
             <div class="radio-group form-control no-border">
                 <nya-radio-group v-model="index">
@@ -41,7 +41,7 @@
                 type="textarea"
                 autofocus
                 autocomplete="off"
-                label="csv|excel|table格式数据"
+                label="请输入csv|excel|table格式数据"
                 placeholder="id uname age
 1 yihui 18
 2 一灰灰 19
@@ -56,13 +56,16 @@
         </nya-container>
 
         <nya-foot-info title="Tips">
-                <li>
-                    插件源码：<a
-                    href="https://github.com/liuyueyi/quick-jsdemo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >quick-jsdemo</a> 表格数据格式化
-                </li>
+            <li>
+                直接拷贝表格/excel/csv中的数据，即可转换为插入sql,json对象,markdown表格
+            </li>
+            <li>
+                插件源码：<a
+                href="https://github.com/liuyueyi/quick-jsdemo"
+                target="_blank"
+                rel="noopener noreferrer"
+            >quick-jsdemo</a> 表格数据格式化
+            </li>
         </nya-foot-info>
 
     </div>
@@ -71,7 +74,7 @@
 <script>
 
 import Dynamic from '@/components/Dynamic';
-import {table2insertSql, table2jsonStr} from '/static/js/tableDataFormat.js';
+import {table2insertSql, table2jsonStr, table2markdown} from '/static/js/tableDataFormat.js';
 
 
 let oo, os;
@@ -90,6 +93,7 @@ export default {
             labels: [
                 {label: "sql", t1: '表名', t2: '排除列'},
                 {label: "json", t1: '分组字段', t2: ''},
+                {label: "markdown", t1: '排除列', t2: ''},
             ]
         };
     },
@@ -97,6 +101,7 @@ export default {
         index() {
             this.t1 = '';
             this.t2 = '';
+            this.tableFormat();
         },
         t1() {
             this.tableFormat();
@@ -120,8 +125,10 @@ export default {
             }
             if (this.index === 0) {
                 this.results = table2insertSql(this.tableString, this.t1 ? this.t1 : "替换表名", this.t2).str;
-            } else {
+            } else if (this.index === 1) {
                 this.results = table2jsonStr(this.tableString, this.t1).str;
+            } else {
+                this.results = table2markdown(this.tableString, this.t1).str;
             }
         }
     }

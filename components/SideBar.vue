@@ -5,6 +5,10 @@
                           :copy-icon="true">
         </NyaReadonlyInput>
 
+        <nya-panel v-show="this.$route.path !== '/'">
+            <div id="tool_visit_count"/>
+        </nya-panel>
+
         <nya-panel
             title="神奇工具箱"
             text="一个神奇的百宝箱，收集各路直接在本地浏览器实现全功能的小工具，安全无风险，还支持离线使用哦，欢迎品鉴">

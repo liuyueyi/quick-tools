@@ -154,7 +154,7 @@ function table2insertSql(content, tableName, ignoreColumn) {
     const table_content = formatTable(content);
     let sql = "insert into `" + tableName + "` (";
     let first = true;
-    let ignoreColumnIndex = - 1;
+    let ignoreColumnIndex = -1;
     for (let fi = 0; fi < table_content['fields'].length; fi++) {
         if (table_content['fields'][fi] === ignoreColumn) {
             ignoreColumnIndex = fi;
@@ -190,4 +190,37 @@ function table2insertSql(content, tableName, ignoreColumn) {
     return table_content;
 }
 
-export {table2jsonStr, table2insertSql};
+function table2markdown(content, ignoreColumn) {
+    let ignoreColumnIndex = [];
+    let ignoreColumns = ignoreColumn.split(',');
+
+    let res = "| ";
+    const table_content = formatTable(content);
+    for (let i = 0; i < table_content['fields'].length; i++) {
+        let field = table_content['fields'][i];
+        if (ignoreColumns.indexOf(field) >= 0) {
+            ignoreColumnIndex.push(i);
+        } else {
+            res += field + " | ";
+        }
+    }
+    res += "\n| ";
+    for (let i = 0; i < table_content['fields'].length - ignoreColumnIndex.length; i++) {
+        res += "--- | ";
+    }
+
+    table_content['values'].forEach(val => {
+        res += "\n| ";
+        for (let i = 0; i < val.length; i++) {
+            if (i in ignoreColumnIndex) {
+                continue;
+            }
+
+            res += val[i] + " | ";
+        }
+    })
+    table_content['str'] = res;
+    return table_content;
+}
+
+export {table2jsonStr, table2insertSql, table2markdown};
