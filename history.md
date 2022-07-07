@@ -13,6 +13,7 @@
 
 - 新增sitemap站点地图生成小工具 [sitemap](https://tool.hhui.top/tools/devops/sitemap)
 - 表格数据格式化，支持转markdown [table format](https://tool.hhui.top/tools/text/table_format/)
+- markdown表格语法格式化 [markdown format](https://tool.hhui.top/tools/code/mdFormat/)
 
 **2022.07.03**
 

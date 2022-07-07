@@ -399,6 +399,17 @@ export const state = () => {
                     }
                 },
                 {
+                    name: 'Markdown表格格式化',
+                    search_keys: "markdown table format",
+                    icon: '#icon-format',
+                    path: '/tools/code/mdFormat',
+                    recommend: true,
+                    head: {
+                        keywords: ['markdown', '表格', "格式化", "表格数据格式化"],
+                        description: 'markdown 表格数据格式化'
+                    }
+                },
+                {
                     name: 'HTTP解析',
                     search_keys: 'http parse',
                     icon: '#icon-http',

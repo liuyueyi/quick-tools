@@ -66,3 +66,4 @@ https://tool.hhui.top/tools/other/chinese_id
 https://tool.hhui.top/nav
 https://tool.hhui.top/favorite
 https://tool.hhui.top/setting
+https://tool.hhui.top/tools/code/mdFormat
