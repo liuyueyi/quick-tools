@@ -819,6 +819,21 @@ export const state = () => {
             icon: '',
             list: [
                 {
+                    name: '站点地图生成',
+                    search_keys: 'sitemap',
+                    icon: '#icon-sitemap',
+                    path: '/tools/devops/sitemap',
+                    recommend: false,
+                    head: {
+                        keywords: [
+                            '站点地图',
+                            'sitemap',
+                            'SEO'
+                        ],
+                        description: '站点地图在线生成小工具'
+                    }
+                },
+                {
                     name: 'SSR/V2ray 配置解析',
                     search_keys: 'ssr v2ray config',
                     icon: '#icon-vpn',
