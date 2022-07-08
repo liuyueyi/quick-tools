@@ -10,22 +10,29 @@
                 </nya-radio-group>
             </div>
             <div class="input-group" style="padding-bottom: 1em">
-                <span class="form-control no-border col-1"> {{ labels[index]['t1'] }} </span>
+                <span v-if="labels[index]['t1']" class="form-control no-border col-1"> {{ labels[index]['t1'] }} </span>
                 <nya-input
+                    v-if="labels[index]['t1']"
                     v-model.trim="t1"
-                    label=""
-                    :placeholder="labels[index].place"
                     type="text"
                     autocomplete="on"
                     autofocus
                     fullwidth
                     class=" output col-3"/>
-                &nbsp;
+
                 <span v-if="labels[index]['t2']" class="form-control no-border col-1"> {{ labels[index]['t2'] }} </span>
                 <nya-input v-if="labels[index]['t2']"
-                           v-model.trim="t2"
+                           v-model.trim="excludeColumns"
                            label=""
-                           :placeholder="labels[index]['t2']"
+                           type="text"
+                           autocomplete="on"
+                           autofocus
+                           fullwidth
+                           class="output col-3"/>
+
+                <span v-if="labels[index]['t3']" class="form-control no-border col-1"> {{ labels[index]['t3'] }} </span>
+                <nya-input v-if="labels[index]['t3']"
+                           v-model.trim="selectColumns"
                            type="text"
                            autocomplete="on"
                            autofocus
@@ -60,6 +67,9 @@
                 直接拷贝表格/excel/csv中的数据，即可转换为插入sql,json对象,markdown表格
             </li>
             <li>
+                当选择或排除多个列数据时，请用英文逗号进行f分割
+            </li>
+            <li>
                 插件源码：<a
                 href="https://github.com/liuyueyi/quick-jsdemo"
                 target="_blank"
@@ -74,7 +84,7 @@
 <script>
 
 import Dynamic from '@/components/Dynamic';
-import {table2insertSql, table2jsonStr, table2markdown} from '/static/js/tableDataFormat.js';
+import {table2csv, table2insertSql, table2jsonStr, table2markdown} from '/static/js/tableDataFormat.js';
 
 
 let oo, os;
@@ -87,26 +97,29 @@ export default {
         return {
             tableString: '',
             t1: '',
-            t2: '',
+            excludeColumns: '',
+            selectColumns: '',
             results: '',
             index: 0,
             labels: [
-                {label: "sql", t1: '表名', t2: '排除列'},
-                {label: "json", t1: '分组字段', t2: ''},
-                {label: "markdown", t1: '排除列', t2: ''},
+                {label: "sql", t1: '表名', t2: '排除列', t3: '选择列'},
+                {label: "json", t1: '分组字段', t2: '排除列', t3: '选择列'},
+                {label: "markdown", t1: '', t2: '排除列', t3: '选择列'},
+                {label: "csv", t1: '', t2: '排除列', t3: '选择列'},
             ]
         };
     },
     watch: {
         index() {
-            this.t1 = '';
-            this.t2 = '';
             this.tableFormat();
         },
         t1() {
             this.tableFormat();
         },
-        t2() {
+        excludeColumns() {
+            this.tableFormat();
+        },
+        selectColumns() {
             this.tableFormat();
         },
         tableString() {
@@ -115,6 +128,7 @@ export default {
             }
 
             oo = this.tableString.trim();
+            this.tableString = oo;
             this.tableFormat();
         }
     },
@@ -123,12 +137,17 @@ export default {
             if (!this.tableString) {
                 return;
             }
+            let eColumns = this.excludeColumns ? this.excludeColumns.split(",") : [];
+            let iColumns = this.selectColumns ? this.selectColumns.split(",") : [];
+            console.log("eColumns:", eColumns, "inc", iColumns);
             if (this.index === 0) {
-                this.results = table2insertSql(this.tableString, this.t1 ? this.t1 : "替换表名", this.t2).str;
+                this.results = table2insertSql(this.tableString, this.t1 ? this.t1 : "替换表名", eColumns, iColumns).str;
             } else if (this.index === 1) {
-                this.results = table2jsonStr(this.tableString, this.t1).str;
-            } else {
-                this.results = table2markdown(this.tableString, this.t1).str;
+                this.results = table2jsonStr(this.tableString, this.t1, eColumns, iColumns).str;
+            } else if (this.index === 2) {
+                this.results = table2markdown(this.tableString, eColumns, iColumns).str;
+            } else if (this.index === 3) {
+                this.results = table2csv(this.tableString, eColumns, iColumns).str;
             }
         }
     }

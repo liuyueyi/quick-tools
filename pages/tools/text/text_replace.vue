@@ -1,7 +1,11 @@
 <template>
     <div class="textdiff">
         <nya-container title="文本替换">
-            <div class="row">
+            <div class="form-inline">
+                <nya-checkbox v-model="regex" label="支持正则替换"/>
+                <button class="btn btn-outline-primary btn-sm" style="margin-left: 1em" @click="reverse">翻转</button>
+            </div>
+            <div class="row top-margin-1em">
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 custom-bg-color custom-by-both">
                     <div class="radio-group">
                         <nya-radio-group v-model="sourceIndex">
@@ -12,21 +16,6 @@
                                    autofocus
                                    autocomplete="off"
                                    placeholder="自定义替换符"
-                        />
-                    </div>
-                    <div class="row" style="padding-right: 12px; padding-top: 1em;">
-                        <nya-input
-                            v-model="oldString"
-                            class="mb-15"
-                            fullwidth
-                            rows="20"
-                            type="textarea"
-                            autofocus
-                            autocomplete="off"
-                            label="待转化文本"
-                            placeholder="1
-2
-3"
                         />
                     </div>
                 </div>
@@ -44,20 +33,34 @@
                                    placeholder="自定义替换符"
                         />
                     </div>
-                    <div class="row" style="padding-left: 12px; padding-top: 1em;">
+                </div>
+
+                <div class="col-12 col-xl-12 col-sm-12 col-md-12">
+                    <div class="row" style="padding-right: 12px; padding-top: 1em;">
                         <nya-input
-                            v-model="newString"
+                            v-model="oldString"
                             class="mb-15"
                             fullwidth
-                            rows="20"
+                            rows="5"
                             type="textarea"
+                            autofocus
+                            autoheight
                             autocomplete="off"
-                            label="已替换"
-                            placeholder=""
+                            label="待转化文本"
+                            placeholder="1
+2
+3"
                         />
                     </div>
+
                 </div>
             </div>
+        </nya-container>
+
+        <nya-container v-if="newString" title="替换结果">
+            <nya-copy :copy="newString">
+                <pre>  <Dynamic :template="newString"/> </pre>
+            </nya-copy>
         </nya-container>
 
         <nya-foot-info title="Tips">
@@ -89,6 +92,7 @@ export default {
             newString: '',
             results: '',
             sourceIndex: 2,
+            regex: true,
             sourceLabels: [
                 {label: "逗号(,)", val: ','},
                 {label: "TAB(\\t)", val: '\t'},
@@ -113,6 +117,9 @@ export default {
         };
     },
     watch: {
+        regex() {
+            this.parse();
+        },
         oldInput() {
             this.parse();
         },
@@ -142,27 +149,43 @@ export default {
         }
     },
     methods: {
+        reverse() {
+            let o = this.oldString;
+            let n = this.newString;
+            let sI = this.sourceIndex;
+            let tI = this.targetIndex;
+            let oI = this.oldInput;
+            let nI = this.newInput;
+
+            this.sourceIndex = tI;
+            this.targetIndex = sI;
+            this.oldInput = nI;
+            this.newInput = oI;
+            this.oldString = n;
+            this.newString = o;
+        },
         parse() {
+            let regexEnable = true;
             let sourceTag = this.sourceLabels[this.sourceIndex].val;
             let targetTag = this.targetLabels[this.targetIndex].val;
             if (this.oldInput.length > 0) {
                 sourceTag = this.oldInput;
                 sourceTag = sourceTag.replaceAll('\\\\', '\\');
+                regexEnable = this.regex;
             }
             if (this.newInput.length > 0) {
                 targetTag = this.newInput;
                 targetTag = targetTag.replaceAll('\\\\', '\\');
+                regexEnable = this.regex;
             }
             console.log("source", sourceTag, "target", targetTag);
             try {
-                if (this.oldString) {
+                if (regexEnable) {
                     // 左边的转右边
                     const reg = new RegExp(sourceTag, "g");
                     this.newString = this.oldString.replaceAll(reg, targetTag);
                 } else {
-                    // 右边的转左边
-                    const reg = new RegExp(targetTag, "g");
-                    this.oldString = this.newString.replaceAll(reg, sourceTag);
+                    this.newString = this.oldString.replaceAll(sourceTag, targetTag);
                 }
             } catch (e) {
                 console.log(e);

@@ -71,9 +71,11 @@ function getTitleNums(lines) {
 /**
  * 表格数据格式化
  * @param content
- * @returns {{values: [], fields: null}}
+ * @param excludeColumns 排除列
+ * @param selectColumns 选择列
+ * @returns {{values: *[], fields: *[]}}
  */
-function formatTable(content) {
+function formatTable(content, excludeColumns, selectColumns) {
     var result = {
         "fields": null,
         "values": []
@@ -92,27 +94,56 @@ function formatTable(content) {
         }
     }
 
-    let valIndex = 0;
     for (; index < lines.length; index++) {
         const target = lines[index].trim();
-        if (target.length === 0) {
+        if (!target) {
             // 忽略空行
             continue;
         }
 
         const cells = toCells(target);
-        const values = cell2str(cells, VALUE_TAG, fields_size);
-        result['values'][valIndex++] = values;
+        result['values'].push(cell2str(cells, VALUE_TAG, fields_size));
     }
-    return result;
+
+    let includeIndex = [];
+    let fields = [];
+    for (let i = 0; i < result.fields.length; i++) {
+        const field = result.fields[i];
+        if (excludeColumns && excludeColumns.indexOf(field) >= 0) {
+            continue;
+        }
+        if (!selectColumns || selectColumns.length === 0 || selectColumns.indexOf(field) >= 0) {
+            includeIndex.push(i);
+            fields.push(field);
+        }
+    }
+    console.log("old keys:", result.fields, " select keys:", fields, "select Columns:", selectColumns);
+
+    let values = [];
+    result.values.forEach(val => {
+        const subValue = []
+        for (let i = 0; i < val.length; i++) {
+            if (includeIndex.indexOf(i) >= 0) {
+                subValue.push(val[i]);
+            }
+        }
+        values.push(subValue);
+    })
+    return {
+        "fields": fields,
+        "values": values
+    }
 }
 
 /**
  * 表格内容转json数组
  * @param content
+ * @param groupKey 分组key
+ * @param excludeColumns 排除列
+ * @param selectColumns 选择列
  */
-function table2jsonStr(content, groupKey) {
-    let table_content = formatTable(content);
+function table2jsonStr(content, groupKey, excludeColumns, selectColumns) {
+    let table_content = formatTable(content, excludeColumns, selectColumns);
     let i = 0;
     let result = [];
     for (let index = 0; index < table_content['values'].length; index++) {
@@ -150,16 +181,11 @@ function table2jsonStr(content, groupKey) {
     return table_content;
 }
 
-function table2insertSql(content, tableName, ignoreColumn) {
-    const table_content = formatTable(content);
+function table2insertSql(content, tableName, ignoreColumn, selectColumn) {
+    const table_content = formatTable(content, ignoreColumn, selectColumn);
     let sql = "insert into `" + tableName + "` (";
     let first = true;
-    let ignoreColumnIndex = -1;
     for (let fi = 0; fi < table_content['fields'].length; fi++) {
-        if (table_content['fields'][fi] === ignoreColumn) {
-            ignoreColumnIndex = fi;
-            continue;
-        }
         if (first) first = false; else sql += ",";
         sql += "`" + table_content['fields'][fi] + "`";
     }
@@ -173,7 +199,6 @@ function table2insertSql(content, tableName, ignoreColumn) {
         const val = table_content['values'][valIndex];
         first = true;
         for (let vi = 0; vi < val.length; vi++) {
-            if (vi === ignoreColumnIndex) continue;
             if (first) first = false; else sql += ",";
 
             const target = String(val[vi]);
@@ -190,32 +215,21 @@ function table2insertSql(content, tableName, ignoreColumn) {
     return table_content;
 }
 
-function table2markdown(content, ignoreColumn) {
-    let ignoreColumnIndex = [];
-    let ignoreColumns = ignoreColumn.split(',');
-
+function table2markdown(content, ignoreColumn, selectColumn) {
     let res = "| ";
-    const table_content = formatTable(content);
+    const table_content = formatTable(content, ignoreColumn, selectColumn);
     for (let i = 0; i < table_content['fields'].length; i++) {
         let field = table_content['fields'][i];
-        if (ignoreColumns.indexOf(field) >= 0) {
-            ignoreColumnIndex.push(i);
-        } else {
-            res += field + " | ";
-        }
+        res += field + " | ";
     }
     res += "\n| ";
-    for (let i = 0; i < table_content['fields'].length - ignoreColumnIndex.length; i++) {
+    for (let i = 0; i < table_content['fields'].length; i++) {
         res += "--- | ";
     }
 
     table_content['values'].forEach(val => {
         res += "\n| ";
         for (let i = 0; i < val.length; i++) {
-            if (i in ignoreColumnIndex) {
-                continue;
-            }
-
             res += val[i] + " | ";
         }
     })
@@ -223,4 +237,23 @@ function table2markdown(content, ignoreColumn) {
     return table_content;
 }
 
-export {table2jsonStr, table2insertSql, table2markdown};
+function table2csv(content, ignoreColumn, selectColumn) {
+    const table_content = formatTable(content, ignoreColumn, selectColumn);
+    let res = "";
+    table_content.fields.forEach(f => res += f + ",");
+    res = res.substring(0, res.length - 1) + "\n";
+    table_content.values.forEach(val => {
+        let row = "";
+        let first = true;
+        for (let i = 0; i < val.length; i++) {
+            if (first) first = false; else row += ",";
+            row += val[i];
+        }
+        row += "\n";
+        res += row;
+    })
+    table_content['str'] = res;
+    return table_content;
+}
+
+export {formatTable, table2jsonStr, table2insertSql, table2markdown, table2csv};
