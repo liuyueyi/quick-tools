@@ -553,6 +553,35 @@ export const state = () => {
                     }
                 },
                 {
+                    name: '水印移除',
+                    search_keys: "watermark remove",
+                    icon: '#icon-remove',
+                    path: '/tools/image/rmwater',
+                    recommend: false,
+                    head: {
+                        keywords: [
+                            '移除水印',
+                            '删除水印'
+                        ],
+                        description: '自动移除图片水印'
+                    }
+                },
+                {
+                    name: '添加水印',
+                    search_keys: "watermark",
+                    icon: '#icon-watermark',
+                    path: '/tools/image/watermark',
+                    recommend: false,
+                    head: {
+                        keywords: [
+                            '身份证加水印',
+                            '敏感信息加水印',
+                            '图片加水印'
+                        ],
+                        description: '在线身份证加水印'
+                    }
+                },
+                {
                     name: 'SVG渲染',
                     search_keys: 'svg format conversion render',
                     icon: '#icon-svg',
@@ -643,21 +672,6 @@ export const state = () => {
                     head: {
                         keywords: ['GIF图片分解'],
                         description: '在线分解GIF图片'
-                    }
-                },
-                {
-                    name: '水印',
-                    search_keys: "watermark",
-                    icon: '#icon-watermark',
-                    path: '/tools/image/watermark',
-                    recommend: false,
-                    head: {
-                        keywords: [
-                            '身份证加水印',
-                            '敏感信息加水印',
-                            '图片加水印'
-                        ],
-                        description: '在线身份证加水印'
                     }
                 },
                 {

@@ -9,6 +9,9 @@
 
 ### 2. 工具历史记录
 
+**2022.07.09**
+- 新增在线去除水印小工具 [remove watermark](https://tool.hhui.top/tools/image/rmwater)
+
 **2022.07.08**
 
 - 表格数据格式化，支持选中特定列，支持排除特定列，支持转csv [table format](https://tool.hhui.top/tools/text/table_format/)
