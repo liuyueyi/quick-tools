@@ -9,6 +9,9 @@
 
 ### 2. 工具历史记录
 
+**2022.07.19**
+- csv格式化 [csv](https://tool.hhui.top/tools/text/csv)
+
 **2022.07.09**
 - 新增在线去除水印小工具 [remove watermark](https://tool.hhui.top/tools/image/rmwater)
 

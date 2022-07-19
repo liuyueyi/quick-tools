@@ -45,6 +45,7 @@
     "nuxt": "^2.9.2",
     "nzh": "^1.0.4",
     "pangu": "^4.0.7",
+    "papaparse": "^5.3.2",
     "pinyin": "^2.9.0",
     "qr-image": "^3.2.0",
     "relationship.js": "^1.0.0",

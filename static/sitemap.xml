@@ -272,7 +272,11 @@
         <lastmod>2022-07-07</lastmod>
     </url>
     <url>
-        <loc>https://tool.hhui.top/tools/code/mdFormat</loc>
-        <lastmod>2022-07-07</lastmod>
+        <loc>https://tool.hhui.top/tools/code/mdformat</loc>
+        <lastmod>2022-07-19</lastmod>
+    </url>
+    <url>
+        <loc>https://tool.hhui.top/tools/text/csv</loc>
+        <lastmod>2022-07-19</lastmod>
     </url>
 </urlset>

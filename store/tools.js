@@ -6,6 +6,20 @@ export const state = () => {
             icon: 'text-outline',
             list: [
                 {
+                    name: 'csv格式化',
+                    search_keys: 'csv',
+                    icon: '#icon-csv',
+                    path: '/tools/text/csv',
+                    recommend: false,
+                    head: {
+                        keywords: [
+                            'csv',
+                            'excel',
+                        ],
+                        description: 'csv格式化'
+                    }
+                },
+                {
                     name: '文件base64',
                     search_keys: 'file base64',
                     icon: '#icon-file-encode',
@@ -402,7 +416,7 @@ export const state = () => {
                     name: 'Markdown表格格式化',
                     search_keys: "markdown table format",
                     icon: '#icon-format',
-                    path: '/tools/code/mdFormat',
+                    path: '/tools/code/mdformat',
                     recommend: true,
                     head: {
                         keywords: ['markdown', '表格', "格式化", "表格数据格式化"],
