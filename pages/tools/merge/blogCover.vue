@@ -44,15 +44,15 @@
             <div class="form-inline top-padding-1em">
                 <span class="text-center" style="margin-right: 1em">主标题</span>
                 <input type="text" class="form-control text-center col-6" v-model="text"/>
-                <span class="text-center" style="margin-right: 1em; margin-left: 1em">文字倍数</span>
-                <input type="number" class="form-control text-center col-2" v-model="fontSize"/>
+                <span class="text-center" style="margin-right: 1em; margin-left: 1em">字体样式</span>
+                <input type="text" class="form-control text-center col-2" v-model="fontSize"/>
             </div>
 
             <div class="form-inline top-padding-1em">
                 <span class="text-center" style="margin-right: 1em">副标题</span>
                 <input type="text" class="form-control text-center col-6" v-model="secondText"/>
-                <span class="text-center" style="margin-right: 1em; margin-left: 1em">文字倍数</span>
-                <input type="number" class="form-control text-center col-2" v-model="secondFontSize"/>
+                <span class="text-center" style="margin-right: 1em; margin-left: 1em">字体样式</span>
+                <input type="text" class="form-control text-center col-2" v-model="secondFontSize"/>
             </div>
 
             <client-only>
@@ -127,16 +127,16 @@ export default {
 
             width: "960",
             height: "320",
-            fontSize: 4,
+            fontSize: "font-size:4em;",
             text: '神奇工具箱的专栏分享',
-            secondText: 'by一灰灰',
-            secondFontSize: 2,
-            bgColor: '#CCCCCC',
-            bgColorInput: '#CCCCCC',
-            textColor: '#666666',
-            textColorInput: '#666666',
-            secondTextColor: '#666666',
-            secondTextColorInput: '#666666',
+            secondText: 'by 一灰灰',
+            secondFontSize: "font-size:2em;font-style: italic;font-family: cursive;",
+            bgColor: '#16A5A5FF',
+            bgColorInput: '#16A5A5FF',
+            textColor: '#eeeeee',
+            textColorInput: '#eeeeee',
+            secondTextColor: '#eeeeee',
+            secondTextColorInput: '#eeeeee',
             imgUrl: '',
         };
     },
@@ -160,8 +160,8 @@ export default {
                 bg = "url(" + this.bgUrl + ")";
             }
             return `<div style="background: ${bg}; width:${this.width}px; height: ${this.height}px;" class="nav flex-column justify-content-center text-center">
-                        <span style="font-size: ${this.fontSize}em; color: ${tc}">${this.text}</span>
-                        <span style="font-size: ${this.secondFontSize}em; color: ${tc2}">${this.secondText}</span>
+                        <span style="${this.fontSize}; color: ${tc}">${this.text}</span>
+                        <span style="${this.secondFontSize}; color: ${tc2}">${this.secondText}</span>
                     </div>`
         }
     },
