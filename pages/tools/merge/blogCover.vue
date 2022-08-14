@@ -45,36 +45,54 @@
                 <span class="text-center" style="margin-right: 1em">主标题</span>
                 <input type="text" class="form-control text-center col-6" v-model="text"/>
                 <span class="text-center" style="margin-right: 1em; margin-left: 1em">字体样式</span>
-                <input type="text" class="form-control text-center col-2" v-model="fontSize"/>
+                <input type="text" class="form-control text-center col-4" v-model="fontSize"/>
+                <client-only>
+                    <div class="form-inline top-padding-1em">
+                        <span class="text-center"> 颜色 </span>
+                        <compact-picker v-model="textColor" class="form-control" style="margin-left: 1em"/>
+                        <input type="text" class="text-center" placeholder="自定义#666666"
+                               style="margin-left: 1em"
+                               v-model="textColorInput"/>
+                    </div>
+                </client-only>
             </div>
 
             <div class="form-inline top-padding-1em">
                 <span class="text-center" style="margin-right: 1em">副标题</span>
                 <input type="text" class="form-control text-center col-6" v-model="secondText"/>
                 <span class="text-center" style="margin-right: 1em; margin-left: 1em">字体样式</span>
-                <input type="text" class="form-control text-center col-2" v-model="secondFontSize"/>
+                <input type="text" class="form-control text-center col-4" v-model="secondFontSize"/>
+                <client-only>
+                    <div class="form-inline top-padding-1em">
+                        <span class="text-center"> 颜色 </span>
+                        <compact-picker v-model="secondTextColor" class="form-control" style="margin-left: 1em"/>
+                        <input type="text" class="text-center" placeholder="自定义#666666"
+                               style="margin-left: 1em"
+                               v-model="secondTextColorInput"/>
+                    </div>
+                </client-only>
             </div>
 
             <client-only>
-                <div class="form-inline top-padding-1em">
-                    <span class="text-center"> 主标题颜色 </span>
-                    <compact-picker v-model="textColor" class="form-control" style="margin-left: 1em"/>
-                    <input type="text" class="form-control text-center" placeholder="自定义#666666"
-                           style="margin-left: 1em"
-                           v-model="textColorInput"/>
-                </div>
-                <div class="form-inline top-padding-1em">
-                    <span class="text-center"> 副标题颜色 </span>
-                    <compact-picker v-model="secondTextColor" class="form-control" style="margin-left: 1em"/>
-                    <input type="text" class="form-control text-center" placeholder="自定义#666666"
-                           style="margin-left: 1em"
-                           v-model="secondTextColorInput"/>
-                </div>
+<!--                <div class="form-inline top-padding-1em">-->
+<!--                    <span class="text-center"> 主标题颜色 </span>-->
+<!--                    <compact-picker v-model="textColor" class="form-control" style="margin-left: 1em"/>-->
+<!--                    <input type="text" class="form-control text-center" placeholder="自定义#666666"-->
+<!--                           style="margin-left: 1em"-->
+<!--                           v-model="textColorInput"/>-->
+<!--                </div>-->
+<!--                <div class="form-inline top-padding-1em">-->
+<!--                    <span class="text-center"> 副标题颜色 </span>-->
+<!--                    <compact-picker v-model="secondTextColor" class="form-control" style="margin-left: 1em"/>-->
+<!--                    <input type="text" class="form-control text-center" placeholder="自定义#666666"-->
+<!--                           style="margin-left: 1em"-->
+<!--                           v-model="secondTextColorInput"/>-->
+<!--                </div>-->
 
                 <div class="form-inline top-padding-1em">
-                    <span class="text-center"> 纯背景颜色 </span>
+                    <span class="text-center"> 背景颜色 </span>
                     <compact-picker v-model="bgColor" class="form-control" style="margin-left: 1em"/>
-                    <input type="text" class="form-control text-center" placeholder="自定义#cccccc"
+                    <input type="text" class="text-center" placeholder="自定义#cccccc"
                            style="margin-left: 1em"
                            v-model="bgColorInput"/>
                 </div>

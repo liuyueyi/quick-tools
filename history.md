@@ -10,6 +10,11 @@
 ### 2. 工具历史记录
 
 **2022.07.19**
+
+- 封面图合成插件，支持文字样式设置 [专栏封面](https://tool.hhui.top/tools/merge/blogCover/)
+
+
+**2022.07.19**
 - csv格式化 [csv](https://tool.hhui.top/tools/text/csv)
 
 **2022.07.09**
