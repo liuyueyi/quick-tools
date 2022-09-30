@@ -2,7 +2,7 @@
     <div class="vfooter">
         <div>
             <span class="small-font">
-                更新时间: 2022-07-07 | 工具数量: <nya-link to="/">{{ this.toolNum }}</nya-link>
+                更新时间: 2022-09-30 | 工具数量: <nya-link to="/">{{ this.toolNum }}</nya-link>
             </span>
         </div>
         <div>

@@ -424,6 +424,17 @@ export const state = () => {
                     }
                 },
                 {
+                    name: 'Html美化',
+                    search_keys: "html js beautify css format",
+                    icon: '#icon-beautify',
+                    path: '/tools/code/htmlformat',
+                    recommend: true,
+                    head: {
+                        keywords: ['html', 'css', "javascript", "beautify"],
+                        description: 'html编码美化工具'
+                    }
+                },
+                {
                     name: 'HTTP解析',
                     search_keys: 'http parse',
                     icon: '#icon-http',
@@ -955,13 +966,24 @@ export const state = () => {
                 },
                 {
                     name: '随机数生成',
-                    search_keys: 'rand numbers',
+                    search_keys: 'random numbers',
                     icon: '#icon-random',
                     path: '/tools/other/random',
                     recommend: false,
                     head: {
                         keywords: ['在线随机数生成'],
                         description: '在线随机数生成'
+                    }
+                },
+                {
+                    name: '随机密码生成',
+                    search_keys: 'random password pwd',
+                    icon: '#icon-key',
+                    path: '/tools/other/random_pwd',
+                    recommend: true,
+                    head: {
+                        keywords: ['在线随机密码生成'],
+                        description: '在线随机密码生成'
                     }
                 },
                 {

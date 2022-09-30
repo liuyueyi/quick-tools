@@ -168,6 +168,7 @@ yarn generate
 | 编程      |                 |                                                                |                             |                                      |
 |           | 时间戳转换           | [url](https://tool.hhui.top/tools/code/timestamp)              | 在线时间戳转换 格式化工具               | 2022/07/07                           |
 |           | markdown表格格式化   | [url](https://tool.hhui.top/tools/code/mdFormat)               | markdown表格数据格式化             | 2022/07/07                           |
+|           | html美化          | [url](https://tool.hhui.top/tools/code/htmlformat)             | html美化                      | 2022/09/30                           |
 |           | HTTP解析          | [url](https://tool.hhui.top/tools/code/http)                   | HTTP参数解析、编解码、请求头处理          | 2022/07/07                           |
 |           | UserAgent 解析    | [url](https://tool.hhui.top/tools/code/ua)                     | UserAgent 解析                | 2022/07/07                           |
 |           | CSS 兼容性处理       | [url](https://tool.hhui.top/tools/code/autoprefixer)           | 在线CSS兼容性处理                  | 2022/07/07                           |
@@ -214,6 +215,7 @@ yarn generate
 |           | 番茄时钟            | [url](https://tool.hhui.top/tools/other/pomodoro_technique)    | 在线番茄时钟                      | 2022/07/07                           |
 |           | 人生小格            | [url](https://tool.hhui.top/tools/other/lifecount)             | 人生小格                        | 2022/07/07                           |
 |           | 随机数生成           | [url](https://tool.hhui.top/tools/other/random)                | 在线随机数生成                     | 2022/07/07                           |
+|           | 随机密码生成          | [url](https://tool.hhui.top/tools/other/random_pwd)            | 随机密码生成                      | 2022/09/30                           |
 |           | LINE 贴纸下载       | [url](https://tool.hhui.top/tools/other/line_sticker_download) | LINE贴纸在线下载                  | 2022/07/07                           |
 |           | 帮你百度            | [url](https://tool.hhui.top/tools/other/search_help)           | 帮你百度                        | 2022/07/07                           |
 |           | 这是什么动漫          | [url](https://tool.hhui.top/tools/other/what_anime_is_this)    | 根据截图搜索动漫                    | 2022/07/07                           |

@@ -2,7 +2,7 @@
     <nya-container :title="title" :icon="icon">
         <ul class="nya-list">
             <li>
-                该工具所有功能直接在浏览器端完成，请放心使用
+                该工具所有功能直接在浏览器端完成，无服务端交互，不会收集任何数据，请放心使用
             </li>
             <template>
                 <slot></slot>

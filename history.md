@@ -9,6 +9,11 @@
 
 ### 2. 工具历史记录
 
+**2022.09.30**
+
+- html/js/css代码美化 [Html美化](https://tool.hhui.top/tools/code/htmlformat)
+- 随机密码生成器 [随机密码生成](https://tool.hhui.top/tools/other/random_pwd)
+
 **2022.07.19**
 
 - 封面图合成插件，支持文字样式设置 [专栏封面](https://tool.hhui.top/tools/merge/blogCover/)

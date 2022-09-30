@@ -32,7 +32,15 @@ export default {
     },
     computed: {
         results() {
-            return "有效字符数:" + this.content.length;
+            let lines = this.content.split("\n");
+            let totalLineNum = lines.length;
+            let legalLineNum = 0;
+            for (let i = 0; i < totalLineNum; i++) {
+                if (lines[i]) {
+                    legalLineNum += 1;
+                }
+            }
+            return "有效字符数:" + this.content.length + "\n总行数:" + totalLineNum + "\n非空行数:" + legalLineNum;
         }
     },
     methods: {}

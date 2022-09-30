@@ -14,6 +14,9 @@
         <nya-container v-if="results.length" title="结果">
             <Dynamic :template="results.join(br ? '<br>' : '\n')" />
         </nya-container>
+
+        <nya-foot-info title="Tips">
+        </nya-foot-info>
     </div>
 </template>
 
