@@ -15,7 +15,7 @@
                                            :label="label.label"/>
                             </nya-radio-group>
                         </div>
-                        <input class="form-control" style="width: 80%" type="text" autocomplete="false" v-model="oldInput" placeholder="输入待替换文本"/>
+                        <input class="form-control" style="width: 80%" type="text" autocomplete="false" v-model="oldInput" placeholder="输入需要替换的字符"/>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 custom-bg-color custom-by-both">
@@ -26,7 +26,7 @@
                                            :label="label.label"/>
                             </nya-radio-group>
                         </div>
-                        <input class="form-control" style="width: 80%" type="text" autocomplete="false" v-model="newInput" placeholder="输入转换后文本"/>
+                       <input class="form-control" style="width: 80%" type="text" autocomplete="false" v-model="newInput" placeholder="输入替换后的字符"/>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
 
         <nya-container v-if="newString" title="替换结果">
             <nya-copy :copy="newString">
-                <pre>  <Dynamic :template="newString"/> </pre>
+                <pre>{{newString}}</pre>
             </nya-copy>
         </nya-container>
 
@@ -159,21 +159,35 @@ export default {
             this.oldString = n;
             this.newString = o;
         },
+        escapeParse(tag) {
+            tag = tag.replaceAll("\\''", "\'");
+            tag = tag.replaceAll('\\""', '\"');
+            tag = tag.replaceAll("\\&", "\&"); // 和号
+            tag = tag.replaceAll("\\n", "\n"); // 换行
+            tag = tag.replaceAll("\\r", "\r"); // 回车符
+            tag = tag.replaceAll("\\t", "\t"); // 制表符
+            tag = tag.replaceAll("\\b", "\b"); // 退格符
+            tag = tag.replaceAll("\\f", "\f"); // 换页
+            return tag;
+        },
         parse() {
             let regexEnable = true;
             let sourceTag = this.sourceLabels[this.sourceIndex].val;
             let targetTag = this.targetLabels[this.targetIndex].val;
             if (this.oldInput.length > 0) {
                 sourceTag = this.oldInput;
-                sourceTag = sourceTag.replaceAll('\\\\', '\\');
                 regexEnable = this.regex;
+                if (this.regex) {
+                    sourceTag = this.escapeParse(sourceTag);
+                }
             }
             if (this.newInput.length > 0) {
                 targetTag = this.newInput;
-                targetTag = targetTag.replaceAll('\\\\', '\\');
                 regexEnable = this.regex;
+                if (this.regex) {
+                    targetTag = this.escapeParse(targetTag);
+                }
             }
-            console.log("source", sourceTag, "target", targetTag);
             try {
                 if (this.perLine) {
                     // 逐行替换

@@ -1,7 +1,7 @@
 <template>
     <div class="random">
         <nya-container title="随机密码生成器">
-            <div class="nya-input mb-15 fullwidth">
+            <div class="nya-input mb-15">
                 <label class="input-title">
                     <span style="padding-right: 1em"> 使用字符： </span>
                     <nya-checkbox v-model="lowAlpha" label="a-z"/>
@@ -9,9 +9,6 @@
                     <nya-checkbox v-model="numAlpha" label="0-9"/>
                     <nya-checkbox v-model="specialAlpha" label="!@#$%^&*"/>
                     <span style="padding: 0 1em; color:gray"> | </span>
-                    <div class="nya-btn" @click="gen">
-                        生成密码
-                    </div>
                 </label>
             </div>
 
@@ -21,8 +18,9 @@
                        autocomplete="off"/>
             <nya-input v-model.trim="num" class="mb-15" type="number" label="生成数量" placeholder="10"
                        autocomplete="off"/>
-
-
+            <div class="nya-btn btn-danger" @click="gen">
+                生成密码
+            </div>
         </nya-container>
 
         <nya-container v-if="results.length" title="随机密码如下">
