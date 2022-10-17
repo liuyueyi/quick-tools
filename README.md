@@ -167,6 +167,7 @@ yarn generate
 |           | 微信公众号编辑器        | [url](https://tool.hhui.tophttps://wechat.hhui.top)            | 基于markdown生成微信公众号文章的编辑器     | 2022/07/07                           |
 | 编程      |                 |                                                                |                             |                                      |
 |           | 时间戳转换           | [url](https://tool.hhui.top/tools/code/timestamp)              | 在线时间戳转换 格式化工具               | 2022/07/07                           |
+|           | json解码平铺        | [url](https://tool.hhui.top/tools/code/json_decode)            | json解码，平铺                   | 2022/10/17                           |
 |           | markdown表格格式化   | [url](https://tool.hhui.top/tools/code/mdFormat)               | markdown表格数据格式化             | 2022/07/07                           |
 |           | html美化          | [url](https://tool.hhui.top/tools/code/htmlformat)             | html美化                      | 2022/09/30                           |
 |           | HTTP解析          | [url](https://tool.hhui.top/tools/code/http)                   | HTTP参数解析、编解码、请求头处理          | 2022/07/07                           |

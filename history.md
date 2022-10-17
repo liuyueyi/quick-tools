@@ -9,6 +9,11 @@
 
 ### 2. 工具历史记录
 
+**2022.10.17**
+
+- json解码平铺 [json解码](https://tool.hhui.top/tools/code/json_decode)
+
+
 **2022.09.30**
 
 - html/js/css代码美化 [Html美化](https://tool.hhui.top/tools/code/htmlformat)
