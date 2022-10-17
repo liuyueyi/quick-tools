@@ -413,6 +413,17 @@ export const state = () => {
                     }
                 },
                 {
+                    name: 'json解码铺平',
+                    search_keys: "json format",
+                    icon: '#icon-json-edit',
+                    path: '/tools/code/json_decode',
+                    recommend: true,
+                    head: {
+                        keywords: ['json', '铺平', "解码"],
+                        description: '解析json格式字符串，拉平为完全的json对象'
+                    }
+                },
+                {
                     name: 'Markdown表格格式化',
                     search_keys: "markdown table format",
                     icon: '#icon-format',
