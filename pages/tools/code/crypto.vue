@@ -197,7 +197,7 @@ export default {
                 this.key +
                 '&content=' +
                 this.content;
-            this.$axios
+            return this.$axios
                 .get(url)
                 .then(e => {
                     let r = e.data;
@@ -205,12 +205,12 @@ export default {
                         r = r.result;
                     }
                     this.result = r;
+                    return r;
                 })
                 .catch(error => {
                     console.log('some error:', error);
                     return false;
                 });
-            return this.result;
         }
     }
 };
