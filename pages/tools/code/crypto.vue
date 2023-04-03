@@ -1,18 +1,22 @@
 <template>
     <div class="crypto">
         <nya-container title="在线加密解密">
-            <nya-input v-model="content" fullwidth rows="5" type="textarea" autofocus autocomplete="off" label="待处理的内容"
-                       placeholder="请输入要处理的内容"/>
+            <nya-input v-model="content" fullwidth rows="5" type="textarea" autofocus autocomplete="off"
+                       label="待处理的内容"
+                       placeholder="请输入要处理的内容"
+            />
             <nya-input v-if="ciphersList[encryption] || HMACList.includes(encryption)" v-model="key" fullwidth
                        autocomplete="off" :label="HMACList.includes(encryption) ? 'salt' : '密钥'"
-                       :placeholder="`请输入${HMACList.includes(encryption) ? 'salt' : '密钥'}`"/>
+                       :placeholder="`请输入${HMACList.includes(encryption) ? 'salt' : '密钥'}`"
+            />
             <nya-input v-if="encryption === 'RC4Drop'" v-model="drop" fullwidth type="number" autocomplete="off"
-                       label="drop" placeholder="RC4Drop特有参数，请输入要丢弃的密匙初始数量"/>
+                       label="drop" placeholder="RC4Drop特有参数，请输入要丢弃的密匙初始数量"
+            />
             <br>
-            <nya-select v-if="!type" v-model="encryption" fullwidth :items="encryptionList" label="选择加密方式"/>
-            <nya-select v-else v-model="encryption" fullwidth :items="ciphersList" label="选择解密方式"/>
+            <nya-select v-if="!type" v-model="encryption" fullwidth :items="encryptionList" label="选择加密方式" />
+            <nya-select v-else v-model="encryption" fullwidth :items="ciphersList" label="选择解密方式" />
             <br>
-            <nya-checkbox v-model="type" label="解密"/>
+            <nya-checkbox v-model="type" label="解密" />
             <br>
             <button
                 type="button"
@@ -29,7 +33,7 @@
             </nya-copy>
         </nya-container>
 
-        <nya-foot-info title="Tips"></nya-foot-info>
+        <nya-foot-info title="Tips" />
     </div>
 </template>
 
@@ -54,6 +58,7 @@ export default {
                 HmacSHA512: 'HmacSHA-3',
                 RIPEMD160: 'RIPEMD-160',
                 AES: 'AES',
+                AES_CBC_PKCS5Padding: 'AES_CBC_PKCS5Padding',
                 DES: 'DES',
                 TripleDES: 'TripleDES',
                 Rabbit: 'Rabbit',
@@ -62,6 +67,7 @@ export default {
             },
             ciphersList: {
                 AES: 'AES',
+                AES_CBC_PKCS5Padding: 'AES_CBC_PKCS5Padding',
                 DES: 'DES',
                 TripleDES: 'TripleDES',
                 Rabbit: 'Rabbit',
@@ -182,6 +188,29 @@ export default {
             } catch (error) {
                 return false;
             }
+        },
+        AES_CBC_PKCS5Padding(type) {
+            const url =
+                (type === 'encrypt'
+                    ? 'https://story.hhui.top/media/aes/encode?key='
+                    : 'https://story.hhui.top/media/aes/decode?key=') +
+                this.key +
+                '&content=' +
+                this.content;
+            this.$axios
+                .get(url)
+                .then(e => {
+                    let r = e.data;
+                    if (r.status.code === 200) {
+                        r = r.result;
+                    }
+                    this.result = r;
+                })
+                .catch(error => {
+                    console.log('some error:', error);
+                    return false;
+                });
+            return this.result;
         }
     }
 };
