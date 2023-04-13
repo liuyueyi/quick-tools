@@ -22,7 +22,7 @@
 
 > 本项目基于 [https://miku.tools](https://miku.tools) 的开源版本进行二次开发，感谢大佬的贡献，本项目同样遵守MIT开源协议
 
-本项目致力于打造一个百宝箱的工具集，收集并提供一些有趣又实用的小工具，给大伙提供遍历；同时也是为了给 [quick-media](https://github.com/liuyueyi/quick-media)
+本项目致力于打造一个百宝箱的工具集，收集并提供一些有趣又实用的小工具，给大伙提供便利；同时也是为了给 [quick-media](https://github.com/liuyueyi/quick-media)
 这个项目提供一个展示自我的舞台
 
 体验地址：[https://tool.hhui.top](https://tool.hhui.top)
