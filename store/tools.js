@@ -436,13 +436,24 @@ export const state = () => {
                 },
                 {
                     name: 'Html美化',
-                    search_keys: "html js beautify css format",
+                    search_keys: 'html js beautify css format',
                     icon: '#icon-beautify',
                     path: '/tools/code/htmlformat',
                     recommend: true,
                     head: {
-                        keywords: ['html', 'css', "javascript", "beautify"],
+                        keywords: ['html', 'css', 'javascript', 'beautify'],
                         description: 'html编码美化工具'
+                    }
+                },
+                {
+                    name: 'Sql合并',
+                    search_keys: 'sql format merge',
+                    icon: '#icon-sql',
+                    path: '/tools/code/sql',
+                    recommend: true,
+                    head: {
+                        keywords: ['sql', 'format', '美化', '格式化'],
+                        description: 'sql合并'
                     }
                 },
                 {
