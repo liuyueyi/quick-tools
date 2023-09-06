@@ -10,6 +10,14 @@
                 fullwidth
             />
             <nya-input
+                v-model.trim="otherAmount"
+                label="其他费用"
+                placeholder="0"
+                autocomplete="off"
+                autofocus
+                fullwidth
+            />
+            <nya-input
                 v-model.trim="day"
                 label="融资账期"
                 type="number"
@@ -70,6 +78,7 @@ export default {
     data() {
         return {
             amount: '9,905.62',
+            otherAmount: '0',
             day: '141',
             financing_rate: '0.025',
             financing_service_rate: '0.0008',
@@ -82,6 +91,9 @@ export default {
     },
     watch: {
         amount() {
+            this.results = this.update_result();
+        },
+        otherAMount() {
             this.results = this.update_result();
         },
         day() {
@@ -100,7 +112,7 @@ export default {
     methods: {
         update_result() {
             let r = [];
-            if (this.radio.trim()) {
+            if (this.radio.trim() && this.radio.startsWith("[")) {
                 try {
                     const rs = JSON.parse(this.radio.trim());
                     let last = 0;
@@ -113,8 +125,17 @@ export default {
                     console.log(e);
                     r.push(100);
                 }
-            } else {
+            } else if (!this.radio.trim()){
                 r.push(100);
+            } else {
+                let ra = parseFloat(this.radio.trim());
+                if (ra < 1) {
+                    r.push(ra * 100);
+                }else if(ra == 1 || ra >= 100) {
+                    r.push(100);
+                } else {
+                    r.push(ra);
+                }
             }
 
             if (r.length === 0) {
@@ -124,13 +145,14 @@ export default {
             console.log("计算成本", r);
 
             let res = '';
+            let totalAmounts = parseFloat(this.amount.trim().replaceAll(",", ""))  + parseFloat(this.otherAmount.trim().replace(",", ""))
             for (let i = 0; i < r.length; i++) {
                 let tmp = this.calculate_financing_amount(
-                    (this.amount.trim().replaceAll(',', '') * r[i]) / 100,
+                    (totalAmounts * r[i]) / 100,
                     this.day.trim(),
                     this.financing_rate.trim(),
                     this.financing_service_rate.trim(),
-                    r[i] / 100
+                    parseFloat(r[i]) / 100
                 );
                 res +=
                     '第' +
