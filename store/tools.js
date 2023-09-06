@@ -295,8 +295,26 @@ export const state = () => {
                     path: '/tools/convert/set',
                     recommend: false,
                     head: {
-                        keywords: ['集合计算', '交集', '并集', '补集', '差集', '全集'],
+                        keywords: [
+                            '集合计算',
+                            '交集',
+                            '并集',
+                            '补集',
+                            '差集',
+                            '全集'
+                        ],
                         description: '集合操作计算'
+                    }
+                },
+                {
+                    name: '融资成本计算',
+                    search_keys: 'financing cost calculate',
+                    icon: '#icon-money',
+                    path: '/tools/code/amount',
+                    recommend: true,
+                    head: {
+                        keywords: ['financing', 'cost', '融资', '成本'],
+                        description: '融资成本计算器'
                     }
                 },
                 {

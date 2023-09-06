@@ -12,6 +12,7 @@
             <nya-input
                 v-model.trim="day"
                 label="融资账期"
+                type="number"
                 placeholder="141"
                 autocomplete="off"
                 autofocus
@@ -36,15 +37,15 @@
             <nya-input
                 v-model.trim="radio"
                 label="分期比例"
-                placeholder="[{&quot;ratio&quot;: 95, &quot;deferredDays&quot;: 10}, {&quot;ratio&quot;: 100, &quot;deferredDays&quot;: 400}]"
+                placeholder="1"
                 autocomplete="off"
                 autofocus
                 fullwidth
             />
         </nya-container>
 
-        <nya-container v-if="results.length" title="融资信息计算结果">
-            {{ formatDate(results) }}
+        <nya-container v-show="results" title="融资信息计算结果">
+            <pre>{{ results }}</pre>
         </nya-container>
 
         <nya-container title="计算公式如下">
@@ -68,20 +69,20 @@ export default {
     },
     data() {
         return {
-            amount: '',
-            day: '',
-            financing_rate: '',
-            financing_service_rate: '',
-            radio: ''
+            amount: '9,905.62',
+            day: '141',
+            financing_rate: '0.025',
+            financing_service_rate: '0.0008',
+            radio: '[{"ratio": 95}, {"ratio": 100}]'
         };
     },
     computed: {
         results() {
             let r = [1];
-            if (!this.radio) {
+            if (!this.radio.trim()) {
                 r = [1];
             } else {
-                const rs = JSON.parse(this.radio);
+                const rs = JSON.parse(this.radio.trim());
                 let last = 0;
                 for (let i = 0; i < rs; i++) {
                     r.append(rs[i]['ratio'] - last);
@@ -92,10 +93,11 @@ export default {
             let res = '';
             for (let i = 0; i < r; i++) {
                 let tmp = this.calculate_financing_amount(
-                    (this.amount * r[i]) / 100,
-                    this.day,
-                    this.financing_rate,
-                    this.financing_service_rate
+                    (this.amount.trim().replaceAll(',', '') * r[i]) / 100,
+                    this.day.trim(),
+                    this.financing_rate.trim(),
+                    this.financing_service_rate.trim(),
+                    r[i] / 100
                 );
                 res +=
                     '第' +
@@ -114,33 +116,33 @@ export default {
             amount,
             day,
             financing_rate,
-            financing_service_rate
+            financing_service_rate,
+            radio
         ) {
             const apply_amount =
                 amount /
                 (1 -
-                    (day * financing_rate) / 360 -
-                    (day * financing_service_rate) / 360);
+                    (day * financing_rate) / 360.0 -
+                    (day * financing_service_rate) / 360.0);
             const financing_cost = apply_amount - amount;
             const financing_interest =
-                (apply_amount * financing_rate * day) / 360;
+                (apply_amount * financing_rate * day) / 360.0;
             const service_amount =
-                (apply_amount * financing_service_rate * day) / 360;
-            // let ans = {
-            //     apply_amount: Math.round(apply_amount, 2),
-            //     financing_cost: Math.round(financing_cost, 2),
-            //     financing_interest: Math.round(financing_interest, 2),
-            //     service_amount: Math.round(service_amount, 2)
-            // };
+                (apply_amount * financing_service_rate * day) / 360.0;
+
+            // 本期申请支付金额
+            const payment_apply_amount = amount * radio + financing_cost
             return (
                 '申请金额: ' +
-                Math.round(apply_amount, 2) +
+                apply_amount.toFixed(2) +
                 '\n融资成本: ' +
-                Math.round(financing_cost, 2) +
+                financing_cost.toFixed(2) +
                 '\n预计融资利息: ' +
-                Math.round(financing_interest, 2) +
+                financing_interest.toFixed(2) +
                 '\n预计运维支出: ' +
-                Math.round(service_amount, 2)
+                service_amount.toFixed(2) +
+                '\n本期申请支付金额: ' +
+                payment_apply_amount.toFixed(2)
             );
         }
     }
