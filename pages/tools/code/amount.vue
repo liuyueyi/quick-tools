@@ -73,25 +73,58 @@ export default {
             day: '141',
             financing_rate: '0.025',
             financing_service_rate: '0.0008',
-            radio: '[{"ratio": 95}, {"ratio": 100}]'
+            radio: '[{"ratio": 95}, {"ratio": 100}]',
+            results: ''
         };
     },
-    computed: {
-        results() {
-            let r = [1];
-            if (!this.radio.trim()) {
-                r = [1];
-            } else {
-                const rs = JSON.parse(this.radio.trim());
-                let last = 0;
-                for (let i = 0; i < rs; i++) {
-                    r.append(rs[i]['ratio'] - last);
-                    last = rs[i]['ratio'];
+    mounted() {
+        this.update_result();
+    },
+    watch: {
+        amount() {
+            this.results = this.update_result();
+        },
+        day() {
+            this.results = this.update_result();
+        },
+        financing_rate() {
+            this.results = this.update_result();
+        },
+        financing_service_rate() {
+            this.results = this.update_result();
+        },
+        radio() {
+            this.results = this.update_result();
+        }
+    },
+    methods: {
+        update_result() {
+            let r = [];
+            if (this.radio.trim()) {
+                try {
+                    const rs = JSON.parse(this.radio.trim());
+                    let last = 0;
+                    console.log('解析数据:', rs);
+                    for (let i = 0; i < rs.length; i++) {
+                        r.push(rs[i]['ratio'] - last);
+                        last = rs[i]['ratio'];
+                    }
+                } catch (e) {
+                    console.log(e);
+                    r.push(100);
                 }
+            } else {
+                r.push(100);
             }
 
+            if (r.length === 0) {
+                r.push(100);
+            }
+
+            console.log("计算成本", r);
+
             let res = '';
-            for (let i = 0; i < r; i++) {
+            for (let i = 0; i < r.length; i++) {
                 let tmp = this.calculate_financing_amount(
                     (this.amount.trim().replaceAll(',', '') * r[i]) / 100,
                     this.day.trim(),
@@ -101,17 +134,18 @@ export default {
                 );
                 res +=
                     '第' +
-                    i +
+                    (i + 1) +
                     '期:\n比例:' +
                     r[i] +
                     '\n' +
                     tmp +
                     '\n-----------\n';
+
+                console.log(res);
             }
+            this.results = res;
             return res;
-        }
-    },
-    methods: {
+        },
         calculate_financing_amount(
             amount,
             day,
