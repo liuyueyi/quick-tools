@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/convert/pinyin", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/other/line_sticker_download", {data:[{}],fetch:{},mutations:[]});

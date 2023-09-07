@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/code/cdnjs", {data:[{}],fetch:{},mutations:[]});

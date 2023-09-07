@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/other/pomodoro_technique", {data:[{}],fetch:{},mutations:[]});

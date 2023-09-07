@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/other/what_anime_is_this", {data:[{}],fetch:{},mutations:[]});

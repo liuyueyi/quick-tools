@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/o/universal_pay_view", {data:[{}],fetch:{},mutations:[]});

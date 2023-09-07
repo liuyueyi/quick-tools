@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/design/chinaColors", {data:[{}],fetch:{},mutations:[]});

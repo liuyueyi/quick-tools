@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/qr/universal_pay", {data:[{}],fetch:{},mutations:[]});

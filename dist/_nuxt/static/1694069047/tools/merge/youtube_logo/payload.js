@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/merge/youtube_logo", {data:[{}],fetch:{},mutations:[]});

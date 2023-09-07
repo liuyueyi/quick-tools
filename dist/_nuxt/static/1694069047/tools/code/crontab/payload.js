@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/code/crontab", {data:[{}],fetch:{},mutations:[]});

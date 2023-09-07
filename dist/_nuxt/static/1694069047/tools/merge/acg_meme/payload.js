@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/merge/acg_meme", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/other/screen_record", {data:[{}],fetch:{},mutations:[]});

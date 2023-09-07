@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/editor/md", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/merge/douyin_text", {data:[{}],fetch:{},mutations:[]});

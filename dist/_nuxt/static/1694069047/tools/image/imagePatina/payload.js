@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/image/imagePatina", {data:[{}],fetch:{},mutations:[]});

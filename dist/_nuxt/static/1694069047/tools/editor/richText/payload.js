@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/editor/richText", {data:[{}],fetch:{},mutations:[]});

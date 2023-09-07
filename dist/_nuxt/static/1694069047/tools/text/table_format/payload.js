@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/text/table_format", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/other/random_pwd", {data:[{}],fetch:{},mutations:[]});

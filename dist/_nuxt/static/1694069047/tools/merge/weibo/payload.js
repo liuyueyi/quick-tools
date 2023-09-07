@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/merge/weibo", {data:[{}],fetch:{},mutations:[]});

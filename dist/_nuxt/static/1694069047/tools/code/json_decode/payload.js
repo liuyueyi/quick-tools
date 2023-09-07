@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/code/json_decode", {data:[{}],fetch:{},mutations:[]});

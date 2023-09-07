@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/convert/hexconvert", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/text/csv", {data:[{}],fetch:{},mutations:[]});

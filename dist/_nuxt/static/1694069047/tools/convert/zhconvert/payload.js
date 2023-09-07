@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/convert/zhconvert", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/design/color", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/design/japanColors", {data:[{}],fetch:{},mutations:[]});

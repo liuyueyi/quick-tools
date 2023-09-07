@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/code/base64", {data:[{}],fetch:{},mutations:[]});

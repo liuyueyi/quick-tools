@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tools/image/jiugongge", {data:[{}],fetch:{},mutations:[]});
