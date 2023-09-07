@@ -1,21 +1,21 @@
 <template>
-    <div class="crontab">
+    <div>
         <nya-container title="融资成本计算">
             <nya-input
                 v-model.trim="amount"
                 label="预计放款"
                 placeholder="9,905.62"
                 autocomplete="off"
+                class="mb-15"
                 autofocus
-                fullwidth
             />
             <nya-input
                 v-model.trim="otherAmount"
                 label="其他费用"
                 placeholder="0"
                 autocomplete="off"
+                class="mb-15"
                 autofocus
-                fullwidth
             />
             <nya-input
                 v-model.trim="day"
@@ -23,29 +23,31 @@
                 type="number"
                 placeholder="141"
                 autocomplete="off"
+                class="mb-15"
                 autofocus
-                fullwidth
             />
             <nya-input
                 v-model.trim="financing_rate"
                 label="预计融资利率"
+                type="number"
                 placeholder="0.025"
                 autocomplete="off"
+                class="mb-15"
                 autofocus
-                fullwidth
             />
             <nya-input
                 v-model.trim="financing_service_rate"
                 label="预计运维利率"
+                type="number"
                 placeholder="0.0008"
                 autocomplete="off"
+                class="mb-15"
                 autofocus
-                fullwidth
             />
             <nya-input
                 v-model.trim="radio"
-                label="分期比例"
-                placeholder="1"
+                label="分期比例(规则如一次付完，输入1； 一期付90%，两期付完: 90,100; 三期付完: 60,90,100)"
+                placeholder="90,100"
                 autocomplete="off"
                 autofocus
                 fullwidth
@@ -82,7 +84,7 @@ export default {
             day: '141',
             financing_rate: '0.025',
             financing_service_rate: '0.0008',
-            radio: '[{"ratio": 95}, {"ratio": 100}]',
+            radio: '1',
             results: ''
         };
     },
@@ -93,7 +95,7 @@ export default {
         amount() {
             this.results = this.update_result();
         },
-        otherAMount() {
+        otherAmount() {
             this.results = this.update_result();
         },
         day() {
@@ -112,7 +114,7 @@ export default {
     methods: {
         update_result() {
             let r = [];
-            if (this.radio.trim() && this.radio.startsWith("[")) {
+            if (this.radio.trim() && this.radio.startsWith('[')) {
                 try {
                     const rs = JSON.parse(this.radio.trim());
                     let last = 0;
@@ -125,13 +127,18 @@ export default {
                     console.log(e);
                     r.push(100);
                 }
-            } else if (!this.radio.trim()){
+            } else if (!this.radio.trim()) {
                 r.push(100);
+            } else if (this.radio.indexOf(',') >= 0) {
+                let cells = this.radio.trim().split(',');
+                for (let i = 0; i < cells.length; i++) {
+                    r.push(parseFloat(cells[i]));
+                }
             } else {
                 let ra = parseFloat(this.radio.trim());
                 if (ra < 1) {
                     r.push(ra * 100);
-                }else if(ra == 1 || ra >= 100) {
+                } else if (ra == 1 || ra >= 100) {
                     r.push(100);
                 } else {
                     r.push(ra);
@@ -142,10 +149,12 @@ export default {
                 r.push(100);
             }
 
-            console.log("计算成本", r);
+            console.log('计算成本', r);
 
             let res = '';
-            let totalAmounts = parseFloat(this.amount.trim().replaceAll(",", ""))  + parseFloat(this.otherAmount.trim().replace(",", ""))
+            let totalAmounts =
+                parseFloat(this.amount.trim().replaceAll(',', '')) +
+                parseFloat(this.otherAmount.trim().replace(',', ''));
             for (let i = 0; i < r.length; i++) {
                 let tmp = this.calculate_financing_amount(
                     (totalAmounts * r[i]) / 100,
@@ -187,7 +196,7 @@ export default {
                 (apply_amount * financing_service_rate * day) / 360.0;
 
             // 本期申请支付金额
-            const payment_apply_amount = amount * radio + financing_cost
+            const payment_apply_amount = amount * radio + financing_cost;
             return (
                 '申请金额: ' +
                 apply_amount.toFixed(2) +
