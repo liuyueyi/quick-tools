@@ -62,8 +62,8 @@
             <pre><code>
 申请金额 = 预计放款 / (1 - 融资账期 * 预计融资利率 / 360 - 融资账期 * 预计运维利率 / 360)
 融资成本 = 申请金额 - 预计放款
-预计融资利息 = 申请金额 * 预计融资利率 * day / 360
 预计运维支出 = 申请金额 * 预计运维利率 * day / 360
+预计融资利息 = 申请金额 - 融资成本
 </code></pre>
         </nya-container>
 
@@ -184,22 +184,21 @@ export default {
             financing_service_rate,
             radio
         ) {
-            const apply_amount =
-                amount /
-                (1 -
-                    (day * financing_rate) / 360.0 -
-                    (day * financing_service_rate) / 360.0);
+            // 账期百分比
+            const financing_period_percent = (day / 360.0).toFixed(8);
+            const apply_amount = (amount / (1 - financing_rate * financing_period_percent - financing_service_rate * financing_period_percent)).toFixed(2);
             const financing_cost = apply_amount - amount;
-            const financing_interest =
-                (apply_amount * financing_rate * day) / 360.0;
-            const service_amount =
-                (apply_amount * financing_service_rate * day) / 360.0;
+            const service_amount = (apply_amount * financing_service_rate * financing_period_percent).toFixed(2);
+            const financing_interest = financing_cost - service_amount;
+            const expect_financing_amount = apply_amount - financing_cost;
 
             // 本期申请支付金额
             const payment_apply_amount = amount * radio + financing_cost;
             return (
                 '申请金额: ' +
                 apply_amount.toFixed(2) +
+                '\n预计融资金额: ' +
+                expect_financing_amount.toFixed(2) +
                 '\n融资成本: ' +
                 financing_cost.toFixed(2) +
                 '\n预计融资利息: ' +
