@@ -431,6 +431,17 @@ export const state = () => {
                     }
                 },
                 {
+                    name: 'sql转MongoDB',
+                    search_keys: 'mongodb',
+                    icon: '#icon-timestamp',
+                    path: '/tools/code/sql2mongodb',
+                    recommend: true,
+                    head: {
+                        keywords: ['sql', 'mongodb', 'mysql'],
+                        description: 'sql转mongodb'
+                    }
+                },
+                {
                     name: 'json解码铺平',
                     search_keys: "json format",
                     icon: '#icon-json-edit',

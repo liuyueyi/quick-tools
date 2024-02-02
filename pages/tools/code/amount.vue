@@ -44,6 +44,7 @@
                 class="mb-15"
                 autofocus
             />
+            <nya-checkbox :checked="rate_per_year" label="年化" @change="handleChange"/>
             <nya-input
                 v-model.trim="radio"
                 label="分期比例(规则如一次付完，输入1； 一期付90%，两期付完: 90,100; 三期付完: 60,90,100)"
@@ -60,10 +61,18 @@
 
         <nya-container title="计算公式如下">
             <pre><code>
+## 年化
 申请金额 = 预计放款 / (1 - 融资账期 * 预计融资利率 / 360 - 融资账期 * 预计运维利率 / 360)
 融资成本 = 申请金额 - 预计放款
 预计运维支出 = 申请金额 * 预计运维利率 * day / 360
 预计融资利息 = 申请金额 - 融资成本
+
+## 按次
+申请金额 = 预计放款 / (1 - 融资账期 * 预计融资利率 / 360 - 预计运维利率)
+融资成本 = 申请金额 - 预计放款
+预计运维支出 = 申请金额 * 预计运维利率
+预计融资利息 = 申请金额 - 融资成本
+
 </code></pre>
         </nya-container>
 
@@ -85,7 +94,8 @@ export default {
             financing_rate: '0.025',
             financing_service_rate: '0.0008',
             radio: '1',
-            results: ''
+            results: '',
+            rate_per_year: true
         };
     },
     mounted() {
@@ -112,6 +122,11 @@ export default {
         }
     },
     methods: {
+        handleChange() {
+            // 年化计算 or 按次计算的变化
+            this.rate_per_year = !this.rate_per_year;
+            this.results = this.update_result();
+        },
         update_result() {
             let r = [];
             if (this.radio.trim() && this.radio.startsWith('[')) {
@@ -161,7 +176,8 @@ export default {
                     this.day.trim(),
                     this.financing_rate.trim(),
                     this.financing_service_rate.trim(),
-                    parseFloat(r[i]) / 100
+                    parseFloat(r[i]) / 100,
+                    this.rate_per_year
                 );
                 res +=
                     '第' +
@@ -182,14 +198,22 @@ export default {
             day,
             financing_rate,
             financing_service_rate,
-            radio
+            radio,
+            perYear
         ) {
             // 账期百分比
             const financing_period_percent = (day / 360.0).toFixed(8);
-            const apply_amount = (amount / (1 - financing_rate * financing_period_percent - financing_service_rate * financing_period_percent)).toFixed(2);
-            const financing_cost = apply_amount - amount;
-            const service_amount = (apply_amount * financing_service_rate * financing_period_percent).toFixed(2);
+            const service_period_percent = perYear ? financing_period_percent : 1;
+            console.log("perYear:", perYear, service_period_percent);
+            // 申请金额
+            const apply_amount = parseFloat((amount / (1.0 - financing_rate * financing_period_percent - financing_service_rate * service_period_percent)).toFixed(2));
+            // 融资成本
+            const financing_cost = parseFloat((apply_amount - amount).toFixed(2));
+            // 预计运维支出
+            const service_amount = parseFloat((apply_amount * financing_service_rate * service_period_percent).toFixed(2));
+            // 融资利息
             const financing_interest = financing_cost - service_amount;
+            // 预计融资金额
             const expect_financing_amount = apply_amount - financing_cost;
 
             // 本期申请支付金额

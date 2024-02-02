@@ -52,6 +52,7 @@
     "relationship.js": "^1.0.0",
     "shortid": "^2.2.15",
     "smoothscroll-for-websites": "^1.4.10",
+    "sql2mongo": "^1.2.1",
     "tinycolor2": "^1.4.1",
     "ua-parser-js": "^0.7.20",
     "v-viewer": "^1.4.2",
