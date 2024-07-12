@@ -126,8 +126,22 @@ export default {
             layoutIndex: 0,
             layoutLables: [
                 {
-                    lable: '左图-右文', 
+                    label: '左图-右文', 
                     imgStyle: `width:30%; height:95%;    margin-left: 1%;
+    margin-top: 1.25%;
+    border-radius: 12px;
+    -webkit-filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));`, 
+                    txtStyle: `margin-left: 2em; margin-top: 1.25%; width: 98%`,
+                    titleStyle: `font-size: 2em;text-align: center;`,
+                    contentStyle: `font-size: 1.5em;width: 100%; height: 90%;padding-right:1em; background:transparent; 
+      border-style:none;  scrollbar-width: 0;
+  scrollbar-color: transparent transparent;
+  resize:none;`,
+                },
+                {
+                    label: '右图-左文',
+                    imgStyle: `width:30%; height:95%;    margin-right: 1%;
     margin-top: 1.25%;
     border-radius: 12px;
     -webkit-filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));
@@ -140,21 +154,7 @@ export default {
   resize:none;`,
                 },
                 {
-                    lable: '右图-左文',
-                    imgStyle: `width:30%; height:95%;    margin-left: 1%;
-    margin-top: 1.25%;
-    border-radius: 12px;
-    -webkit-filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));
-    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));`, 
-                    txtStyle: `margin-left: 2em; margin-top: 1.25%; width: 98%`,
-                    titleStyle: `font-size: 2em;text-align: center;`,
-                    contentStyle: `font-size: 1.5em;width: 100%; height: 90%; background:transparent; 
-      border-style:none;  scrollbar-width: 0;
-  scrollbar-color: transparent transparent;
-  resize:none;`,
-                },
-                {
-                    lable: '上图-下文', 
+                    label: '上图-下文', 
                     imgStyle: `width:94%; height:30%;    margin-left: 3%;
     margin-top: 1.25%;
     border-radius: 12px;
@@ -207,7 +207,7 @@ export default {
             }
 
             if (this.layoutIndex == 0) {
-                return `<div style="display:inline-flex; width: ${this.width}px; height: ${this.width}px; background-color:${bg};">
+                return `<div style="display:inline-flex; width: ${this.width}px; height: ${this.height}px; background-color:${bg};">
     <image src="${this.bgUrl}" style="${this.imgStyle}">
     </image>
     
@@ -217,7 +217,7 @@ export default {
     </div>
 </div>`
             } else if(this.layoutIndex == 1) {
-                return `<div style="display:inline-flex; width: ${this.width}px; height: ${this.width}px; background-color:${bg};">
+                return `<div style="display:inline-flex; width: ${this.width}px; height: ${this.height}px; background-color:${bg};">
     <div style="${this.txtStyle}">
         <div style="${this.titleStyle}"> ${this.title} </div>
         <textarea style="${this.contentStyle}"> ${this.contentTxt} </textarea>
@@ -226,7 +226,7 @@ export default {
     </image>
 </div>`
             } else if (this.layoutIndex == 2) {
-                return `<div style="display:inline-flex; flex-direction: column; width: ${this.width}px; height: ${this.width}px; background-color:${bg};">
+                return `<div style="display:inline-flex; flex-direction: column; width: ${this.width}px; height: ${this.height}px; background-color:${bg};">
     <image src="${this.bgUrl}" style="${this.imgStyle}">
     </image>
     
