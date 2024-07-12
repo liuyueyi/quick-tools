@@ -58,23 +58,21 @@
 
             <div class="form-inline top-padding-1em">
                 <span class="text-center" style="margin-right: 1em">图片样式</span>
-                <input type="text" class="form-control text-center col-4" v-model="imgStyle"/>
+                <input type="text" class="form-control text-center col-10" v-model="imgStyle"/>
             </div>
 
             <div class="form-inline top-padding-1em">
                 <span class="text-center" style="margin-right: 1em">标题</span>
-                <input type="text" class="form-control text-center col-10" v-model="title"/>
-                <br/>
-                <span class="text-center" style="margin-right: 1em; margin-left: 1em">标题样式</span>
-                <input type="text" class="form-control text-center col-10" v-model="titleStyle"/>
+                <input type="text" class="form-control text-center col-11" v-model="title"/>
+                <span class="text-center" style="margin-right: 1em;">标题样式</span>
+                <input type="text" class="form-control text-center col-11" v-model="titleStyle"/>
             </div>
 
             <div class="form-inline top-padding-1em">
                 <span class="text-center" style="margin-right: 1em">正文</span>
-                <textarea type="text" class="form-control text-center col-10" v-model="contentTxt"/>
-                <br/>
-                <span class="text-center" style="margin-right: 1em; margin-left: 1em">正文样式</span>
-                <input type="text" class="form-control text-center col-10" v-model="contentStyle"/>
+                <textarea type="text" class="form-control text-center col-11" v-model="contentTxt"/>
+                <span class="text-center" style="margin-right: 1em;">正文样式</span>
+                <input type="text" class="form-control text-center col-11" v-model="contentStyle"/>
             </div>
 
             <div class="nya-subtitle top-margin-1em">

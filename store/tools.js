@@ -769,6 +769,17 @@ export const state = () => {
             icon: '',
             list: [
                 {
+                    name: '一图短文',
+                    search_keys: 'image short story',
+                    icon: '#icon-book-story',
+                    path: '/tools/merge/autoVideo',
+                    recommend: false,
+                    head: {
+                        keywords: ['image', 'short', 'story', '故事', '短文'],
+                        description: '短文配图'
+                    }
+                },
+                {
                     name: '占位图',
                     search_keys: 'image placeholder',
                     icon: '#icon-place-holder',
