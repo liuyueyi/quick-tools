@@ -47,30 +47,66 @@
                 <input type="text" class="form-control" :placeholder="`320`" v-model="height">
             </div>
             <client-only>
-                <div class="form-inline top-padding-1em">
-                    <span class="text-center"> 背景颜色 </span>
-                    <compact-picker v-model="bgColor" class="form-control" style="margin-left: 1em"/>
-                    <input type="text" class="text-center" placeholder="自定义#cccccc"
-                           style="margin-left: 1em"
-                           v-model="bgColorInput"/>
+                <div class="img-colors">
+                    <div class="img-color">
+                        <div class="nya-subtitle">
+                            主色
+                        </div>
+                        <div :style="{'background-color': imgColor.color}">
+                            {{ imgColor.color }}
+                        </div>
+                    </div>
+                    <div class="img-palette">
+                        <div class="nya-subtitle">
+                            调色盘
+                        </div>
+                        <ul>
+                            <li v-for="(item, index) in imgColor.palette" :key="index" :style="{'background-color': item}">
+                                {{ item }}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="img-palette">
+                        <div class="nya-subtitle">
+                            背景颜色
+                        </div>
+                       <div class="form-inline">
+                            <compact-picker v-model="bgColor" class="form-control" style="margin-left: 1em"/>
+                            <input type="text" class="text-center" placeholder="自定义#cccccc" style="margin-left: 1em" v-model="bgColorInput"/>
+                       </div>
+                    </div>
                 </div>
+               
             </client-only>
 
             <div class="form-inline top-padding-1em">
                 <span class="text-center" style="margin-right: 1em">图片样式</span>
-                <input type="text" class="form-control text-center col-10" v-model="imgStyle"/>
+                <input type="text" class="form-control text-center col-11" v-model="imgStyle"/>
             </div>
 
             <div class="form-inline top-padding-1em">
-                <span class="text-center" style="margin-right: 1em">标题</span>
-                <input type="text" class="form-control text-center col-11" v-model="title"/>
-                <span class="text-center" style="margin-right: 1em;">标题样式</span>
-                <input type="text" class="form-control text-center col-11" v-model="titleStyle"/>
+                <nya-input v-model="title"
+                       class="top-margin-1em"
+                       fullwidth
+                       type="text"
+                       autofocus
+                       label="标题"
+            />
+                <span class="text-center top-margin-1em" style="margin-right: 1em;">标题样式</span>
+                <input type="text" class="form-control top-margin-1em col-11" v-model="titleStyle"/>
             </div>
 
             <div class="form-inline top-padding-1em">
-                <span class="text-center" style="margin-right: 1em">正文</span>
-                <textarea type="text" class="form-control text-center col-11" v-model="contentTxt"/>
+                <nya-input v-model="contentTxt"
+                       class="top-margin-1em"
+                       fullwidth
+                       rows="5"
+                       type="textarea"
+                       autofocus
+                       label="请输入正文"
+            />
+                <!-- <textarea type="text" class="form-control text-center col-11" v-model="contentTxt" /> -->
                 <span class="text-center" style="margin-right: 1em;">正文样式</span>
                 <input type="text" class="form-control text-center col-11" v-model="contentStyle"/>
             </div>
@@ -99,6 +135,8 @@
 <script>
 import {Compact} from 'vue-color';
 import domtoimage from 'dom-to-image';
+import colorThief from '~/utils/color-thief.js';
+import TinyColor from 'tinycolor2';
 
 export default {
     name: 'BlogCover',
@@ -118,49 +156,51 @@ export default {
                 {label: '上传图'},
                 {label: '请输入网络图片URL'},
             ],
-
-            width: "960",
-            height: "640",
+            colorthief: new colorThief(),
+            imgColor: {
+                color: '',
+                palette: ''
+            },
+            width: "1600",
+            height: "900",
             layoutIndex: 0,
             layoutLables: [
                 {
                     label: '左图-右文', 
-                    imgStyle: `width:30%; height:95%;    margin-left: 1%;
-    margin-top: 1.25%;
-    border-radius: 12px;
+                    imgStyle: `width:30%; height:80%; margin-left: 1%; margin-top: 5%; border-radius: 12px;
     -webkit-filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));
     filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));`, 
                     txtStyle: `margin-left: 2em; margin-top: 1.25%; width: 98%`,
                     titleStyle: `font-size: 2em;text-align: center;`,
-                    contentStyle: `font-size: 1.5em;width: 100%; height: 90%;padding-right:1em; background:transparent; 
+                    contentStyle: `font-family:  STXinwei;  font-color: white;font-size: 1.5em;width: 100%; height: 90%;padding-right:1em; background:transparent; 
       border-style:none;  scrollbar-width: 0;
   scrollbar-color: transparent transparent;
   resize:none;`,
                 },
                 {
                     label: '右图-左文',
-                    imgStyle: `width:30%; height:95%;    margin-right: 1%;
-    margin-top: 1.25%;
+                    imgStyle: `width:30%; height:80%;    margin-right: 1%;
+    margin-top: 5%;
     border-radius: 12px;
     -webkit-filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));
     filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, .5));`, 
                     txtStyle: `margin-left: 2em; margin-top: 1.25%; width: 98%`,
                     titleStyle: `font-size: 2em;text-align: center;`,
-                    contentStyle: `font-size: 1.5em;width: 100%; height: 90%; background:transparent; 
+                    contentStyle: `font-family:  STXinwei;  font-color: white;font-size: 1.5em;width: 100%; height: 90%; background:transparent; 
       border-style:none;  scrollbar-width: 0;
   scrollbar-color: transparent transparent;
   resize:none;`,
                 },
                 {
                     label: '上图-下文', 
-                    imgStyle: `width:94%; height:30%;    margin-left: 3%;
+                    imgStyle: `width:90%; height:30%;    margin-left: 5%;
     margin-top: 1.25%;
     border-radius: 12px;
     -webkit-filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, .5));
     filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, .5));`,
                     txtStyle: `margin-left: 2em; margin-top: 1.25%; width: 98%; height: 66%`,
                     titleStyle: `font-size: 2em;text-align: center;`,
-                    contentStyle: `font-size: 1.5em;width: 98%; height: 90%; background:transparent; 
+                    contentStyle: `font-family:  STXinwei;  font-color: white;font-size: 1.5em;width: 98%; height: 90%; background:transparent; 
       border-style:none;  scrollbar-width: 0;
   scrollbar-color: transparent transparent;
   resize:none;`
@@ -191,11 +231,31 @@ export default {
             this.titleStyle = target.titleStyle;
             this.contentStyle = target.contentStyle;
         },
-
+        bgUrl() {
+            // 背景图片发生了变更
+            console.log('背景图片发生了变更');
+            if (this.bgUrl.startsWith('http')) {
+                const img = new Image();
+                img.crossOrigin = "anonymous"
+                img.onload = () => {
+                    const imgPalette = this.colorthief.getPalette(img).map(color => {
+                        console.log('color--->', color);
+                        return TinyColor( `rgb(${color.toString()})`).toHexString(); });
+                    const imgColor = TinyColor(
+                        `rgb(${this.colorthief.getColor(img).toString()})`
+                    ).toHexString();
+                    this.imgColor.palette = imgPalette;
+                    this.imgColor.color = imgColor;
+                    this.bgColorInput = this.imgColor.color;
+                    console.log('图片识别完成 --> ', this.imgColor);
+                };
+                img.src = this.bgUrl;
+            }
+        }
     },
     computed: {
         show() {
-            let bg = this.bgColorInput.trim();
+            let bg = this.bgColorInput ? this.bgColorInput.trim() : this.imgColor.color;
             if (!this.imgStyle) {
                 let target = this.layoutLables[this.layoutIndex];
                 this.imgStyle = target.imgStyle;
@@ -244,6 +304,31 @@ export default {
             this.file = files[0];
             this.docs = [];
             this.bgUrl = URL.createObjectURL(this.file);
+
+            // 自动识别
+            let reader = new FileReader();
+            reader.readAsDataURL(this.file);
+            reader.addEventListener(
+                'load',
+                async () => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const imgPalette = this.colorthief.getPalette(img).map(color => {
+                            console.log('color--->', color);
+                            return TinyColor( `rgb(${color.toString()})`).toHexString(); });
+                        const imgColor = TinyColor(
+                            `rgb(${this.colorthief.getColor(img).toString()})`
+                        ).toHexString();
+                        this.imgColor.palette = imgPalette;
+                        this.imgColor.color = imgColor;
+                        this.bgColorInput = this.imgColor.color;
+                        console.log('图片识别完成 --> ', this.imgColor);
+                    };
+                    img.src = reader.result;
+                },
+                false
+            );
+
         },
         save() {
             domtoimage
@@ -266,5 +351,34 @@ export default {
 </script>
 
 <style lang="scss">
-
+.img-colors {
+    .img-color {
+        div:not(.nya-subtitle) {
+            padding: 10px;
+            display: inline-block;
+            color: #ffffff;
+            text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.2);
+        }
+    }
+    .img-palette {
+        margin-top: 15px;
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin: 0;
+            display: inline-block;
+            font-size: 16px;
+            box-sizing: border-box;
+            padding: 10px;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.2);
+            @media (max-width: 850px) {
+                width: 30%;
+            }
+        }
+    }
+}
 </style>
